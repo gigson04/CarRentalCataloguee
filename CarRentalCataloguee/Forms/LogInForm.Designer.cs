@@ -91,9 +91,9 @@
             label1.AutoSize = true;
             label1.Location = new Point(32, 44);
             label1.Name = "label1";
-            label1.Size = new Size(62, 15);
+            label1.Size = new Size(60, 15);
             label1.TabIndex = 3;
-            label1.Text = "UserName";
+            label1.Text = "Username";
             // 
             // btnLogin
             // 
