@@ -28,166 +28,185 @@
         /// </summary>
         private void InitializeComponent()
         {
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
-            textBox4 = new TextBox();
-            textBox5 = new TextBox();
+            txtName = new TextBox();
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
             label4 = new Label();
             label5 = new Label();
-            button1 = new Button();
-            button2 = new Button();
             label6 = new Label();
             label7 = new Label();
-            textBox6 = new TextBox();
+            txtAge = new TextBox();
+            mnthBirthDay = new MonthCalendar();
+            txtEmail = new TextBox();
+            txtUserName = new TextBox();
+            txtPassword = new TextBox();
+            btnCreateAccount = new Button();
+            btnClose = new Button();
             SuspendLayout();
             // 
-            // textBox1
+            // txtName
             // 
-            textBox1.Location = new Point(147, 61);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(100, 23);
-            textBox1.TabIndex = 0;
-            // 
-            // textBox2
-            // 
-            textBox2.Location = new Point(147, 107);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(100, 23);
-            textBox2.TabIndex = 1;
-            // 
-            // textBox3
-            // 
-            textBox3.Location = new Point(147, 153);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(100, 23);
-            textBox3.TabIndex = 2;
-            // 
-            // textBox4
-            // 
-            textBox4.Location = new Point(394, 61);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(100, 23);
-            textBox4.TabIndex = 3;
-            // 
-            // textBox5
-            // 
-            textBox5.Location = new Point(394, 112);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(100, 23);
-            textBox5.TabIndex = 4;
+            txtName.Font = new Font("Segoe UI", 13F);
+            txtName.Location = new Point(93, 93);
+            txtName.Name = "txtName";
+            txtName.Size = new Size(272, 31);
+            txtName.TabIndex = 0;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(78, 66);
+            label1.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(30, 98);
             label1.Name = "label1";
-            label1.Size = new Size(42, 15);
+            label1.Size = new Size(62, 19);
             label1.TabIndex = 5;
             label1.Text = "Name:";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(78, 115);
+            label2.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Location = new Point(30, 199);
             label2.Name = "label2";
-            label2.Size = new Size(54, 15);
+            label2.Size = new Size(84, 19);
             label2.TabIndex = 6;
             label2.Text = "Birthday:";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(78, 161);
+            label3.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.Location = new Point(30, 150);
             label3.Name = "label3";
-            label3.Size = new Size(31, 15);
+            label3.Size = new Size(47, 19);
             label3.TabIndex = 7;
             label3.Text = "Age:";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(328, 66);
+            label4.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.Location = new Point(403, 183);
             label4.Name = "label4";
-            label4.Size = new Size(60, 15);
+            label4.Size = new Size(93, 19);
             label4.TabIndex = 8;
             label4.Text = "Password:";
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(325, 115);
+            label5.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label5.Location = new Point(399, 143);
             label5.Name = "label5";
-            label5.Size = new Size(63, 15);
+            label5.Size = new Size(97, 19);
             label5.TabIndex = 9;
             label5.Text = "Username:";
-            // 
-            // button1
-            // 
-            button1.Location = new Point(461, 279);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 23);
-            button1.TabIndex = 10;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            button2.Location = new Point(340, 279);
-            button2.Name = "button2";
-            button2.Size = new Size(75, 23);
-            button2.TabIndex = 11;
-            button2.Text = "button2";
-            button2.UseVisualStyleBackColor = true;
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(45, 18);
+            label6.Font = new Font("Tahoma", 23.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label6.Location = new Point(45, 27);
             label6.Name = "label6";
-            label6.Size = new Size(92, 15);
+            label6.Size = new Size(264, 37);
             label6.TabIndex = 12;
             label6.Text = "Create Account!";
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(328, 161);
+            label7.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label7.Location = new Point(417, 98);
             label7.Name = "label7";
-            label7.Size = new Size(39, 15);
+            label7.Size = new Size(60, 19);
             label7.TabIndex = 13;
             label7.Text = "Email:";
             // 
-            // textBox6
+            // txtAge
             // 
-            textBox6.Location = new Point(394, 161);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(100, 23);
-            textBox6.TabIndex = 14;
+            txtAge.Font = new Font("Segoe UI", 13F);
+            txtAge.Location = new Point(93, 138);
+            txtAge.Name = "txtAge";
+            txtAge.Size = new Size(272, 31);
+            txtAge.TabIndex = 14;
+            // 
+            // mnthBirthDay
+            // 
+            mnthBirthDay.Font = new Font("Segoe UI", 10F);
+            mnthBirthDay.Location = new Point(138, 199);
+            mnthBirthDay.Name = "mnthBirthDay";
+            mnthBirthDay.TabIndex = 15;
+            // 
+            // txtEmail
+            // 
+            txtEmail.Font = new Font("Segoe UI", 13F);
+            txtEmail.Location = new Point(495, 93);
+            txtEmail.Name = "txtEmail";
+            txtEmail.Size = new Size(272, 31);
+            txtEmail.TabIndex = 16;
+            // 
+            // txtUserName
+            // 
+            txtUserName.Font = new Font("Segoe UI", 13F);
+            txtUserName.Location = new Point(495, 138);
+            txtUserName.Name = "txtUserName";
+            txtUserName.Size = new Size(272, 31);
+            txtUserName.TabIndex = 17;
+            // 
+            // txtPassword
+            // 
+            txtPassword.Font = new Font("Segoe UI", 13F);
+            txtPassword.Location = new Point(495, 178);
+            txtPassword.Name = "txtPassword";
+            txtPassword.Size = new Size(272, 31);
+            txtPassword.TabIndex = 18;
+            // 
+            // btnCreateAccount
+            // 
+            btnCreateAccount.BackColor = SystemColors.Highlight;
+            btnCreateAccount.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnCreateAccount.ForeColor = SystemColors.ButtonHighlight;
+            btnCreateAccount.Location = new Point(617, 390);
+            btnCreateAccount.Name = "btnCreateAccount";
+            btnCreateAccount.Size = new Size(150, 48);
+            btnCreateAccount.TabIndex = 20;
+            btnCreateAccount.Text = "Create Account";
+            btnCreateAccount.UseVisualStyleBackColor = false;
+            // 
+            // btnClose
+            // 
+            btnClose.BackColor = SystemColors.Highlight;
+            btnClose.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnClose.ForeColor = SystemColors.ButtonHighlight;
+            btnClose.Location = new Point(30, 390);
+            btnClose.Name = "btnClose";
+            btnClose.Size = new Size(150, 48);
+            btnClose.TabIndex = 21;
+            btnClose.Text = "Close";
+            btnClose.UseVisualStyleBackColor = false;
             // 
             // AddNewUser
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(611, 324);
-            Controls.Add(textBox6);
+            BackColor = SystemColors.ActiveCaption;
+            ClientSize = new Size(800, 450);
+            Controls.Add(btnClose);
+            Controls.Add(btnCreateAccount);
+            Controls.Add(txtPassword);
+            Controls.Add(txtUserName);
+            Controls.Add(txtEmail);
+            Controls.Add(mnthBirthDay);
+            Controls.Add(txtAge);
             Controls.Add(label7);
             Controls.Add(label6);
-            Controls.Add(button2);
-            Controls.Add(button1);
             Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
-            Controls.Add(textBox5);
-            Controls.Add(textBox4);
-            Controls.Add(textBox3);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(txtName);
             Name = "AddNewUser";
             Text = "AddNewUser";
             ResumeLayout(false);
@@ -196,20 +215,20 @@
 
         #endregion
 
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private TextBox textBox3;
-        private TextBox textBox4;
-        private TextBox textBox5;
+        private TextBox txtName;
         private Label label1;
         private Label label2;
         private Label label3;
         private Label label4;
         private Label label5;
-        private Button button1;
-        private Button button2;
         private Label label6;
         private Label label7;
-        private TextBox textBox6;
+        private TextBox txtAge;
+        private MonthCalendar mnthBirthDay;
+        private TextBox txtEmail;
+        private TextBox txtUserName;
+        private TextBox txtPassword;
+        private Button btnCreateAccount;
+        private Button btnClose;
     }
 }

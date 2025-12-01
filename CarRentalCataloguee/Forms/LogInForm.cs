@@ -6,5 +6,7 @@ namespace CarRentalCataloguee
         {
             InitializeComponent();
         }
+
     }
-}
+    }
+
