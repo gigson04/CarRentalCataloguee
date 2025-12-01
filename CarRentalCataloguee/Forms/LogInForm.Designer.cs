@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LogInForm));
             flowLayoutPanel1 = new FlowLayoutPanel();
             panel1 = new Panel();
             label2 = new Label();
@@ -38,16 +39,24 @@
             label3 = new Label();
             btnSignUp = new Button();
             label4 = new Label();
+            pictureBox1 = new PictureBox();
+            panel2 = new Panel();
+            flowLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // flowLayoutPanel1
             // 
+            flowLayoutPanel1.AutoSize = true;
             flowLayoutPanel1.BackColor = Color.SteelBlue;
+            flowLayoutPanel1.BackgroundImageLayout = ImageLayout.Center;
+            flowLayoutPanel1.Controls.Add(pictureBox1);
+            flowLayoutPanel1.Controls.Add(panel2);
             flowLayoutPanel1.Dock = DockStyle.Left;
             flowLayoutPanel1.Location = new Point(0, 0);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(311, 450);
+            flowLayoutPanel1.Size = new Size(306, 450);
             flowLayoutPanel1.TabIndex = 0;
             // 
             // panel1
@@ -144,6 +153,26 @@
             label4.TabIndex = 6;
             label4.Text = "Welcome Back!";
             // 
+            // pictureBox1
+            // 
+            pictureBox1.BackgroundImageLayout = ImageLayout.None;
+            pictureBox1.Dock = DockStyle.Top;
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(3, 3);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(300, 297);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 0;
+            pictureBox1.TabStop = false;
+            // 
+            // panel2
+            // 
+            panel2.BackColor = Color.SteelBlue;
+            panel2.Location = new Point(3, 306);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(300, 144);
+            panel2.TabIndex = 1;
+            // 
             // LogInForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -157,8 +186,10 @@
             Controls.Add(flowLayoutPanel1);
             Name = "LogInForm";
             Text = "Form1";
+            flowLayoutPanel1.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -175,5 +206,7 @@
         private Label label3;
         private Button btnSignUp;
         private Label label4;
+        private PictureBox pictureBox1;
+        private Panel panel2;
     }
 }

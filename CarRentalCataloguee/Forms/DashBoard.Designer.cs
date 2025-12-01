@@ -29,13 +29,14 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
-            button1 = new Button();
             panel2 = new Panel();
+            button1 = new Button();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
             // 
+            panel1.BackColor = Color.SteelBlue;
             panel1.Controls.Add(panel2);
             panel1.Controls.Add(button1);
             panel1.Dock = DockStyle.Left;
@@ -43,6 +44,14 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(178, 450);
             panel1.TabIndex = 0;
+            // 
+            // panel2
+            // 
+            panel2.Dock = DockStyle.Top;
+            panel2.Location = new Point(0, 23);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(178, 69);
+            panel2.TabIndex = 1;
             // 
             // button1
             // 
@@ -53,14 +62,7 @@
             button1.TabIndex = 0;
             button1.Text = "button1";
             button1.UseVisualStyleBackColor = true;
-            // 
-            // panel2
-            // 
-            panel2.Dock = DockStyle.Top;
-            panel2.Location = new Point(0, 23);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(178, 69);
-            panel2.TabIndex = 1;
+           
             // 
             // DashBoard
             // 
