@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LogInForm));
             flowLayoutPanel1 = new FlowLayoutPanel();
+            panel2 = new Panel();
             pictureBox1 = new PictureBox();
             panel1 = new Panel();
             label2 = new Label();
@@ -40,7 +41,7 @@
             label3 = new Label();
             btnSignUp = new Button();
             label4 = new Label();
-            panel2 = new Panel();
+            checkBox1 = new CheckBox();
             flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel1.SuspendLayout();
@@ -59,6 +60,14 @@
             flowLayoutPanel1.Size = new Size(306, 450);
             flowLayoutPanel1.TabIndex = 0;
             // 
+            // panel2
+            // 
+            panel2.BackColor = SystemColors.HotTrack;
+            panel2.Location = new Point(3, 3);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(300, 39);
+            panel2.TabIndex = 1;
+            // 
             // pictureBox1
             // 
             pictureBox1.BackgroundImageLayout = ImageLayout.None;
@@ -75,6 +84,7 @@
             // 
             panel1.BackColor = SystemColors.Highlight;
             panel1.BorderStyle = BorderStyle.FixedSingle;
+            panel1.Controls.Add(checkBox1);
             panel1.Controls.Add(label2);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(btnLogin);
@@ -165,13 +175,16 @@
             label4.TabIndex = 6;
             label4.Text = "Welcome Back!";
             // 
-            // panel2
+            // checkBox1
             // 
-            panel2.BackColor = SystemColors.HotTrack;
-            panel2.Location = new Point(3, 3);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(300, 39);
-            panel2.TabIndex = 1;
+            checkBox1.AutoSize = true;
+            checkBox1.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            checkBox1.Location = new Point(44, 172);
+            checkBox1.Name = "checkBox1";
+            checkBox1.Size = new Size(125, 18);
+            checkBox1.TabIndex = 5;
+            checkBox1.Text = "Keep me Sign-in";
+            checkBox1.UseVisualStyleBackColor = true;
             // 
             // LogInForm
             // 
@@ -208,5 +221,6 @@
         private Label label4;
         private PictureBox pictureBox1;
         private Panel panel2;
+        private CheckBox checkBox1;
     }
 }

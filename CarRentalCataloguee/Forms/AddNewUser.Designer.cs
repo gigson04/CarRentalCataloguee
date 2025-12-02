@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddNewUser));
             txtName = new TextBox();
             label1 = new Label();
             label2 = new Label();
@@ -43,6 +44,8 @@
             txtPassword = new TextBox();
             btnCreateAccount = new Button();
             btnClose = new Button();
+            pictureBox1 = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // txtName
@@ -107,7 +110,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Tahoma", 23.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label6.Location = new Point(45, 27);
+            label6.Location = new Point(30, 25);
             label6.Name = "label6";
             label6.Size = new Size(264, 37);
             label6.TabIndex = 12;
@@ -186,12 +189,22 @@
             btnClose.Text = "Close";
             btnClose.UseVisualStyleBackColor = false;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(673, 231);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(94, 103);
+            pictureBox1.TabIndex = 22;
+            pictureBox1.TabStop = false;
+            // 
             // AddNewUser
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(800, 450);
+            Controls.Add(pictureBox1);
             Controls.Add(btnClose);
             Controls.Add(btnCreateAccount);
             Controls.Add(txtPassword);
@@ -209,6 +222,7 @@
             Controls.Add(txtName);
             Name = "AddNewUser";
             Text = "AddNewUser";
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -230,5 +244,6 @@
         private TextBox txtPassword;
         private Button btnCreateAccount;
         private Button btnClose;
+        private PictureBox pictureBox1;
     }
 }

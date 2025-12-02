@@ -30,86 +30,141 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DashBoard));
             panel1 = new Panel();
-            button6 = new Button();
-            button5 = new Button();
-            button4 = new Button();
-            button3 = new Button();
-            button2 = new Button();
-            button1 = new Button();
+            btnExit = new Button();
+            btnNotification = new Button();
+            btnUser = new Button();
+            btnRentCar = new Button();
+            btnVehicles = new Button();
+            btnDashBoard = new Button();
+            pictureBox1 = new PictureBox();
+            label1 = new Label();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.BackColor = Color.SteelBlue;
-            panel1.Controls.Add(button6);
-            panel1.Controls.Add(button5);
-            panel1.Controls.Add(button4);
-            panel1.Controls.Add(button3);
-            panel1.Controls.Add(button2);
-            panel1.Controls.Add(button1);
+            panel1.Controls.Add(label1);
+            panel1.Controls.Add(pictureBox1);
+            panel1.Controls.Add(btnExit);
+            panel1.Controls.Add(btnNotification);
+            panel1.Controls.Add(btnUser);
+            panel1.Controls.Add(btnRentCar);
+            panel1.Controls.Add(btnVehicles);
+            panel1.Controls.Add(btnDashBoard);
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
             panel1.Size = new Size(178, 450);
             panel1.TabIndex = 0;
             // 
-            // button6
+            // btnExit
             // 
-            button6.Location = new Point(0, 376);
-            button6.Name = "button6";
-            button6.Size = new Size(178, 53);
-            button6.TabIndex = 5;
-            button6.Text = "button6";
-            button6.UseVisualStyleBackColor = true;
+            btnExit.FlatStyle = FlatStyle.Popup;
+            btnExit.Font = new Font("Tahoma", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnExit.Image = (Image)resources.GetObject("btnExit.Image");
+            btnExit.ImageAlign = ContentAlignment.MiddleLeft;
+            btnExit.Location = new Point(0, 376);
+            btnExit.Name = "btnExit";
+            btnExit.Padding = new Padding(12, 0, 0, 0);
+            btnExit.Size = new Size(178, 53);
+            btnExit.TabIndex = 5;
+            btnExit.Text = "Exit";
+            btnExit.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // btnNotification
             // 
-            button5.Location = new Point(0, 317);
-            button5.Name = "button5";
-            button5.Size = new Size(178, 53);
-            button5.TabIndex = 4;
-            button5.Text = "button5";
-            button5.UseVisualStyleBackColor = true;
+            btnNotification.FlatStyle = FlatStyle.Popup;
+            btnNotification.Font = new Font("Tahoma", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnNotification.Image = (Image)resources.GetObject("btnNotification.Image");
+            btnNotification.ImageAlign = ContentAlignment.MiddleLeft;
+            btnNotification.Location = new Point(0, 317);
+            btnNotification.Name = "btnNotification";
+            btnNotification.Padding = new Padding(12, 0, 0, 0);
+            btnNotification.Size = new Size(178, 53);
+            btnNotification.TabIndex = 4;
+            btnNotification.Text = "Notifcation";
+            btnNotification.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // btnUser
             // 
-            button4.Location = new Point(0, 258);
-            button4.Name = "button4";
-            button4.Size = new Size(178, 53);
-            button4.TabIndex = 3;
-            button4.Text = "button4";
-            button4.UseVisualStyleBackColor = true;
+            btnUser.FlatStyle = FlatStyle.Popup;
+            btnUser.Font = new Font("Tahoma", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnUser.Image = (Image)resources.GetObject("btnUser.Image");
+            btnUser.ImageAlign = ContentAlignment.MiddleLeft;
+            btnUser.Location = new Point(0, 258);
+            btnUser.Name = "btnUser";
+            btnUser.Padding = new Padding(12, 0, 0, 0);
+            btnUser.Size = new Size(178, 53);
+            btnUser.TabIndex = 3;
+            btnUser.Text = "User";
+            btnUser.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btnRentCar
             // 
-            button3.Location = new Point(0, 199);
-            button3.Name = "button3";
-            button3.Size = new Size(178, 53);
-            button3.TabIndex = 2;
-            button3.Text = "button3";
-            button3.UseVisualStyleBackColor = true;
+            btnRentCar.FlatStyle = FlatStyle.Popup;
+            btnRentCar.Font = new Font("Tahoma", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnRentCar.ForeColor = SystemColors.ButtonHighlight;
+            btnRentCar.Image = (Image)resources.GetObject("btnRentCar.Image");
+            btnRentCar.ImageAlign = ContentAlignment.MiddleLeft;
+            btnRentCar.Location = new Point(0, 199);
+            btnRentCar.Name = "btnRentCar";
+            btnRentCar.Padding = new Padding(12, 0, 0, 0);
+            btnRentCar.Size = new Size(178, 53);
+            btnRentCar.TabIndex = 2;
+            btnRentCar.Text = "Rent Car";
+            btnRentCar.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnVehicles
             // 
-            button2.Location = new Point(0, 139);
-            button2.Name = "button2";
-            button2.Size = new Size(178, 53);
-            button2.TabIndex = 1;
-            button2.Text = "button2";
-            button2.UseVisualStyleBackColor = true;
+            btnVehicles.FlatStyle = FlatStyle.Popup;
+            btnVehicles.Font = new Font("Tahoma", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnVehicles.ForeColor = SystemColors.ButtonHighlight;
+            btnVehicles.Image = (Image)resources.GetObject("btnVehicles.Image");
+            btnVehicles.ImageAlign = ContentAlignment.MiddleLeft;
+            btnVehicles.Location = new Point(0, 139);
+            btnVehicles.Name = "btnVehicles";
+            btnVehicles.Padding = new Padding(12, 0, 0, 0);
+            btnVehicles.Size = new Size(178, 53);
+            btnVehicles.TabIndex = 1;
+            btnVehicles.Text = "Vehicles";
+            btnVehicles.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnDashBoard
             // 
-            button1.CausesValidation = false;
-            button1.Image = (Image)resources.GetObject("button1.Image");
-            button1.ImageAlign = ContentAlignment.MiddleLeft;
-            button1.Location = new Point(0, 80);
-            button1.Name = "button1";
-            button1.Size = new Size(178, 53);
-            button1.TabIndex = 0;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
+            btnDashBoard.CausesValidation = false;
+            btnDashBoard.FlatStyle = FlatStyle.Popup;
+            btnDashBoard.Font = new Font("Tahoma", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnDashBoard.ForeColor = SystemColors.ButtonHighlight;
+            btnDashBoard.Image = (Image)resources.GetObject("btnDashBoard.Image");
+            btnDashBoard.ImageAlign = ContentAlignment.MiddleLeft;
+            btnDashBoard.Location = new Point(0, 80);
+            btnDashBoard.Name = "btnDashBoard";
+            btnDashBoard.Padding = new Padding(12, 0, 0, 0);
+            btnDashBoard.Size = new Size(178, 53);
+            btnDashBoard.TabIndex = 0;
+            btnDashBoard.Text = "Dashboard";
+            btnDashBoard.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(23, 12);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(40, 45);
+            pictureBox1.TabIndex = 6;
+            pictureBox1.TabStop = false;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(69, 38);
+            label1.Name = "label1";
+            label1.Size = new Size(57, 19);
+            label1.TabIndex = 7;
+            label1.Text = "HOME";
             // 
             // DashBoard
             // 
@@ -117,20 +172,25 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(panel1);
+            ForeColor = SystemColors.ButtonHighlight;
             Name = "DashBoard";
             Text = "DashBoard";
             panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
         private Panel panel1;
-        private Button button1;
-        private Button button6;
-        private Button button5;
-        private Button button4;
-        private Button button3;
-        private Button button2;
+        private Button btnDashBoard;
+        private Button btnExit;
+        private Button btnNotification;
+        private Button btnUser;
+        private Button btnRentCar;
+        private Button btnVehicles;
+        private PictureBox pictureBox1;
+        private Label label1;
     }
 }
