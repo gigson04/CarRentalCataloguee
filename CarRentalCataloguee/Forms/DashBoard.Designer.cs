@@ -28,13 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DashBoard));
             panel1 = new Panel();
-            button1 = new Button();
-            button2 = new Button();
-            button3 = new Button();
-            button4 = new Button();
-            button5 = new Button();
             button6 = new Button();
+            button5 = new Button();
+            button4 = new Button();
+            button3 = new Button();
+            button2 = new Button();
+            button1 = new Button();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -53,41 +54,14 @@
             panel1.Size = new Size(178, 450);
             panel1.TabIndex = 0;
             // 
-            // button1
+            // button6
             // 
-            button1.Location = new Point(0, 80);
-            button1.Name = "button1";
-            button1.Size = new Size(178, 53);
-            button1.TabIndex = 0;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            button2.Location = new Point(0, 139);
-            button2.Name = "button2";
-            button2.Size = new Size(178, 53);
-            button2.TabIndex = 1;
-            button2.Text = "button2";
-            button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            button3.Location = new Point(0, 199);
-            button3.Name = "button3";
-            button3.Size = new Size(178, 53);
-            button3.TabIndex = 2;
-            button3.Text = "button3";
-            button3.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            button4.Location = new Point(0, 258);
-            button4.Name = "button4";
-            button4.Size = new Size(178, 53);
-            button4.TabIndex = 3;
-            button4.Text = "button4";
-            button4.UseVisualStyleBackColor = true;
+            button6.Location = new Point(0, 376);
+            button6.Name = "button6";
+            button6.Size = new Size(178, 53);
+            button6.TabIndex = 5;
+            button6.Text = "button6";
+            button6.UseVisualStyleBackColor = true;
             // 
             // button5
             // 
@@ -98,14 +72,44 @@
             button5.Text = "button5";
             button5.UseVisualStyleBackColor = true;
             // 
-            // button6
+            // button4
             // 
-            button6.Location = new Point(0, 376);
-            button6.Name = "button6";
-            button6.Size = new Size(178, 53);
-            button6.TabIndex = 5;
-            button6.Text = "button6";
-            button6.UseVisualStyleBackColor = true;
+            button4.Location = new Point(0, 258);
+            button4.Name = "button4";
+            button4.Size = new Size(178, 53);
+            button4.TabIndex = 3;
+            button4.Text = "button4";
+            button4.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            button3.Location = new Point(0, 199);
+            button3.Name = "button3";
+            button3.Size = new Size(178, 53);
+            button3.TabIndex = 2;
+            button3.Text = "button3";
+            button3.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            button2.Location = new Point(0, 139);
+            button2.Name = "button2";
+            button2.Size = new Size(178, 53);
+            button2.TabIndex = 1;
+            button2.Text = "button2";
+            button2.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            button1.CausesValidation = false;
+            button1.Image = (Image)resources.GetObject("button1.Image");
+            button1.ImageAlign = ContentAlignment.MiddleLeft;
+            button1.Location = new Point(0, 80);
+            button1.Name = "button1";
+            button1.Size = new Size(178, 53);
+            button1.TabIndex = 0;
+            button1.Text = "button1";
+            button1.UseVisualStyleBackColor = true;
             // 
             // DashBoard
             // 
