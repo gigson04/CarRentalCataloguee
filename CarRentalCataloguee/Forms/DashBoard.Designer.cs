@@ -89,7 +89,7 @@
             btnExit.Font = new Font("Tahoma", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnExit.Image = (Image)resources.GetObject("btnExit.Image");
             btnExit.ImageAlign = ContentAlignment.MiddleLeft;
-            btnExit.Location = new Point(3, 410);
+            btnExit.Location = new Point(0, 376);
             btnExit.Name = "btnExit";
             btnExit.Padding = new Padding(12, 0, 0, 0);
             btnExit.Size = new Size(178, 53);
