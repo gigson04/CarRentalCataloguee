@@ -19,6 +19,7 @@ namespace CarRentalCataloguee
             InitializeComponent();
             newUserForm = new AddNewUser();
             vehiclesForm = new VehiclesForm();
+
         }
 
         private void DashBoard_Load(object sender, EventArgs e)
