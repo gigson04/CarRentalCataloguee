@@ -30,16 +30,21 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DashBoard));
             panel1 = new Panel();
+            label1 = new Label();
+            pictureBox1 = new PictureBox();
             btnExit = new Button();
             btnNotification = new Button();
             btnUser = new Button();
             btnRentCar = new Button();
             btnVehicles = new Button();
             btnDashBoard = new Button();
-            pictureBox1 = new PictureBox();
-            label1 = new Label();
+            panel2 = new Panel();
+            pnlMain = new Panel();
+            panel4 = new Panel();
+            panel3 = new Panel();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            panel2.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -56,8 +61,27 @@
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(178, 450);
+            panel1.Size = new Size(178, 881);
             panel1.TabIndex = 0;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(69, 38);
+            label1.Name = "label1";
+            label1.Size = new Size(57, 19);
+            label1.TabIndex = 7;
+            label1.Text = "HOME";
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(23, 12);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(40, 45);
+            pictureBox1.TabIndex = 6;
+            pictureBox1.TabStop = false;
             // 
             // btnExit
             // 
@@ -130,6 +154,7 @@
             btnVehicles.TabIndex = 1;
             btnVehicles.Text = "Vehicles";
             btnVehicles.UseVisualStyleBackColor = true;
+            btnVehicles.Click += btnVehicles_Click;
             // 
             // btnDashBoard
             // 
@@ -147,37 +172,56 @@
             btnDashBoard.Text = "Dashboard";
             btnDashBoard.UseVisualStyleBackColor = true;
             // 
-            // pictureBox1
+            // panel2
             // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(23, 12);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(40, 45);
-            pictureBox1.TabIndex = 6;
-            pictureBox1.TabStop = false;
+            panel2.Controls.Add(pnlMain);
+            panel2.Controls.Add(panel4);
+            panel2.Controls.Add(panel3);
+            panel2.Dock = DockStyle.Fill;
+            panel2.Location = new Point(178, 0);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(886, 881);
+            panel2.TabIndex = 1;
             // 
-            // label1
+            // pnlMain
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(69, 38);
-            label1.Name = "label1";
-            label1.Size = new Size(57, 19);
-            label1.TabIndex = 7;
-            label1.Text = "HOME";
+            pnlMain.Dock = DockStyle.Fill;
+            pnlMain.Location = new Point(0, 85);
+            pnlMain.Name = "pnlMain";
+            pnlMain.Size = new Size(886, 755);
+            pnlMain.TabIndex = 2;
+            // 
+            // panel4
+            // 
+            panel4.Dock = DockStyle.Bottom;
+            panel4.Location = new Point(0, 840);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(886, 41);
+            panel4.TabIndex = 1;
+            // 
+            // panel3
+            // 
+            panel3.Dock = DockStyle.Top;
+            panel3.Location = new Point(0, 0);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(886, 85);
+            panel3.TabIndex = 0;
             // 
             // DashBoard
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1064, 881);
+            Controls.Add(panel2);
             Controls.Add(panel1);
             ForeColor = SystemColors.ButtonHighlight;
             Name = "DashBoard";
             Text = "DashBoard";
+            Load += DashBoard_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            panel2.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -192,5 +236,9 @@
         private Button btnVehicles;
         private PictureBox pictureBox1;
         private Label label1;
+        private Panel panel2;
+        private Panel pnlMain;
+        private Panel panel4;
+        private Panel panel3;
     }
 }
