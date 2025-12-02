@@ -34,6 +34,7 @@
             panel2 = new Panel();
             pictureBox1 = new PictureBox();
             panel1 = new Panel();
+            checkBox1 = new CheckBox();
             label2 = new Label();
             label1 = new Label();
             btnLogin = new Button();
@@ -42,7 +43,6 @@
             label3 = new Label();
             btnSignUp = new Button();
             label4 = new Label();
-            checkBox1 = new CheckBox();
             flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel1.SuspendLayout();
@@ -97,6 +97,17 @@
             panel1.Size = new Size(381, 263);
             panel1.TabIndex = 1;
             // 
+            // checkBox1
+            // 
+            checkBox1.AutoSize = true;
+            checkBox1.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            checkBox1.Location = new Point(44, 172);
+            checkBox1.Name = "checkBox1";
+            checkBox1.Size = new Size(125, 18);
+            checkBox1.TabIndex = 5;
+            checkBox1.Text = "Keep me Sign-in";
+            checkBox1.UseVisualStyleBackColor = true;
+            // 
             // label2
             // 
             label2.AutoSize = true;
@@ -135,6 +146,7 @@
             txtPassword.Name = "txtPassword";
             txtPassword.Size = new Size(296, 28);
             txtPassword.TabIndex = 1;
+            txtPassword.TextChanged += txtPassword_TextChanged;
             // 
             // txtUserName
             // 
@@ -143,6 +155,7 @@
             txtUserName.Name = "txtUserName";
             txtUserName.Size = new Size(296, 28);
             txtUserName.TabIndex = 0;
+            txtUserName.TextChanged += txtUserName_TextChanged;
             // 
             // label3
             // 
@@ -175,17 +188,6 @@
             label4.Size = new Size(254, 37);
             label4.TabIndex = 6;
             label4.Text = "Welcome Back!";
-            // 
-            // checkBox1
-            // 
-            checkBox1.AutoSize = true;
-            checkBox1.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            checkBox1.Location = new Point(44, 172);
-            checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(125, 18);
-            checkBox1.TabIndex = 5;
-            checkBox1.Text = "Keep me Sign-in";
-            checkBox1.UseVisualStyleBackColor = true;
             // 
             // LogInForm
             // 

@@ -13,12 +13,12 @@ namespace CarRentalCataloguee
     public partial class DashBoard : Form
     {
         AddNewUser newUserForm;
-       // VehiclesForm vehiclesForm;
+        // VehiclesForm vehiclesForm;
         public DashBoard()
         {
             InitializeComponent();
             newUserForm = new AddNewUser();
-          //  vehiclesForm = new VehiclesForm();
+            //  vehiclesForm = new VehiclesForm();
 
         }
 
@@ -41,7 +41,12 @@ namespace CarRentalCataloguee
 
         private void btnVehicles_Click(object sender, EventArgs e)
         {
-           // AddFormToPanel(vehiclesForm);
+            // AddFormToPanel(vehiclesForm);
+        }
+
+        private void btnDashBoard_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

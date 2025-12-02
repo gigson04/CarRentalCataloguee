@@ -1,5 +1,5 @@
 ﻿using SQLite;
-namespace CarRentalCataloguee.Forms
+namespace CarRentalCataloguee.Forms.Classes
 {
     internal class UserRepository
     {
