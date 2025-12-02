@@ -178,6 +178,7 @@
             btnSignUp.TabIndex = 5;
             btnSignUp.Text = "Sign-up";
             btnSignUp.UseVisualStyleBackColor = false;
+            
             // 
             // label4
             // 

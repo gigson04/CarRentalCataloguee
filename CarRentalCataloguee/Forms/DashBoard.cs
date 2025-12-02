@@ -12,22 +12,22 @@ namespace CarRentalCataloguee
 {
     public partial class DashBoard : Form
     {
-        AddNewUser newUserForm;
+        //AddNewUser newUserForm;
         // VehiclesForm vehiclesForm;
         public DashBoard()
         {
             InitializeComponent();
-            newUserForm = new AddNewUser();
+            //newUserForm = new AddNewUser();
             //  vehiclesForm = new VehiclesForm();
 
         }
 
         private void DashBoard_Load(object sender, EventArgs e)
         {
-            AddFormToPanel(newUserForm);
+            //AddFormToPanel(newUserForm);
         }
 
-        private void AddFormToPanel(Form form)
+       /*private void AddFormToPanel(Form form)
         {
             pnlMain.Controls.Clear();
             form.TopLevel = false;
@@ -38,7 +38,7 @@ namespace CarRentalCataloguee
             form.FormBorderStyle = FormBorderStyle.None;
             form.Show();
         }
-
+       */
         private void btnVehicles_Click(object sender, EventArgs e)
         {
             // AddFormToPanel(vehiclesForm);
