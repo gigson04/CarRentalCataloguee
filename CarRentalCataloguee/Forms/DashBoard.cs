@@ -27,24 +27,29 @@ namespace CarRentalCataloguee
             //AddFormToPanel(newUserForm);
         }
 
-       /*private void AddFormToPanel(Form form)
-        {
-            pnlMain.Controls.Clear();
-            form.TopLevel = false;
-            form.AutoScroll = true;
-            pnlMain.Controls.Add(form);
-            pnlMain.AutoScroll = true;
-            form.Dock = DockStyle.Fill;
-            form.FormBorderStyle = FormBorderStyle.None;
-            form.Show();
-        }
-       */
+        /*private void AddFormToPanel(Form form)
+         {
+             pnlMain.Controls.Clear();
+             form.TopLevel = false;
+             form.AutoScroll = true;
+             pnlMain.Controls.Add(form);
+             pnlMain.AutoScroll = true;
+             form.Dock = DockStyle.Fill;
+             form.FormBorderStyle = FormBorderStyle.None;
+             form.Show();
+         }
+        */
         private void btnVehicles_Click(object sender, EventArgs e)
         {
             // AddFormToPanel(vehiclesForm);
         }
 
         private void btnDashBoard_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
         {
 
         }

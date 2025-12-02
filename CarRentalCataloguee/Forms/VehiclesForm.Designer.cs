@@ -97,7 +97,7 @@
             btnExit.Font = new Font("Tahoma", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnExit.Image = (Image)resources.GetObject("btnExit.Image");
             btnExit.ImageAlign = ContentAlignment.MiddleLeft;
-            btnExit.Location = new Point(0, 589);
+            btnExit.Location = new Point(3, 584);
             btnExit.Name = "btnExit";
             btnExit.Padding = new Padding(12, 0, 0, 0);
             btnExit.Size = new Size(178, 72);
@@ -111,7 +111,7 @@
             btnNotification.Font = new Font("Tahoma", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnNotification.Image = (Image)resources.GetObject("btnNotification.Image");
             btnNotification.ImageAlign = ContentAlignment.MiddleLeft;
-            btnNotification.Location = new Point(0, 474);
+            btnNotification.Location = new Point(0, 481);
             btnNotification.Name = "btnNotification";
             btnNotification.Padding = new Padding(12, 0, 0, 0);
             btnNotification.Size = new Size(178, 72);
@@ -193,9 +193,9 @@
             // pnlMain
             // 
             pnlMain.Dock = DockStyle.Fill;
-            pnlMain.Location = new Point(0, 57);
+            pnlMain.Location = new Point(0, 66);
             pnlMain.Name = "pnlMain";
-            pnlMain.Size = new Size(1228, 602);
+            pnlMain.Size = new Size(1228, 593);
             pnlMain.TabIndex = 2;
             // 
             // panel3
@@ -203,7 +203,7 @@
             panel3.Dock = DockStyle.Top;
             panel3.Location = new Point(0, 0);
             panel3.Name = "panel3";
-            panel3.Size = new Size(1228, 57);
+            panel3.Size = new Size(1228, 66);
             panel3.TabIndex = 0;
             // 
             // VehiclesForm

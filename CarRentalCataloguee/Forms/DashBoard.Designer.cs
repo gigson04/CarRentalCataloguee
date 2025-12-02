@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DashBoard));
+            pnlMain = new Panel();
             panel1 = new Panel();
             label1 = new Label();
             pictureBox1 = new PictureBox();
@@ -39,13 +40,20 @@
             btnVehicles = new Button();
             btnDashBoard = new Button();
             panel2 = new Panel();
-            pnlMain = new Panel();
             panel4 = new Panel();
             panel3 = new Panel();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel2.SuspendLayout();
             SuspendLayout();
+            // 
+            // pnlMain
+            // 
+            pnlMain.Dock = DockStyle.Fill;
+            pnlMain.Location = new Point(0, 57);
+            pnlMain.Name = "pnlMain";
+            pnlMain.Size = new Size(1064, 602);
+            pnlMain.TabIndex = 2;
             // 
             // panel1
             // 
@@ -62,7 +70,7 @@
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
             panel1.Size = new Size(178, 700);
-            panel1.TabIndex = 0;
+            panel1.TabIndex = 2;
             // 
             // label1
             // 
@@ -154,7 +162,6 @@
             btnVehicles.TabIndex = 1;
             btnVehicles.Text = "Vehicles";
             btnVehicles.UseVisualStyleBackColor = true;
-            btnVehicles.Click += btnVehicles_Click;
             // 
             // btnDashBoard
             // 
@@ -171,7 +178,6 @@
             btnDashBoard.TabIndex = 0;
             btnDashBoard.Text = "Dashboard";
             btnDashBoard.UseVisualStyleBackColor = true;
-            btnDashBoard.Click += btnDashBoard_Click;
             // 
             // panel2
             // 
@@ -179,25 +185,17 @@
             panel2.Controls.Add(panel4);
             panel2.Controls.Add(panel3);
             panel2.Dock = DockStyle.Fill;
-            panel2.Location = new Point(178, 0);
+            panel2.Location = new Point(0, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(886, 700);
-            panel2.TabIndex = 1;
-            // 
-            // pnlMain
-            // 
-            pnlMain.Dock = DockStyle.Fill;
-            pnlMain.Location = new Point(0, 57);
-            pnlMain.Name = "pnlMain";
-            pnlMain.Size = new Size(886, 602);
-            pnlMain.TabIndex = 2;
+            panel2.Size = new Size(1064, 700);
+            panel2.TabIndex = 3;
             // 
             // panel4
             // 
             panel4.Dock = DockStyle.Bottom;
             panel4.Location = new Point(0, 659);
             panel4.Name = "panel4";
-            panel4.Size = new Size(886, 41);
+            panel4.Size = new Size(1064, 41);
             panel4.TabIndex = 1;
             // 
             // panel3
@@ -205,7 +203,7 @@
             panel3.Dock = DockStyle.Top;
             panel3.Location = new Point(0, 0);
             panel3.Name = "panel3";
-            panel3.Size = new Size(886, 57);
+            panel3.Size = new Size(1064, 57);
             panel3.TabIndex = 0;
             // 
             // DashBoard
@@ -213,8 +211,8 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1064, 700);
-            Controls.Add(panel2);
             Controls.Add(panel1);
+            Controls.Add(panel2);
             ForeColor = SystemColors.ButtonHighlight;
             Name = "DashBoard";
             Text = "DashBoard";
@@ -228,17 +226,17 @@
 
         #endregion
 
+        private Panel pnlMain;
         private Panel panel1;
-        private Button btnDashBoard;
+        private Label label1;
+        private PictureBox pictureBox1;
         private Button btnExit;
         private Button btnNotification;
         private Button btnUser;
         private Button btnRentCar;
         private Button btnVehicles;
-        private PictureBox pictureBox1;
-        private Label label1;
+        private Button btnDashBoard;
         private Panel panel2;
-        private Panel pnlMain;
         private Panel panel4;
         private Panel panel3;
     }
