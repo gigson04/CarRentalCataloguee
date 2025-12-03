@@ -107,6 +107,7 @@
             checkBox1.TabIndex = 5;
             checkBox1.Text = "Keep me Sign-in";
             checkBox1.UseVisualStyleBackColor = true;
+            checkBox1.CheckedChanged += checkBox1_CheckedChanged;
             // 
             // label2
             // 
@@ -138,6 +139,7 @@
             btnLogin.TabIndex = 2;
             btnLogin.Text = "Log-in";
             btnLogin.UseVisualStyleBackColor = false;
+            btnLogin.Click += btnLogin_Click;
             // 
             // txtPassword
             // 
@@ -178,7 +180,7 @@
             btnSignUp.TabIndex = 5;
             btnSignUp.Text = "Sign-up";
             btnSignUp.UseVisualStyleBackColor = false;
-            
+            btnSignUp.Click += btnSignUp_Click;
             // 
             // label4
             // 

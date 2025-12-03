@@ -162,6 +162,7 @@
             btnVehicles.TabIndex = 1;
             btnVehicles.Text = "Vehicles";
             btnVehicles.UseVisualStyleBackColor = true;
+            btnVehicles.Click += btnVehicles_Click;
             // 
             // btnDashBoard
             // 
