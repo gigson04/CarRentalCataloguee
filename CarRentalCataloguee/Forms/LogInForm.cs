@@ -113,79 +113,16 @@ namespace CarRentalCataloguee
 
         private void btnSignUp_Click(object sender, EventArgs e)
         {
-            // Create a simple runtime sign-up dialog so user can create a local account.
-            using var form = new Form()
+            using var addForm = new AddNewUser();
+            var result = addForm.ShowDialog(this);
+            if (result == DialogResult.OK && !string.IsNullOrEmpty(addForm.CreatedUserName))
             {
-                Text = "Sign Up",
-                StartPosition = FormStartPosition.CenterParent,
-                FormBorderStyle = FormBorderStyle.FixedDialog,
-                ClientSize = new System.Drawing.Size(360, 220),
-                MinimizeBox = false,
-                MaximizeBox = false
-            };
-
-            var lblUser = new Label() { Text = "Username", Left = 12, Top = 16, AutoSize = true };
-            var txtNewUser = new TextBox() { Left = 12, Top = 36, Width = 320, Font = txtUserName.Font };
-
-            var lblPass = new Label() { Text = "Password", Left = 12, Top = 72, AutoSize = true };
-            var txtNewPass = new TextBox() { Left = 12, Top = 92, Width = 320, UseSystemPasswordChar = true, Font = txtPassword.Font };
-
-            var lblConfirm = new Label() { Text = "Confirm Password", Left = 12, Top = 128, AutoSize = true };
-            var txtConfirm = new TextBox() { Left = 12, Top = 148, Width = 320, UseSystemPasswordChar = true, Font = txtPassword.Font };
-
-            var btnCreate = new Button() { Text = "Create", Left = 170, Width = 75, Top = 180, DialogResult = DialogResult.None };
-            var btnCancel = new Button() { Text = "Cancel", Left = 255, Width = 75, Top = 180, DialogResult = DialogResult.Cancel };
-
-            form.Controls.AddRange(new Control[] { lblUser, txtNewUser, lblPass, txtNewPass, lblConfirm, txtConfirm, btnCreate, btnCancel });
-            form.AcceptButton = btnCreate;
-            form.CancelButton = btnCancel;
-
-            btnCreate.Click += (s, ea) =>
-            {
-                var newUser = txtNewUser.Text.Trim();
-                var newPass = txtNewPass.Text;
-                var confirm = txtConfirm.Text;
-
-                // Reuse validation rules
-                if (string.IsNullOrWhiteSpace(newUser) || newUser.Length < 3 || newUser.Length > 20 || !Regex.IsMatch(newUser, @"^[a-zA-Z0-9_]+$"))
-                {
-                    MessageBox.Show("Username must be 3-20 characters and contain only letters, numbers, and underscores.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-                if (string.IsNullOrEmpty(newPass) || newPass.Length < 8 || !Regex.IsMatch(newPass, @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$"))
-                {
-                    MessageBox.Show("Password must be at least 8 characters and include lower, upper, and a digit.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-                if (newPass != confirm)
-                {
-                    MessageBox.Show("Passwords do not match.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-
-                // Save user
-                try
-                {
-                    var users = LoadUsers();
-                    if (users.Any(u => string.Equals(u.UserName, newUser, StringComparison.OrdinalIgnoreCase)))
-                    {
-                        MessageBox.Show("Username already exists.", "Sign-up Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        return;
-                    }
-
-                    users.Add(new UserRecord(newUser, ComputeHash(newPass)));
-                    SaveUsers(users);
-                    MessageBox.Show("Account created successfully. You can now log in.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    form.DialogResult = DialogResult.OK;
-                    form.Close();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Could not create account: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            };
-
-            form.ShowDialog(this);
+                // Prefill the created username so the user can enter password and login
+                txtUserName.Text = addForm.CreatedUserName;
+                txtPassword.Text = string.Empty;
+                txtPassword.Focus();
+                MessageBox.Show("Account created. Please enter your password to log in.", "Sign-up Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         // --- Helpers: authentication, persistence ---
@@ -204,7 +141,7 @@ namespace CarRentalCataloguee
 
             // Fallback built-in account for first-run convenience
             const string builtInUser = "admin";
-            const string builtInPassword = "Admin123!";
+            const string builtInPassword = "Admin123";
             if (string.Equals(userName, builtInUser, StringComparison.OrdinalIgnoreCase)
                 && string.Equals(hash, ComputeHash(builtInPassword), StringComparison.Ordinal))
             {

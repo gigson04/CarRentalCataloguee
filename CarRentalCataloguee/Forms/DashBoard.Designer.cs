@@ -49,10 +49,12 @@
             // 
             // pnlMain
             // 
+            pnlMain.BackColor = SystemColors.ActiveCaption;
             pnlMain.Dock = DockStyle.Fill;
-            pnlMain.Location = new Point(0, 57);
+            pnlMain.ForeColor = SystemColors.Highlight;
+            pnlMain.Location = new Point(0, 74);
             pnlMain.Name = "pnlMain";
-            pnlMain.Size = new Size(1064, 602);
+            pnlMain.Size = new Size(1068, 482);
             pnlMain.TabIndex = 2;
             // 
             // panel1
@@ -69,14 +71,14 @@
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(178, 700);
+            panel1.Size = new Size(178, 630);
             panel1.TabIndex = 2;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(69, 38);
+            label1.Location = new Point(69, 25);
             label1.Name = "label1";
             label1.Size = new Size(57, 19);
             label1.TabIndex = 7;
@@ -97,10 +99,10 @@
             btnExit.Font = new Font("Tahoma", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnExit.Image = (Image)resources.GetObject("btnExit.Image");
             btnExit.ImageAlign = ContentAlignment.MiddleLeft;
-            btnExit.Location = new Point(0, 589);
+            btnExit.Location = new Point(0, 481);
             btnExit.Name = "btnExit";
             btnExit.Padding = new Padding(12, 0, 0, 0);
-            btnExit.Size = new Size(178, 72);
+            btnExit.Size = new Size(178, 75);
             btnExit.TabIndex = 5;
             btnExit.Text = "Exit";
             btnExit.UseVisualStyleBackColor = true;
@@ -111,10 +113,10 @@
             btnNotification.Font = new Font("Tahoma", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnNotification.Image = (Image)resources.GetObject("btnNotification.Image");
             btnNotification.ImageAlign = ContentAlignment.MiddleLeft;
-            btnNotification.Location = new Point(0, 474);
+            btnNotification.Location = new Point(0, 400);
             btnNotification.Name = "btnNotification";
             btnNotification.Padding = new Padding(12, 0, 0, 0);
-            btnNotification.Size = new Size(178, 72);
+            btnNotification.Size = new Size(178, 75);
             btnNotification.TabIndex = 4;
             btnNotification.Text = "Notifcation";
             btnNotification.UseVisualStyleBackColor = true;
@@ -125,10 +127,10 @@
             btnUser.Font = new Font("Tahoma", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnUser.Image = (Image)resources.GetObject("btnUser.Image");
             btnUser.ImageAlign = ContentAlignment.MiddleLeft;
-            btnUser.Location = new Point(0, 375);
+            btnUser.Location = new Point(0, 319);
             btnUser.Name = "btnUser";
             btnUser.Padding = new Padding(12, 0, 0, 0);
-            btnUser.Size = new Size(178, 72);
+            btnUser.Size = new Size(178, 75);
             btnUser.TabIndex = 3;
             btnUser.Text = "User";
             btnUser.UseVisualStyleBackColor = true;
@@ -140,10 +142,10 @@
             btnRentCar.ForeColor = SystemColors.ButtonHighlight;
             btnRentCar.Image = (Image)resources.GetObject("btnRentCar.Image");
             btnRentCar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnRentCar.Location = new Point(0, 272);
+            btnRentCar.Location = new Point(0, 238);
             btnRentCar.Name = "btnRentCar";
             btnRentCar.Padding = new Padding(12, 0, 0, 0);
-            btnRentCar.Size = new Size(178, 72);
+            btnRentCar.Size = new Size(178, 75);
             btnRentCar.TabIndex = 2;
             btnRentCar.Text = "Rent Car";
             btnRentCar.UseVisualStyleBackColor = true;
@@ -155,10 +157,10 @@
             btnVehicles.ForeColor = SystemColors.ButtonHighlight;
             btnVehicles.Image = (Image)resources.GetObject("btnVehicles.Image");
             btnVehicles.ImageAlign = ContentAlignment.MiddleLeft;
-            btnVehicles.Location = new Point(0, 170);
+            btnVehicles.Location = new Point(0, 155);
             btnVehicles.Name = "btnVehicles";
             btnVehicles.Padding = new Padding(12, 0, 0, 0);
-            btnVehicles.Size = new Size(178, 72);
+            btnVehicles.Size = new Size(178, 75);
             btnVehicles.TabIndex = 1;
             btnVehicles.Text = "Vehicles";
             btnVehicles.UseVisualStyleBackColor = true;
@@ -172,13 +174,14 @@
             btnDashBoard.ForeColor = SystemColors.ButtonHighlight;
             btnDashBoard.Image = (Image)resources.GetObject("btnDashBoard.Image");
             btnDashBoard.ImageAlign = ContentAlignment.MiddleLeft;
-            btnDashBoard.Location = new Point(0, 63);
+            btnDashBoard.Location = new Point(0, 74);
             btnDashBoard.Name = "btnDashBoard";
             btnDashBoard.Padding = new Padding(12, 0, 0, 0);
-            btnDashBoard.Size = new Size(178, 72);
+            btnDashBoard.Size = new Size(178, 75);
             btnDashBoard.TabIndex = 0;
             btnDashBoard.Text = "Dashboard";
             btnDashBoard.UseVisualStyleBackColor = true;
+            btnDashBoard.Click += btnDashBoard_Click;
             // 
             // panel2
             // 
@@ -188,30 +191,33 @@
             panel2.Dock = DockStyle.Fill;
             panel2.Location = new Point(0, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1064, 700);
+            panel2.Size = new Size(1068, 630);
             panel2.TabIndex = 3;
             // 
             // panel4
             // 
+            panel4.BackColor = Color.SteelBlue;
             panel4.Dock = DockStyle.Bottom;
-            panel4.Location = new Point(0, 659);
+            panel4.Location = new Point(0, 556);
             panel4.Name = "panel4";
-            panel4.Size = new Size(1064, 41);
+            panel4.Size = new Size(1068, 74);
             panel4.TabIndex = 1;
             // 
             // panel3
             // 
+            panel3.BackColor = Color.SteelBlue;
             panel3.Dock = DockStyle.Top;
+            panel3.ForeColor = Color.BlueViolet;
             panel3.Location = new Point(0, 0);
             panel3.Name = "panel3";
-            panel3.Size = new Size(1064, 57);
+            panel3.Size = new Size(1068, 74);
             panel3.TabIndex = 0;
             // 
             // DashBoard
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1064, 700);
+            ClientSize = new Size(1068, 630);
             Controls.Add(panel1);
             Controls.Add(panel2);
             ForeColor = SystemColors.ButtonHighlight;
@@ -231,7 +237,6 @@
         private Panel panel1;
         private Label label1;
         private PictureBox pictureBox1;
-        private Button btnExit;
         private Button btnNotification;
         private Button btnUser;
         private Button btnRentCar;
@@ -240,5 +245,6 @@
         private Panel panel2;
         private Panel panel4;
         private Panel panel3;
+        private Button btnExit;
     }
 }

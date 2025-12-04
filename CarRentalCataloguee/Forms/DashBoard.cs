@@ -1,5 +1,6 @@
 ﻿using CarRentalCataloguee.Forms;
 using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace CarRentalCataloguee
@@ -11,14 +12,22 @@ namespace CarRentalCataloguee
         public DashBoard()
         {
             InitializeComponent();
-            // Do NOT create a new DashBoard here — that causes infinite recursion/StackOverflow.
+            // Only create child forms here — do NOT create another DashBoard instance.
             vehicleForm = new VehicleForm();
         }
 
         private void DashBoard_Load(object sender, EventArgs e)
         {
-            // Show vehicle form (or another child) inside the panel on load
-            AddFormToPanel(vehicleForm);
+            // Show a simple home/dashboard view on startup
+            AddFormToPanel(CreateHomeForm());
+        }
+
+        private Form CreateHomeForm()
+        {
+            // Create a lightweight Form to act as the dashboard home content
+            var home = new Form();
+            home.BackColor = pnlMain.BackColor;
+            return home;
         }
 
         private void AddFormToPanel(Form form)
@@ -33,9 +42,21 @@ namespace CarRentalCataloguee
             form.Show();
         }
 
+        private void EnsureVehicleForm()
+        {
+            if (vehicleForm == null || vehicleForm.IsDisposed)
+                vehicleForm = new VehicleForm();
+        }
+
         private void btnVehicles_Click(object sender, EventArgs e)
         {
+            EnsureVehicleForm();
             AddFormToPanel(vehicleForm);
+        }
+
+        private void btnDashBoard_Click(object sender, EventArgs e)
+        {
+            AddFormToPanel(CreateHomeForm());
         }
     }
 }
