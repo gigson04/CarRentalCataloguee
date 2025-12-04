@@ -43,7 +43,6 @@
             panel2 = new Panel();
             panel4 = new Panel();
             panel3 = new Panel();
-            domainUpDown1 = new DomainUpDown();
             pnlMain.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -52,11 +51,10 @@
             // 
             // pnlMain
             // 
-            pnlMain.BackColor = SystemColors.ActiveCaption;
-            pnlMain.Controls.Add(domainUpDown1);
+            pnlMain.BackColor = SystemColors.Highlight;
             pnlMain.Controls.Add(label2);
             pnlMain.Dock = DockStyle.Fill;
-            pnlMain.ForeColor = SystemColors.Highlight;
+            pnlMain.ForeColor = SystemColors.Control;
             pnlMain.Location = new Point(0, 74);
             pnlMain.Name = "pnlMain";
             pnlMain.Size = new Size(1068, 482);
@@ -230,14 +228,6 @@
             panel3.Size = new Size(1068, 74);
             panel3.TabIndex = 0;
             // 
-            // domainUpDown1
-            // 
-            domainUpDown1.Location = new Point(328, 148);
-            domainUpDown1.Name = "domainUpDown1";
-            domainUpDown1.Size = new Size(120, 23);
-            domainUpDown1.TabIndex = 1;
-            domainUpDown1.Text = "domainUpDown1";
-            // 
             // DashBoard
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -274,6 +264,5 @@
         private Panel panel3;
         private Button btnExit;
         private Label label2;
-        private DomainUpDown domainUpDown1;
     }
 }
