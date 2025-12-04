@@ -58,5 +58,27 @@ namespace CarRentalCataloguee
         {
             AddFormToPanel(CreateHomeForm());
         }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            // Confirm with the user before exiting the application
+            var result = MessageBox.Show(
+                "Are you sure you want to exit the application?",
+                "Confirm Exit",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question,
+                MessageBoxDefaultButton.Button2);
+
+            if (result == DialogResult.Yes)
+            {
+                // Close the application cleanly
+                Application.Exit();
+            }
+        }
     }
 }

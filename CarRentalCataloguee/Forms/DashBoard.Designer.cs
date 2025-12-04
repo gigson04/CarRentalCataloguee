@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DashBoard));
             pnlMain = new Panel();
+            label2 = new Label();
             panel1 = new Panel();
             label1 = new Label();
             pictureBox1 = new PictureBox();
@@ -42,6 +43,8 @@
             panel2 = new Panel();
             panel4 = new Panel();
             panel3 = new Panel();
+            domainUpDown1 = new DomainUpDown();
+            pnlMain.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel2.SuspendLayout();
@@ -50,12 +53,25 @@
             // pnlMain
             // 
             pnlMain.BackColor = SystemColors.ActiveCaption;
+            pnlMain.Controls.Add(domainUpDown1);
+            pnlMain.Controls.Add(label2);
             pnlMain.Dock = DockStyle.Fill;
             pnlMain.ForeColor = SystemColors.Highlight;
             pnlMain.Location = new Point(0, 74);
             pnlMain.Name = "pnlMain";
             pnlMain.Size = new Size(1068, 482);
             pnlMain.TabIndex = 2;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Tahoma", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Location = new Point(201, 18);
+            label2.Name = "label2";
+            label2.Size = new Size(196, 29);
+            label2.TabIndex = 0;
+            label2.Text = "Welcome Back!";
+            label2.Click += label2_Click;
             // 
             // panel1
             // 
@@ -106,6 +122,7 @@
             btnExit.TabIndex = 5;
             btnExit.Text = "Exit";
             btnExit.UseVisualStyleBackColor = true;
+            btnExit.Click += btnExit_Click;
             // 
             // btnNotification
             // 
@@ -213,6 +230,14 @@
             panel3.Size = new Size(1068, 74);
             panel3.TabIndex = 0;
             // 
+            // domainUpDown1
+            // 
+            domainUpDown1.Location = new Point(328, 148);
+            domainUpDown1.Name = "domainUpDown1";
+            domainUpDown1.Size = new Size(120, 23);
+            domainUpDown1.TabIndex = 1;
+            domainUpDown1.Text = "domainUpDown1";
+            // 
             // DashBoard
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -224,6 +249,8 @@
             Name = "DashBoard";
             Text = "DashBoard";
             Load += DashBoard_Load;
+            pnlMain.ResumeLayout(false);
+            pnlMain.PerformLayout();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -246,5 +273,7 @@
         private Panel panel4;
         private Panel panel3;
         private Button btnExit;
+        private Label label2;
+        private DomainUpDown domainUpDown1;
     }
 }
