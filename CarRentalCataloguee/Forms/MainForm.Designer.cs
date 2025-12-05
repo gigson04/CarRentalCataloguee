@@ -1,6 +1,6 @@
 ﻿namespace CarRentalCataloguee
 {
-    partial class DashBoard
+    partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DashBoard));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             panel1 = new Panel();
             label1 = new Label();
             pictureBox1 = new PictureBox();
@@ -40,7 +40,8 @@
             btnDashBoard = new Button();
             panel2 = new Panel();
             pnlMain = new Panel();
-            welcomeLabel = new Label();
+            panel6 = new Panel();
+            panel5 = new Panel();
             panel4 = new Panel();
             panel3 = new Panel();
             panel1.SuspendLayout();
@@ -174,7 +175,7 @@
             btnDashBoard.TabIndex = 0;
             btnDashBoard.Text = "Dashboard";
             btnDashBoard.UseVisualStyleBackColor = true;
-            btnDashBoard.Click += btnDashBoard_Click;
+            btnDashBoard.Click += btnMainForm_Click;
             // 
             // panel2
             // 
@@ -190,7 +191,8 @@
             // pnlMain
             // 
             pnlMain.BackColor = Color.White;
-            pnlMain.Controls.Add(welcomeLabel);
+            pnlMain.Controls.Add(panel6);
+            pnlMain.Controls.Add(panel5);
             pnlMain.Dock = DockStyle.Fill;
             pnlMain.ForeColor = SystemColors.ActiveCaption;
             pnlMain.Location = new Point(0, 74);
@@ -198,15 +200,23 @@
             pnlMain.Size = new Size(1068, 482);
             pnlMain.TabIndex = 2;
             // 
-            // welcomeLabel
+            // panel6
             // 
-            welcomeLabel.AutoSize = true;
-            welcomeLabel.BackColor = Color.Transparent;
-            welcomeLabel.Location = new Point(427, 141);
-            welcomeLabel.Name = "welcomeLabel";
-            welcomeLabel.Size = new Size(38, 15);
-            welcomeLabel.TabIndex = 0;
-            welcomeLabel.Text = "label2";
+            panel6.BackColor = Color.White;
+            panel6.Dock = DockStyle.Fill;
+            panel6.ForeColor = SystemColors.ActiveCaption;
+            panel6.Location = new Point(0, 0);
+            panel6.Name = "panel6";
+            panel6.Size = new Size(1068, 482);
+            panel6.TabIndex = 3;
+            // 
+            // panel5
+            // 
+            panel5.BackColor = Color.FromArgb(20, 78, 60);
+            panel5.Location = new Point(211, 20);
+            panel5.Name = "panel5";
+            panel5.Size = new Size(200, 76);
+            panel5.TabIndex = 0;
             // 
             // panel4
             // 
@@ -227,7 +237,7 @@
             panel3.Size = new Size(1068, 74);
             panel3.TabIndex = 0;
             // 
-            // DashBoard
+            // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -235,15 +245,15 @@
             Controls.Add(panel1);
             Controls.Add(panel2);
             ForeColor = SystemColors.ButtonHighlight;
-            Name = "DashBoard";
+            FormBorderStyle = FormBorderStyle.None;
+            Name = "MainForm";
             Text = "DashBoard";
-            Load += DashBoard_Load;
+            Load += MainForm_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel2.ResumeLayout(false);
             pnlMain.ResumeLayout(false);
-            pnlMain.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -261,6 +271,7 @@
         private Panel panel3;
         private Button btnExit;
         private Panel pnlMain;
-        private Label welcomeLabel;
+        private Panel panel5;
+        private Panel panel6;
     }
 }

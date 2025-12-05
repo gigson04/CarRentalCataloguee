@@ -20,7 +20,7 @@ namespace CarRentalCataloguee
             var result = login.ShowDialog();
             if (result == DialogResult.OK)
             {
-                Application.Run(new DashBoard());
+                Application.Run(new MainForm());
             }
             // otherwise exit
         }

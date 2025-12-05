@@ -5,47 +5,23 @@ using System.Windows.Forms;
 
 namespace CarRentalCataloguee
 {
-    public partial class DashBoard : Form
+    public partial class MainForm : Form
     {
         VehicleForm vehicleForm;
-        DashBoard dashBoardForm;  // Note: This is declared but never used—consider removing if not needed.
+        DashboardForm dashboardForm;
 
-        public DashBoard()
+        public MainForm()
         {
             InitializeComponent();
             // Only create child forms here — do NOT create another DashBoard instance.
-
             vehicleForm = new VehicleForm();
+            dashboardForm = new DashboardForm();
         }
 
-        private void DashBoard_Load(object sender, EventArgs e)
+        private void MainForm_Load(object sender, EventArgs e)
         {
             // Show a simple home/dashboard view on startup
-            AddFormToPanel(CreateHomeForm());
-        }
-
-        private Form CreateHomeForm()
-        {
-            // Create a lightweight Form to act as the dashboard home content
-            var home = new Form();
-            
-
-            // Add some basic content to the home form (so it's not blank)
-            // This prevents the dashboard from looking empty on startup
-            
-            welcomeLabel.Text = "Welcome to the Car Rental Catalogue Dashboard!";
-            welcomeLabel.Font = new Font("Arial", 14, FontStyle.Bold);
-            welcomeLabel.Location = new Point(20, 20);  // Position it nicely
-            welcomeLabel.AutoSize = true;
-            home.Controls.Add(welcomeLabel);
-
-            // You can add more controls here, like buttons or images, for a richer home view
-            // Example: Add a button to navigate to vehicles
-            // var quickButton = new Button { Text = "Quick View Vehicles", Location = new Point(20, 60) };
-            // quickButton.Click += (s, e) => btnVehicles_Click(s, e);  // Reuse existing handler
-            // home.Controls.Add(quickButton);
-
-            return home;
+            AddFormToPanel(dashboardForm);
         }
 
         private void AddFormToPanel(Form form)
@@ -72,17 +48,17 @@ namespace CarRentalCataloguee
             AddFormToPanel(vehicleForm);
         }
 
-        private void btnDashBoard_Click(object sender, EventArgs e)
+        // Add this event handler for btnDashBoard (assuming you add the button in the designer)
+        private void btnMainForm_Click(object sender, EventArgs e)
         {
-            AddFormToPanel(CreateHomeForm());
+            // Reload the home/dashboard view in the panel
+            AddFormToPanel(dashboardForm);
         }
 
         private void label2_Click(object sender, EventArgs e)
         {
-           
-
+            // This seems unused—consider removing if not needed.
         }
-
 
         private void btnExit_Click(object sender, EventArgs e)
         {
@@ -100,5 +76,7 @@ namespace CarRentalCataloguee
                 Application.Exit();
             }
         }
+
+      
     }
 }

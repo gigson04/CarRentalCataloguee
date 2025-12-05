@@ -203,6 +203,7 @@
             Controls.Add(label3);
             Controls.Add(panel1);
             Controls.Add(flowLayoutPanel1);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "LogInForm";
             Text = "Form1";
             flowLayoutPanel1.ResumeLayout(false);

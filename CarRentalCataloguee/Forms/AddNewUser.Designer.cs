@@ -220,6 +220,7 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(txtName);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "AddNewUser";
             Text = "AddNewUser";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
