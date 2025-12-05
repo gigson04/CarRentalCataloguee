@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DashBoard));
-            pnlMain = new Panel();
-            label2 = new Label();
             panel1 = new Panel();
             label1 = new Label();
             pictureBox1 = new PictureBox();
@@ -41,35 +39,15 @@
             btnVehicles = new Button();
             btnDashBoard = new Button();
             panel2 = new Panel();
+            pnlMain = new Panel();
+            welcomeLabel = new Label();
             panel4 = new Panel();
             panel3 = new Panel();
-            pnlMain.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel2.SuspendLayout();
+            pnlMain.SuspendLayout();
             SuspendLayout();
-            // 
-            // pnlMain
-            // 
-            pnlMain.BackColor = SystemColors.Highlight;
-            pnlMain.Controls.Add(label2);
-            pnlMain.Dock = DockStyle.Fill;
-            pnlMain.ForeColor = SystemColors.Control;
-            pnlMain.Location = new Point(0, 74);
-            pnlMain.Name = "pnlMain";
-            pnlMain.Size = new Size(1068, 482);
-            pnlMain.TabIndex = 2;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Tahoma", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(201, 18);
-            label2.Name = "label2";
-            label2.Size = new Size(196, 29);
-            label2.TabIndex = 0;
-            label2.Text = "Welcome Back!";
-            label2.Click += label2_Click;
             // 
             // panel1
             // 
@@ -209,6 +187,27 @@
             panel2.Size = new Size(1068, 630);
             panel2.TabIndex = 3;
             // 
+            // pnlMain
+            // 
+            pnlMain.BackColor = Color.White;
+            pnlMain.Controls.Add(welcomeLabel);
+            pnlMain.Dock = DockStyle.Fill;
+            pnlMain.ForeColor = SystemColors.ActiveCaption;
+            pnlMain.Location = new Point(0, 74);
+            pnlMain.Name = "pnlMain";
+            pnlMain.Size = new Size(1068, 482);
+            pnlMain.TabIndex = 2;
+            // 
+            // welcomeLabel
+            // 
+            welcomeLabel.AutoSize = true;
+            welcomeLabel.BackColor = Color.Transparent;
+            welcomeLabel.Location = new Point(427, 141);
+            welcomeLabel.Name = "welcomeLabel";
+            welcomeLabel.Size = new Size(38, 15);
+            welcomeLabel.TabIndex = 0;
+            welcomeLabel.Text = "label2";
+            // 
             // panel4
             // 
             panel4.BackColor = Color.SteelBlue;
@@ -239,18 +238,16 @@
             Name = "DashBoard";
             Text = "DashBoard";
             Load += DashBoard_Load;
-            pnlMain.ResumeLayout(false);
-            pnlMain.PerformLayout();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel2.ResumeLayout(false);
+            pnlMain.ResumeLayout(false);
+            pnlMain.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
-
-        private Panel pnlMain;
         private Panel panel1;
         private Label label1;
         private PictureBox pictureBox1;
@@ -263,6 +260,7 @@
         private Panel panel4;
         private Panel panel3;
         private Button btnExit;
-        private Label label2;
+        private Panel pnlMain;
+        private Label welcomeLabel;
     }
 }

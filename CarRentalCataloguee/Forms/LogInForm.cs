@@ -141,7 +141,7 @@ namespace CarRentalCataloguee
 
             // Fallback built-in account for first-run convenience
             const string builtInUser = "admin";
-            const string builtInPassword = "Admin123";
+            const string builtInPassword = "1234";
             if (string.Equals(userName, builtInUser, StringComparison.OrdinalIgnoreCase)
                 && string.Equals(hash, ComputeHash(builtInPassword), StringComparison.Ordinal))
             {
