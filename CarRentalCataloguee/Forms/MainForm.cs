@@ -9,6 +9,9 @@ namespace CarRentalCataloguee
     {
         VehicleForm vehicleForm;
         DashboardForm dashboardForm;
+        RentForm rentForm;
+        UserForm userForm;
+        NotificationForm notificationForm;
 
         public MainForm()
         {
@@ -16,6 +19,9 @@ namespace CarRentalCataloguee
             // Only create child forms here — do NOT create another DashBoard instance.
             vehicleForm = new VehicleForm();
             dashboardForm = new DashboardForm();
+            rentForm = new RentForm();
+            userForm = new UserForm();
+            notificationForm = new NotificationForm();
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -41,6 +47,8 @@ namespace CarRentalCataloguee
             if (vehicleForm == null || vehicleForm.IsDisposed)
                 vehicleForm = new VehicleForm();
         }
+
+
 
         private void btnVehicles_Click(object sender, EventArgs e)
         {
@@ -77,6 +85,36 @@ namespace CarRentalCataloguee
             }
         }
 
-      
+        private void EnsureRentForm()
+        {
+            if (rentForm == null || rentForm.IsDisposed)
+                rentForm = new RentForm();
+        }
+        private void btnRentCar_Click(object sender, EventArgs e)
+        {
+
+            AddFormToPanel(rentForm);
+        }
+
+        private void EnsureUserForm()
+        {
+            if (rentForm == null || rentForm.IsDisposed)
+                rentForm = new RentForm();
+        }
+
+        private void btnUser_Click(object sender, EventArgs e)
+        {
+            AddFormToPanel(new UserForm());
+        }
+
+        private void EnsureNotificationForm()
+        {
+            if (rentForm == null || rentForm.IsDisposed)
+                rentForm = new RentForm();
+        }
+        private void btnNotification_Click(object sender, EventArgs e)
+        {
+            AddFormToPanel(new NotificationForm());
+        }
     }
 }

@@ -28,33 +28,76 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
+            dataGridView1 = new DataGridView();
+            panel1 = new Panel();
+            btnAddCar = new Button();
+            btnRefresh = new Button();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
-            // label1
+            // dataGridView1
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(131, 116);
-            label1.Name = "label1";
-            label1.Size = new Size(38, 15);
-            label1.TabIndex = 0;
-            label1.Text = "label1";
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(220, 23);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.Size = new Size(801, 365);
+            dataGridView1.TabIndex = 0;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
+            // 
+            // panel1
+            // 
+            panel1.Dock = DockStyle.Left;
+            panel1.Location = new Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(178, 443);
+            panel1.TabIndex = 6;
+            // 
+            // btnAddCar
+            // 
+            btnAddCar.BackColor = SystemColors.Highlight;
+            btnAddCar.ForeColor = SystemColors.ButtonHighlight;
+            btnAddCar.Location = new Point(888, 394);
+            btnAddCar.Name = "btnAddCar";
+            btnAddCar.Size = new Size(133, 43);
+            btnAddCar.TabIndex = 7;
+            btnAddCar.Text = "Add Car";
+            btnAddCar.UseVisualStyleBackColor = false;
+            btnAddCar.Click += btnAddCar_Click;
+            // 
+            // btnRefresh
+            // 
+            btnRefresh.BackColor = SystemColors.Highlight;
+            btnRefresh.ForeColor = SystemColors.ButtonHighlight;
+            btnRefresh.Location = new Point(220, 394);
+            btnRefresh.Name = "btnRefresh";
+            btnRefresh.Size = new Size(133, 43);
+            btnRefresh.TabIndex = 8;
+            btnRefresh.Text = "Refresh";
+            btnRefresh.UseVisualStyleBackColor = false;
+            btnRefresh.Click += btnRefresh_Click;
             // 
             // VehicleForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(1052, 443);
-            Controls.Add(label1);
+            Controls.Add(btnRefresh);
+            Controls.Add(btnAddCar);
+            Controls.Add(panel1);
+            Controls.Add(dataGridView1);
             Name = "VehicleForm";
             Text = "VehicleForm";
-            Load += VehicleForm_Load;
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
 
-        private Label label1;
+        private DataGridView dataGridView1;
+        private Panel panel1;
+        private Button btnAddCar;
+        private Button btnRefresh;
     }
 }

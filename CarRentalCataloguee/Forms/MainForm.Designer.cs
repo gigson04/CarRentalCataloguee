@@ -114,6 +114,7 @@
             btnNotification.TabIndex = 4;
             btnNotification.Text = "Notifcation";
             btnNotification.UseVisualStyleBackColor = true;
+            btnNotification.Click += btnNotification_Click;
             // 
             // btnUser
             // 
@@ -128,6 +129,7 @@
             btnUser.TabIndex = 3;
             btnUser.Text = "User";
             btnUser.UseVisualStyleBackColor = true;
+            btnUser.Click += btnUser_Click;
             // 
             // btnRentCar
             // 
@@ -143,6 +145,7 @@
             btnRentCar.TabIndex = 2;
             btnRentCar.Text = "Rent Car";
             btnRentCar.UseVisualStyleBackColor = true;
+            btnRentCar.Click += btnRentCar_Click;
             // 
             // btnVehicles
             // 
@@ -173,7 +176,7 @@
             btnDashBoard.Padding = new Padding(12, 0, 0, 0);
             btnDashBoard.Size = new Size(178, 75);
             btnDashBoard.TabIndex = 0;
-            btnDashBoard.Text = "Dashboard";
+            btnDashBoard.Text = "DashBoard";
             btnDashBoard.UseVisualStyleBackColor = true;
             btnDashBoard.Click += btnMainForm_Click;
             // 
