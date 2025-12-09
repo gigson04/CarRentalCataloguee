@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace CarRentalCataloguee.Forms
 {
-    public partial class VehicleForm : Form
+    public partial class RentForm : Form
     {
-        public VehicleForm()
+        public RentForm()
         {
             InitializeComponent();
-        }
-
-        private void VehicleForm_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
