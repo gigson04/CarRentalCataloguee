@@ -2,72 +2,60 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-
 
 namespace CarRentalCataloguee.Forms
 {
     public partial class VehicleForm : Form
     {
         private List<Car> cars = new List<Car>();
+        private BindingSource bindingSource = new BindingSource();  // New: For stable data binding
 
         public VehicleForm()
         {
             InitializeComponent();
-            
+            // Use ONLY auto-generated columns
+            dataGridView1.AutoGenerateColumns = true;
 
-            //LocalCarData();
-        }
+            // Bind the BindingSource to the DataGridView once (don't change it later)
+            bindingSource.DataSource = cars;
+            dataGridView1.DataSource = bindingSource;
 
-        private void SetupDataGridView()
-        {
-            dataGridView1.AutoGenerateColumns = false;
-            // Add columns if not already in designer
-            dataGridView1.Columns.Add("CarID", "Car ID");
-            dataGridView1.Columns.Add("Color", "Color");
-            dataGridView1.Columns.Add("PricePerHour", "Price per Hour");
-            dataGridView1.Columns.Add("Availability", "Availability");
-            // Make it read-only for display (edit via forms if needed)
-            dataGridView1.ReadOnly = true;
+            // Updated sample data with CarName
+            cars.Add(new Car { CarID = "C001", CarName = "Toyota Camry", Color = "Red", PricePerHour = 10.50m, Availability = true });
+            cars.Add(new Car { CarID = "C002", CarName = "Honda Civic", Color = "Blue", PricePerHour = 12.00m, Availability = false });
+
+            // No need to call LoadCarData here anymore; binding is set
         }
 
         private void LoadCarData()
         {
-            // Bind the list to the DataGridView
-            dataGridView1.DataSource = null;  // Clear binding
-            dataGridView1.DataSource = new BindingList<Car>(cars);
-        }
+            // Reset the BindingSource's data source to refresh the grid
+            bindingSource.DataSource = null;
+            bindingSource.DataSource = cars;
+            dataGridView1.Refresh();  // Force UI refresh
 
+            // Debug: Show count to verify
+            MessageBox.Show($"Loaded {cars.Count} cars.", "Debug", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
-                // Get the clicked row
                 DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
 
-                // Retrieve values from the row
-                string carId = row.Cells["CarID"].Value?.ToString() ?? "N/A";
-                string color = row.Cells["Color"].Value?.ToString() ?? "N/A";
-                decimal pricePerHour = 0;
-                if (decimal.TryParse(row.Cells["PricePerHour"].Value?.ToString(), out decimal parsedPrice))
-                {
-                    pricePerHour = parsedPrice;
-                }
-                bool availability = false;
-                if (bool.TryParse(row.Cells["Availability"].Value?.ToString(), out bool parsedAvail))
-                {
-                    availability = parsedAvail;
-                }
-
-                // Example: Display the retrieved data in a message box
-                MessageBox.Show($"Car ID: {carId}\nColor: {color}\nPrice per Hour: {pricePerHour:C}\nAvailable: {availability}",
-                                "Car Details", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                // Updated to include CarName
+                MessageBox.Show(
+                    $"Car ID: {row.Cells["CarID"].Value}\n" +
+                    $"Car Name: {row.Cells["CarName"].Value}\n" +  // New: Display CarName
+                    $"Color: {row.Cells["Color"].Value}\n" +
+                    $"Price per Hour: {row.Cells["PricePerHour"].Value}\n" +
+                    $"Available: {row.Cells["Availability"].Value}",
+                    "Car Details",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information
+                );
             }
         }
 
@@ -75,12 +63,17 @@ namespace CarRentalCataloguee.Forms
         {
             AddForm addForm = new AddForm(cars);
             addForm.ShowDialog();
+
+            // Refresh the grid after adding
             LoadCarData();
+
+            // Debug: Confirm addition
+            MessageBox.Show($"After adding, cars count: {cars.Count}", "Debug", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-            LoadCarData();  // Correct method call
+            LoadCarData();
             MessageBox.Show("Data refreshed successfully.", "Refresh", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }

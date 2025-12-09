@@ -37,12 +37,14 @@
             label3 = new Label();
             btnSave = new Button();
             btnCancel = new Button();
+            txtCarName = new TextBox();
+            label4 = new Label();
             SuspendLayout();
             // 
             // txtCarID
             // 
             txtCarID.Font = new Font("Tahoma", 15.75F, FontStyle.Bold);
-            txtCarID.Location = new Point(189, 48);
+            txtCarID.Location = new Point(189, 145);
             txtCarID.Name = "txtCarID";
             txtCarID.Size = new Size(360, 33);
             txtCarID.TabIndex = 0;
@@ -50,7 +52,7 @@
             // txtColor
             // 
             txtColor.Font = new Font("Tahoma", 15.75F, FontStyle.Bold);
-            txtColor.Location = new Point(189, 77);
+            txtColor.Location = new Point(189, 67);
             txtColor.Name = "txtColor";
             txtColor.Size = new Size(360, 33);
             txtColor.TabIndex = 1;
@@ -67,7 +69,7 @@
             // 
             chkAvailability.AutoSize = true;
             chkAvailability.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            chkAvailability.Location = new Point(189, 154);
+            chkAvailability.Location = new Point(189, 200);
             chkAvailability.Name = "chkAvailability";
             chkAvailability.Size = new Size(92, 18);
             chkAvailability.TabIndex = 3;
@@ -78,7 +80,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Tahoma", 15.75F, FontStyle.Bold);
-            label1.Location = new Point(60, 47);
+            label1.Location = new Point(60, 26);
             label1.Name = "label1";
             label1.Size = new Size(123, 25);
             label1.TabIndex = 6;
@@ -88,7 +90,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Tahoma", 15.75F, FontStyle.Bold);
-            label2.Location = new Point(60, 114);
+            label2.Location = new Point(60, 106);
             label2.Name = "label2";
             label2.Size = new Size(106, 25);
             label2.TabIndex = 7;
@@ -98,7 +100,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Tahoma", 15.75F, FontStyle.Bold);
-            label3.Location = new Point(60, 80);
+            label3.Location = new Point(60, 70);
             label3.Name = "label3";
             label3.Size = new Size(75, 25);
             label3.TabIndex = 8;
@@ -108,12 +110,13 @@
             // 
             btnSave.BackColor = SystemColors.Highlight;
             btnSave.ForeColor = SystemColors.ButtonHighlight;
-            btnSave.Location = new Point(474, 236);
+            btnSave.Location = new Point(475, 236);
             btnSave.Name = "btnSave";
-            btnSave.Size = new Size(75, 31);
+            btnSave.Size = new Size(89, 45);
             btnSave.TabIndex = 9;
             btnSave.Text = "Save";
             btnSave.UseVisualStyleBackColor = false;
+            btnSave.Click += btnSave_Click_1;
             // 
             // btnCancel
             // 
@@ -121,10 +124,29 @@
             btnCancel.ForeColor = SystemColors.ButtonHighlight;
             btnCancel.Location = new Point(60, 236);
             btnCancel.Name = "btnCancel";
-            btnCancel.Size = new Size(75, 31);
+            btnCancel.Size = new Size(89, 45);
             btnCancel.TabIndex = 10;
             btnCancel.Text = "Cancel";
             btnCancel.UseVisualStyleBackColor = false;
+            btnCancel.Click += btnCancel_Click;
+            // 
+            // txtCarName
+            // 
+            txtCarName.Font = new Font("Tahoma", 15.75F, FontStyle.Bold);
+            txtCarName.Location = new Point(189, 23);
+            txtCarName.Name = "txtCarName";
+            txtCarName.Size = new Size(360, 33);
+            txtCarName.TabIndex = 11;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Tahoma", 15.75F, FontStyle.Bold);
+            label4.Location = new Point(60, 153);
+            label4.Name = "label4";
+            label4.Size = new Size(88, 25);
+            label4.TabIndex = 12;
+            label4.Text = "Car ID:";
             // 
             // AddForm
             // 
@@ -132,6 +154,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(621, 310);
+            Controls.Add(label4);
+            Controls.Add(txtCarName);
             Controls.Add(btnCancel);
             Controls.Add(btnSave);
             Controls.Add(label3);
@@ -158,5 +182,7 @@
         private Label label3;
         private Button btnSave;
         private Button btnCancel;
+        private TextBox txtCarName;
+        private Label label4;
     }
 }

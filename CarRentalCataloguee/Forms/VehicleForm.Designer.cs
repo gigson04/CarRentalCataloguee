@@ -28,22 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dataGridView1 = new DataGridView();
             panel1 = new Panel();
             btnAddCar = new Button();
             btnRefresh = new Button();
+            dataGridView1 = new DataGridView();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
-            // 
-            // dataGridView1
-            // 
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(220, 23);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(801, 365);
-            dataGridView1.TabIndex = 0;
-            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // panel1
             // 
@@ -77,16 +67,26 @@
             btnRefresh.UseVisualStyleBackColor = false;
             btnRefresh.Click += btnRefresh_Click;
             // 
+            // dataGridView1
+            // 
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridView1.BackgroundColor = Color.SteelBlue;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(220, 55);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.Size = new Size(801, 324);
+            dataGridView1.TabIndex = 9;
+            // 
             // VehicleForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(1052, 443);
+            Controls.Add(dataGridView1);
             Controls.Add(btnRefresh);
             Controls.Add(btnAddCar);
             Controls.Add(panel1);
-            Controls.Add(dataGridView1);
             Name = "VehicleForm";
             Text = "VehicleForm";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
@@ -94,10 +94,9 @@
         }
 
         #endregion
-
-        private DataGridView dataGridView1;
         private Panel panel1;
         private Button btnAddCar;
         private Button btnRefresh;
+        private DataGridView dataGridView1;
     }
 }

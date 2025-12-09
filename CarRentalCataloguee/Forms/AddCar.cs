@@ -21,44 +21,62 @@ namespace CarRentalCataloguee.Forms
             cars = sharedCars;
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
+        private void btnSave_Click_1(object sender, EventArgs e)
         {
-            string carId = txtCarID.Text.Trim();
-            string color = txtColor.Text.Trim();
-            decimal pricePerHour = 0;
-            bool availability = chkAvailability.Checked;
-            // Validate inputs
-            if (string.IsNullOrEmpty(carId))
+            try
             {
-                MessageBox.Show("Please enter a Car ID.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-            if (string.IsNullOrEmpty(color))
-            {
-                MessageBox.Show("Please enter a Color.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-            if (!decimal.TryParse(txtPricePerHour.Text.Trim(), out pricePerHour) || pricePerHour <= 0)
-            {
-                MessageBox.Show("Please enter a valid Price per Hour (positive number).", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-            // Add the new car to the shared list
-            cars.Add(new Car
-            {
-                CarID = carId,
-                Color = color,
-                PricePerHour = pricePerHour,
-                Availability = availability
-            });
+                // Retrieve inputs, including new CarName
+                string carId = txtCarID.Text.Trim();
+                string carName = txtCarName.Text.Trim();  // New: Get CarName
+                string color = txtColor.Text.Trim();
+                decimal pricePerHour = 0;
+                bool availability = chkAvailability.Checked;
 
-            txtCarID.Clear();
-            txtColor.Clear();
-            txtPricePerHour.Clear();
-            chkAvailability.Checked = false;
-            MessageBox.Show("Car added successfully.", "Add Car", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            this.Close();
+                // Validation (add for CarName if required)
+                if (string.IsNullOrEmpty(carId))
+                {
+                    MessageBox.Show("Please enter a Car ID.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                if (string.IsNullOrEmpty(carName))  // Optional: Make it required
+                {
+                    MessageBox.Show("Please enter a Car Name.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                if (string.IsNullOrEmpty(color))
+                {
+                    MessageBox.Show("Please enter a Color.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                if (!decimal.TryParse(txtPricePerHour.Text.Trim(), out pricePerHour) || pricePerHour <= 0)
+                {
+                    MessageBox.Show("Please enter a valid Price per Hour (positive number).", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
 
+                // Add the new car with CarName
+                cars.Add(new Car
+                {
+                    CarID = carId,
+                    CarName = carName,  // New: Include CarName
+                    Color = color,
+                    PricePerHour = pricePerHour,
+                    Availability = availability
+                });
+
+                // Clear fields, including new one
+                txtCarID.Clear();
+                txtCarName.Clear();  // New: Clear CarName
+                txtColor.Clear();
+                txtPricePerHour.Clear();
+                chkAvailability.Checked = false;
+                MessageBox.Show("Car added successfully.", "Add Car", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
