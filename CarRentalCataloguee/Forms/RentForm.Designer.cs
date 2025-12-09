@@ -28,19 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
+            panel1 = new Panel();
             SuspendLayout();
+            // 
+            // panel1
+            // 
+            panel1.Dock = DockStyle.Left;
+            panel1.Location = new Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(178, 443);
+            panel1.TabIndex = 7;
             // 
             // RentForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.Control;
             ClientSize = new Size(1052, 443);
+            Controls.Add(panel1);
             Name = "RentForm";
             Text = "RentForm";
             ResumeLayout(false);
         }
 
         #endregion
+
+        private Panel panel1;
     }
 }

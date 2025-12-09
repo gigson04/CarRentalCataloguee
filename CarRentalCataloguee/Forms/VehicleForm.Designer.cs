@@ -32,6 +32,7 @@
             btnAddCar = new Button();
             btnRefresh = new Button();
             dataGridView1 = new DataGridView();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -76,6 +77,17 @@
             dataGridView1.Name = "dataGridView1";
             dataGridView1.Size = new Size(801, 324);
             dataGridView1.TabIndex = 9;
+          
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Tahoma", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(220, 20);
+            label1.Name = "label1";
+            label1.Size = new Size(398, 29);
+            label1.TabIndex = 10;
+            label1.Text = "Pick a car that you want to rent!";
             // 
             // VehicleForm
             // 
@@ -83,6 +95,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(1052, 443);
+            Controls.Add(label1);
             Controls.Add(dataGridView1);
             Controls.Add(btnRefresh);
             Controls.Add(btnAddCar);
@@ -91,6 +104,7 @@
             Text = "VehicleForm";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -98,5 +112,6 @@
         private Button btnAddCar;
         private Button btnRefresh;
         private DataGridView dataGridView1;
+        private Label label1;
     }
 }

@@ -76,5 +76,6 @@ namespace CarRentalCataloguee.Forms
             LoadCarData();
             MessageBox.Show("Data refreshed successfully.", "Refresh", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
     }
 }
