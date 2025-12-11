@@ -47,6 +47,7 @@
             Controls.Add(panel1);
             Name = "RentForm";
             Text = "RentForm";
+            Load += RentForm_Load;
             ResumeLayout(false);
         }
 

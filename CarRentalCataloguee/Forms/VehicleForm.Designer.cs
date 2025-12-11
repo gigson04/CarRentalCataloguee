@@ -33,7 +33,7 @@
             btnRefresh = new Button();
             dataGridView1 = new DataGridView();
             label1 = new Label();
-            button1 = new Button();
+            btnRentCar = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -89,16 +89,17 @@
             label1.TabIndex = 10;
             label1.Text = "Pick a car that you want to rent!";
             // 
-            // button1
+            // btnRentCar
             // 
-            button1.BackColor = SystemColors.Highlight;
-            button1.ForeColor = SystemColors.ButtonHighlight;
-            button1.Location = new Point(562, 394);
-            button1.Name = "button1";
-            button1.Size = new Size(133, 43);
-            button1.TabIndex = 11;
-            button1.Text = "Refresh";
-            button1.UseVisualStyleBackColor = false;
+            btnRentCar.BackColor = SystemColors.Highlight;
+            btnRentCar.ForeColor = SystemColors.ButtonHighlight;
+            btnRentCar.Location = new Point(562, 394);
+            btnRentCar.Name = "btnRentCar";
+            btnRentCar.Size = new Size(133, 43);
+            btnRentCar.TabIndex = 11;
+            btnRentCar.Text = "Rent Car";
+            btnRentCar.UseVisualStyleBackColor = false;
+            btnRentCar.Click += btnRentCar_Click;
             // 
             // VehicleForm
             // 
@@ -106,7 +107,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(1052, 443);
-            Controls.Add(button1);
+            Controls.Add(btnRentCar);
             Controls.Add(label1);
             Controls.Add(dataGridView1);
             Controls.Add(btnRefresh);
@@ -125,6 +126,6 @@
         private Button btnRefresh;
         private DataGridView dataGridView1;
         private Label label1;
-        private Button button1;
+        private Button btnRentCar;
     }
 }

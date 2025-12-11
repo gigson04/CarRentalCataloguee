@@ -77,5 +77,20 @@ namespace CarRentalCataloguee.Forms
             MessageBox.Show("Data refreshed successfully.", "Refresh", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
+        private void btnRentCar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                RentForm rentForm = new RentForm(cars);
+                rentForm.ShowDialog();
+                LoadCarData();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}\n\nStack Trace: {ex.StackTrace}", "RentForm Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
     }
 }

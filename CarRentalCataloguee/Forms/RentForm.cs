@@ -12,9 +12,20 @@ namespace CarRentalCataloguee.Forms
 {
     public partial class RentForm : Form
     {
+       
         public RentForm()
         {
             InitializeComponent();
+           
+        }
+
+        public RentForm(List<Car> cars)
+        {
+        }
+
+        private void RentForm_Load(object sender, EventArgs e)
+        {
+            
         }
     }
 }
