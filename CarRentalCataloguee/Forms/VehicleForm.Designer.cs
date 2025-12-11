@@ -33,6 +33,7 @@
             btnRefresh = new Button();
             dataGridView1 = new DataGridView();
             label1 = new Label();
+            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -77,7 +78,6 @@
             dataGridView1.Name = "dataGridView1";
             dataGridView1.Size = new Size(801, 324);
             dataGridView1.TabIndex = 9;
-          
             // 
             // label1
             // 
@@ -89,12 +89,24 @@
             label1.TabIndex = 10;
             label1.Text = "Pick a car that you want to rent!";
             // 
+            // button1
+            // 
+            button1.BackColor = SystemColors.Highlight;
+            button1.ForeColor = SystemColors.ButtonHighlight;
+            button1.Location = new Point(562, 394);
+            button1.Name = "button1";
+            button1.Size = new Size(133, 43);
+            button1.TabIndex = 11;
+            button1.Text = "Refresh";
+            button1.UseVisualStyleBackColor = false;
+            // 
             // VehicleForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(1052, 443);
+            Controls.Add(button1);
             Controls.Add(label1);
             Controls.Add(dataGridView1);
             Controls.Add(btnRefresh);
@@ -113,5 +125,6 @@
         private Button btnRefresh;
         private DataGridView dataGridView1;
         private Label label1;
+        private Button button1;
     }
 }
