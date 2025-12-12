@@ -97,7 +97,7 @@ namespace CarRentalCataloguee
                 MessageBox.Show($"Could not create account: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
+        // maka pa bagtit
         private List<UserRecord> LoadUsers()
         {
             try
