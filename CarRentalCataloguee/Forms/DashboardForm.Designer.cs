@@ -38,6 +38,7 @@
             label5 = new Label();
             panel9 = new Panel();
             label6 = new Label();
+            btnRefreshDashBoard = new Button();
             panel8.SuspendLayout();
             panel7.SuspendLayout();
             panel9.SuspendLayout();
@@ -48,9 +49,10 @@
             panel8.BackColor = Color.FromArgb(45, 69, 90);
             panel8.Controls.Add(label4);
             panel8.Controls.Add(label3);
-            panel8.Location = new Point(520, 174);
+            panel8.Font = new Font("Tahoma", 9F, FontStyle.Bold);
+            panel8.Location = new Point(492, 164);
             panel8.Name = "panel8";
-            panel8.Size = new Size(200, 76);
+            panel8.Size = new Size(200, 153);
             panel8.TabIndex = 3;
             // 
             // label4
@@ -59,9 +61,10 @@
             label4.ForeColor = SystemColors.Control;
             label4.Location = new Point(27, 49);
             label4.Name = "label4";
-            label4.Size = new Size(10, 15);
+            label4.Size = new Size(11, 14);
             label4.TabIndex = 6;
             label4.Text = ":";
+            label4.Click += label4_Click;
             // 
             // label3
             // 
@@ -69,7 +72,7 @@
             label3.ForeColor = SystemColors.Control;
             label3.Location = new Point(27, 14);
             label3.Name = "label3";
-            label3.Size = new Size(38, 15);
+            label3.Size = new Size(43, 14);
             label3.TabIndex = 6;
             label3.Text = "Users ";
             // 
@@ -78,9 +81,10 @@
             panel7.BackColor = Color.FromArgb(20, 78, 60);
             panel7.Controls.Add(label2);
             panel7.Controls.Add(label1);
-            panel7.Location = new Point(215, 174);
+            panel7.Font = new Font("Tahoma", 9F, FontStyle.Bold);
+            panel7.Location = new Point(242, 164);
             panel7.Name = "panel7";
-            panel7.Size = new Size(200, 76);
+            panel7.Size = new Size(173, 153);
             panel7.TabIndex = 2;
             // 
             // label2
@@ -89,7 +93,7 @@
             label2.ForeColor = SystemColors.Control;
             label2.Location = new Point(19, 49);
             label2.Name = "label2";
-            label2.Size = new Size(10, 15);
+            label2.Size = new Size(11, 14);
             label2.TabIndex = 1;
             label2.Text = ":";
             label2.Click += label2_Click;
@@ -100,7 +104,7 @@
             label1.ForeColor = SystemColors.Control;
             label1.Location = new Point(19, 14);
             label1.Name = "label1";
-            label1.Size = new Size(85, 15);
+            label1.Size = new Size(96, 14);
             label1.TabIndex = 0;
             label1.Text = "Available Units";
             // 
@@ -119,7 +123,7 @@
             label5.ForeColor = SystemColors.Control;
             label5.Location = new Point(26, 14);
             label5.Name = "label5";
-            label5.Size = new Size(81, 15);
+            label5.Size = new Size(95, 14);
             label5.TabIndex = 7;
             label5.Text = "Cars Returned";
             // 
@@ -128,9 +132,10 @@
             panel9.BackColor = Color.SteelBlue;
             panel9.Controls.Add(label6);
             panel9.Controls.Add(label5);
-            panel9.Location = new Point(828, 174);
+            panel9.Font = new Font("Tahoma", 9F, FontStyle.Bold);
+            panel9.Location = new Point(766, 164);
             panel9.Name = "panel9";
-            panel9.Size = new Size(200, 76);
+            panel9.Size = new Size(235, 153);
             panel9.TabIndex = 4;
             // 
             // label6
@@ -139,15 +144,30 @@
             label6.ForeColor = SystemColors.Control;
             label6.Location = new Point(26, 49);
             label6.Name = "label6";
-            label6.Size = new Size(10, 15);
+            label6.Size = new Size(11, 14);
             label6.TabIndex = 8;
             label6.Text = ":";
+            label6.Click += label6_Click;
+            // 
+            // btnRefreshDashBoard
+            // 
+            btnRefreshDashBoard.BackColor = SystemColors.Highlight;
+            btnRefreshDashBoard.Font = new Font("Tahoma", 9F, FontStyle.Bold);
+            btnRefreshDashBoard.ForeColor = SystemColors.ButtonHighlight;
+            btnRefreshDashBoard.Location = new Point(868, 357);
+            btnRefreshDashBoard.Name = "btnRefreshDashBoard";
+            btnRefreshDashBoard.Size = new Size(133, 43);
+            btnRefreshDashBoard.TabIndex = 12;
+            btnRefreshDashBoard.Text = "Refresh";
+            btnRefreshDashBoard.UseVisualStyleBackColor = false;
+            btnRefreshDashBoard.Click += btnRefreshDashBoard_Click;
             // 
             // DashboardForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1052, 443);
+            Controls.Add(btnRefreshDashBoard);
             Controls.Add(panel1);
             Controls.Add(panel9);
             Controls.Add(panel8);
@@ -175,5 +195,6 @@
         private Label label5;
         private Panel panel9;
         private Label label6;
+        private Button btnRefreshDashBoard;
     }
 }

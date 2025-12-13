@@ -2,18 +2,32 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
+using System.Text.Json;
 using System.Windows.Forms;
 
 namespace CarRentalCataloguee.Forms
 {
     public partial class VehicleForm : Form
     {
-        private List<Car> cars = new List<Car>();
-        private BindingSource bindingSource = new BindingSource();  // New: For stable data binding
+        // Event raised when the user requests to rent a selected car.
+        // MainForm will subscribe and show the RentForm inside the main panel.
+        public event EventHandler<RentRequestedEventArgs>? RentRequested;
+
+        private readonly List<Car> cars = new List<Car>();
+        private readonly BindingSource bindingSource = new BindingSource();  // For stable data binding
+        private readonly string dataFilePath;
 
         public VehicleForm()
         {
             InitializeComponent();
+
+            // Prepare data file path: %AppData%\CarRentalCataloguee\cars.json
+            string appData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+            string folder = Path.Combine(appData, "CarRentalCataloguee");
+            Directory.CreateDirectory(folder);
+            dataFilePath = Path.Combine(folder, "cars.json");
+
             // Use ONLY auto-generated columns
             dataGridView1.AutoGenerateColumns = true;
 
@@ -21,22 +35,77 @@ namespace CarRentalCataloguee.Forms
             bindingSource.DataSource = cars;
             dataGridView1.DataSource = bindingSource;
 
-            // Updated sample data with CarName
-            cars.Add(new Car { CarID = "C001", CarName = "Toyota Camry", Color = "Red", PricePerHour = 10.50m, Availability = true });
-            cars.Add(new Car { CarID = "C002", CarName = "Honda Civic", Color = "Blue", PricePerHour = 12.00m, Availability = false });
+            // Load persisted data (if any). If none, seed sample data and persist it.
+            LoadFromDisk();
 
-            // No need to call LoadCarData here anymore; binding is set
+            if (cars.Count == 0)
+            {
+                // Seed sample data
+                cars.Add(new Car { CarID = "C001", CarName = "Toyota Camry", Color = "Red", PricePerHour = 10.50m, Availability = true });
+                cars.Add(new Car { CarID = "C002", CarName = "Honda Civic", Color = "Blue", PricePerHour = 12.00m, Availability = false });
+                SaveToDisk();
+            }
+
+            // Ensure UI shows current data
+            LoadCarData();
+
+            // Save on close to guarantee persistence
+            this.FormClosing += VehicleForm_FormClosing;
+        }
+
+        // EventArgs type for RentRequested (public so MainForm can reference it)
+        public class RentRequestedEventArgs : EventArgs
+        {
+            public List<Car> Cars { get; }
+            public Car SelectedCar { get; }
+
+            public RentRequestedEventArgs(List<Car> cars, Car selectedCar)
+            {
+                Cars = cars;
+                SelectedCar = selectedCar;
+            }
+        }
+
+        private void LoadFromDisk()
+        {
+            try
+            {
+                if (File.Exists(dataFilePath))
+                {
+                    string json = File.ReadAllText(dataFilePath);
+                    var loaded = JsonSerializer.Deserialize<List<Car>>(json);
+                    if (loaded != null)
+                    {
+                        cars.Clear();
+                        cars.AddRange(loaded);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Failed to load saved cars: {ex.Message}", "Load Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void SaveToDisk()
+        {
+            try
+            {
+                var options = new JsonSerializerOptions { WriteIndented = true };
+                string json = JsonSerializer.Serialize(cars, options);
+                File.WriteAllText(dataFilePath, json);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Failed to save cars: {ex.Message}", "Save Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void LoadCarData()
         {
-            // Reset the BindingSource's data source to refresh the grid
-            bindingSource.DataSource = null;
-            bindingSource.DataSource = cars;
-            dataGridView1.Refresh();  // Force UI refresh
-
-            // Debug: Show count to verify
-            MessageBox.Show($"Loaded {cars.Count} cars.", "Debug", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            // Refresh binding without replacing the list instance
+            bindingSource.ResetBindings(false);
+            dataGridView1.Refresh();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -45,10 +114,9 @@ namespace CarRentalCataloguee.Forms
             {
                 DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
 
-                // Updated to include CarName
                 MessageBox.Show(
                     $"Car ID: {row.Cells["CarID"].Value}\n" +
-                    $"Car Name: {row.Cells["CarName"].Value}\n" +  // New: Display CarName
+                    $"Car Name: {row.Cells["CarName"].Value}\n" +
                     $"Color: {row.Cells["Color"].Value}\n" +
                     $"Price per Hour: {row.Cells["PricePerHour"].Value}\n" +
                     $"Available: {row.Cells["Availability"].Value}",
@@ -67,8 +135,8 @@ namespace CarRentalCataloguee.Forms
             // Refresh the grid after adding
             LoadCarData();
 
-            // Debug: Confirm addition
-            MessageBox.Show($"After adding, cars count: {cars.Count}", "Debug", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            // Persist changes
+            SaveToDisk();
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
@@ -81,9 +149,37 @@ namespace CarRentalCataloguee.Forms
         {
             try
             {
-                RentForm rentForm = new RentForm(cars);
-                rentForm.ShowDialog();
-                LoadCarData();
+                // Ensure a row is selected
+                if (dataGridView1.CurrentRow == null)
+                {
+                    MessageBox.Show("Please select a car to rent.", "No Selection", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
+                // Get the selected Car from the DataGridView binding
+                if (dataGridView1.CurrentRow.DataBoundItem is not Car selectedCar)
+                {
+                    MessageBox.Show("Selected item is not a valid car.", "Selection Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                // If somebody is subscribed (MainForm), raise the event so the main form can host the RentForm
+                if (RentRequested != null)
+                {
+                    RentRequested.Invoke(this, new RentRequestedEventArgs(cars, selectedCar));
+                    return;
+                }
+
+                // Fallback: show RentForm as dialog (existing behavior if no subscriber)
+                using RentForm rentForm = new RentForm(cars, selectedCar);
+                var result = rentForm.ShowDialog();
+
+                // If rent succeeded, refresh and persist changes
+                if (result == DialogResult.OK)
+                {
+                    LoadCarData();
+                    SaveToDisk();
+                }
             }
             catch (Exception ex)
             {
@@ -91,6 +187,13 @@ namespace CarRentalCataloguee.Forms
             }
         }
 
+        private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+        }
 
+        private void VehicleForm_FormClosing(object? sender, FormClosingEventArgs e)
+        {
+            SaveToDisk();
+        }
     }
 }

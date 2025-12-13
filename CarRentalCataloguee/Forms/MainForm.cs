@@ -2,6 +2,7 @@
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using CarRentalCataloguee.Forms.Classes;
 
 namespace CarRentalCataloguee
 {
@@ -22,6 +23,9 @@ namespace CarRentalCataloguee
             rentForm = new RentForm();
             userForm = new UserForm();
             notificationForm = new NotificationForm();
+
+            // Subscribe to VehicleForm's RentRequested so the main form can host the RentForm
+            vehicleForm.RentRequested += VehicleForm_RentRequested;
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -45,10 +49,18 @@ namespace CarRentalCataloguee
         private void EnsureVehicleForm()
         {
             if (vehicleForm == null || vehicleForm.IsDisposed)
+            {
                 vehicleForm = new VehicleForm();
+                vehicleForm.RentRequested += VehicleForm_RentRequested; // re-subscribe when new instance is created
+            }
         }
 
-
+        private void VehicleForm_RentRequested(object? sender, VehicleForm.RentRequestedEventArgs e)
+        {
+            // Create rent form with the same list and selected car and add it into the main panel
+            var hostedRentForm = new RentForm(e.Cars, e.SelectedCar);
+            AddFormToPanel(hostedRentForm);
+        }
 
         private void btnVehicles_Click(object sender, EventArgs e)
         {
@@ -92,7 +104,7 @@ namespace CarRentalCataloguee
         }
         private void btnRentCar_Click(object sender, EventArgs e)
         {
-
+            EnsureRentForm();
             AddFormToPanel(rentForm);
         }
 

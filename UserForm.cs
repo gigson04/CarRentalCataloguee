@@ -1,4 +1,5 @@
-﻿using CarRentalCataloguee.Forms.Classes;
+csharp CarRentalCataloguee\Forms\UserForm.cs
+using CarRentalCataloguee.Forms.Classes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -51,31 +52,5 @@ namespace CarRentalCataloguee.Forms
             LoadRentals();
             MessageBox.Show("Rentals refreshed.", "Refresh", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
-
-        private void dgvRentals_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-    }
-    public static class RentalsRepository
-    {
-        public static List<Rental> LoadAll()
-        {
-            // Replace with actual data loading logic.
-            return new List<Rental>();
-        }
-    }
-}
-
-namespace CarRentalCataloguee.Forms.Classes
-{
-    public class Rental
-    {
-        // Define properties as needed. Example:
-        public int RentalId { get; set; }
-        public string? RenterName { get; internal set; }
-        public DateTime ReturnDate { get; internal set; }
-        public string? CarId { get; internal set; }
-        // Add other properties relevant to your Rental entity.
     }
 }
