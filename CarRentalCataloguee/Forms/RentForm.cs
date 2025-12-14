@@ -12,7 +12,6 @@ namespace CarRentalCataloguee.Forms
         private readonly Car? selectedCar;
         private const int MinimumRentAge = 18;
 
-        // Return / cost helpers
         private DateTime? selectedReturnDate;
         private double estimatedCost;
 
@@ -21,13 +20,11 @@ namespace CarRentalCataloguee.Forms
             InitializeComponent();
         }
 
-        // Keeps compatibility when called with the whole list only
         public RentForm(List<Car> cars) : this()
         {
             this.cars = cars;
         }
 
-        // Accept the list and the selected car to operate on
         public RentForm(List<Car> cars, Car selectedCar) : this(cars)
         {
             this.selectedCar = selectedCar;
@@ -36,14 +33,12 @@ namespace CarRentalCataloguee.Forms
 
         private void RentForm_Load(object sender, EventArgs e)
         {
-            // Nothing required here; PopulateFields is called from ctor when appropriate.
         }
 
         private void PopulateFields()
         {
             if (selectedCar == null)
             {
-                // Disable renter inputs if no car selected
                 txtFullName.Enabled = txtDriverLicense.Enabled = txtAddress.Enabled = dtpBirthday.Enabled = nudAge.Enabled = btnConfirmRent.Enabled = dtpWhenToReturn.Enabled = false;
                 lblTitle.Text = "Rent Car";
                 return;
@@ -56,16 +51,13 @@ namespace CarRentalCataloguee.Forms
             lblPrice.Text = $"Price per Hour: {selectedCar.PricePerHour:C}";
             lblAvailability.Text = $"Available: {selectedCar.Availability}";
 
-            // default age from birthday if possible
             dtpBirthday.Value = DateTime.Today.AddYears(-MinimumRentAge);
             nudAge.Value = MinimumRentAge;
 
-            // Configure return date picker: minimum is tomorrow
             dtpWhenToReturn.MinDate = DateTime.Today.AddDays(1);
             dtpWhenToReturn.Value = dtpWhenToReturn.MinDate;
             selectedReturnDate = dtpWhenToReturn.Value;
 
-            // If car not available, disable confirm
             btnConfirmRent.Enabled = selectedCar.Availability;
 
             UpdateReturnInfo();
@@ -73,7 +65,6 @@ namespace CarRentalCataloguee.Forms
 
         private void dtpBirthday_ValueChanged(object? sender, EventArgs e)
         {
-            // Update nudAge to match birthday
             var today = DateTime.Today;
             int age = today.Year - dtpBirthday.Value.Year;
             if (dtpBirthday.Value.Date > today.AddYears(-age)) age--;
@@ -83,7 +74,6 @@ namespace CarRentalCataloguee.Forms
 
         private void dtpWhenToReturn_ValueChanged(object sender, EventArgs e)
         {
-            // Ensure return date is in the future (at least tomorrow)
             if (dtpWhenToReturn.Value.Date <= DateTime.Today)
             {
                 MessageBox.Show("Return date must be after today. Setting to tomorrow.", "Invalid Return Date", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -95,17 +85,14 @@ namespace CarRentalCataloguee.Forms
             UpdateReturnInfo();
         }
 
-        // Calculate estimated cost and update availability label with a short summary
         private void UpdateReturnInfo()
         {
             if (selectedCar == null || selectedReturnDate == null)
                 return;
 
-            // Calculate total hours from now until chosen return time; at least 1 hour
             double hours = (selectedReturnDate.Value - DateTime.Now).TotalHours;
             if (hours < 1) hours = 1;
 
-            // Round up to nearest whole hour
             double billableHours = Math.Ceiling(hours);
 
             estimatedCost = billableHours * (double)selectedCar.PricePerHour;
@@ -129,7 +116,6 @@ namespace CarRentalCataloguee.Forms
                     return;
                 }
 
-                // Validation
                 string fullName = txtFullName.Text.Trim();
                 string license = txtDriverLicense.Text.Trim();
                 string address = txtAddress.Text.Trim();
@@ -162,10 +148,8 @@ namespace CarRentalCataloguee.Forms
                     return;
                 }
 
-                // All validations passed — mark car as rented
                 selectedCar.Availability = false;
 
-                // Persist car availability change via CarsRepository (update or save entire list)
                 try
                 {
                     var allCars = cars ?? CarsRepository.LoadAll();
@@ -177,12 +161,9 @@ namespace CarRentalCataloguee.Forms
                 }
                 catch
                 {
-                    // Non-fatal: continue even if saving cars fails; repository may not exist in some setups.
+
                 }
 
-                // Build rental record using reflection-aware population so this form works regardless
-                // of small differences in the Rental model. We create a Rental instance and set
-                // properties only if they exist on the type.
                 var rentalType = typeof(CarRentalCataloguee.Forms.Classes.Rental);
                 var rentalObj = Activator.CreateInstance(rentalType);
                 if (rentalObj != null)
@@ -193,7 +174,6 @@ namespace CarRentalCataloguee.Forms
                         if (p == null || !p.CanWrite) return;
                         try
                         {
-                            // Convert value to target type if necessary
                             if (value != null && !p.PropertyType.IsAssignableFrom(value.GetType()))
                             {
                                 var conv = Convert.ChangeType(value, p.PropertyType);
@@ -206,11 +186,10 @@ namespace CarRentalCataloguee.Forms
                         }
                         catch
                         {
-                            // ignore conversion/set failures for optional fields
+
                         }
                     }
 
-                    // Known fields we try to set if present
                     SetIfExists("CarId", selectedCar.CarID);
                     SetIfExists("RenterName", fullName);
                     SetIfExists("DriverLicense", license);
@@ -237,19 +216,16 @@ namespace CarRentalCataloguee.Forms
                         }
                         catch
                         {
-                            // ignore id assignment failures
                         }
                     }
                 }
 
-                // Add to repository (use fully-qualified repository reference to avoid shadowing)
                 try
                 {
                     CarRentalCataloguee.Forms.Classes.RentalsRepository.AddRental((CarRentalCataloguee.Forms.Classes.Rental)rentalObj!);
                 }
                 catch (Exception ex)
                 {
-                    // If repository isn't available or fails, show warning but proceed
                     MessageBox.Show($"Warning: rental was not saved to repository: {ex.Message}", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
 

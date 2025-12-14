@@ -31,7 +31,7 @@
             panel1 = new Panel();
             dgvRentals = new DataGridView();
             btnRemoveUser = new Button();
-            button2 = new Button();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvRentals).BeginInit();
             SuspendLayout();
             // 
@@ -66,16 +66,15 @@
             btnRemoveUser.UseVisualStyleBackColor = false;
             btnRemoveUser.Click += btnRemoveUser_Click;
             // 
-            // button2
+            // label1
             // 
-            button2.BackColor = SystemColors.Highlight;
-            button2.ForeColor = SystemColors.ButtonHighlight;
-            button2.Location = new Point(222, 400);
-            button2.Name = "button2";
-            button2.Size = new Size(133, 43);
-            button2.TabIndex = 10;
-            button2.Text = "Add Car";
-            button2.UseVisualStyleBackColor = false;
+            label1.AutoSize = true;
+            label1.Font = new Font("Tahoma", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(184, 11);
+            label1.Name = "label1";
+            label1.Size = new Size(179, 29);
+            label1.TabIndex = 11;
+            label1.Text = "Users Rented!";
             // 
             // UserForm
             // 
@@ -83,7 +82,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(1052, 443);
-            Controls.Add(button2);
+            Controls.Add(label1);
             Controls.Add(btnRemoveUser);
             Controls.Add(dgvRentals);
             Controls.Add(panel1);
@@ -92,6 +91,7 @@
             Text = "UserForm";
             ((System.ComponentModel.ISupportInitialize)dgvRentals).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -99,6 +99,6 @@
         private Panel panel1;
         private DataGridView dgvRentals;
         private Button btnRemoveUser;
-        private Button button2;
+        private Label label1;
     }
 }

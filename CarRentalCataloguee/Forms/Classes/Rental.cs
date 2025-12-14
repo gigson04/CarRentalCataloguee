@@ -5,7 +5,6 @@ namespace CarRentalCataloguee.Forms.Classes
 {
     public class Rental
     {
-        // sqlite-net requires a primary key attribute for Delete<T>(pk) convenience:
         [PrimaryKey]
         public string RentalId { get; set; } = Guid.NewGuid().ToString();
 

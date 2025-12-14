@@ -9,24 +9,19 @@ namespace CarRentalCataloguee.Forms
 {
     public partial class UserForm : Form
     {
-        // Show a view model in the grid so we can include car color and other joined info
         private BindingList<RentalGridItem>? rentalsBindingList;
 
-        // Store the currently selected rental from the grid (canonical Rental type)
         private Rental? selectedRental;
 
         public UserForm()
         {
             InitializeComponent();
 
-            // Ensure the grid will auto-generate columns for the Rental properties
             if (dgvRentals != null)
                 dgvRentals.AutoGenerateColumns = true;
 
-            // Subscribe to repository notifications so the grid updates automatically
             RentalsRepository.RentalsChanged += RentalsRepository_RentalsChanged;
 
-            // Wire Load event
             this.Load += UserForm_Load;
         }
 
@@ -100,7 +95,6 @@ namespace CarRentalCataloguee.Forms
                     return;
                 }
 
-                // Find canonical Rental by id
                 selectedRental = RentalsRepository.LoadAll()
                     .FirstOrDefault(r => string.Equals(r.RentalId, gridItem.RentalId, StringComparison.OrdinalIgnoreCase));
 
@@ -139,7 +133,6 @@ namespace CarRentalCataloguee.Forms
             base.OnFormClosed(e);
         }
 
-        // View model for the grid
         private class RentalGridItem
         {
             public string RentalId { get; set; } = string.Empty;
@@ -156,7 +149,6 @@ namespace CarRentalCataloguee.Forms
 
         private void btnRemoveUser_Click(object sender, EventArgs e)
         {
-            // Remove user when they return the car
             if (selectedRental == null)
             {
                 MessageBox.Show("Please select a rental to remove.", "No Selection", MessageBoxButtons.OK, MessageBoxIcon.Information);

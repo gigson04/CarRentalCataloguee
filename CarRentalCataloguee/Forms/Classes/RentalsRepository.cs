@@ -11,7 +11,6 @@ namespace CarRentalCataloguee.Forms.Classes
         private static readonly string dbPath;
         private static readonly object sync = new object();
 
-        // Event raised after the repository changes (add/remove/save)
         public static event EventHandler? RentalsChanged;
 
         static RentalsRepository()
@@ -20,7 +19,6 @@ namespace CarRentalCataloguee.Forms.Classes
             string folder = Path.Combine(appData, "CarRentalCataloguee");
             Directory.CreateDirectory(folder);
 
-            // sqlite-net accepts a file path (no "Data Source=" prefix)
             dbPath = Path.Combine(folder, "rentals.db");
 
             EnsureTable();
@@ -28,8 +26,7 @@ namespace CarRentalCataloguee.Forms.Classes
 
         private static SQLiteConnection GetConnection()
         {
-            // sqlite-net opens the file if missing.
-            // It's fine to create/close connections per operation for desktop apps.
+          
             return new SQLiteConnection(dbPath);
         }
 
@@ -47,7 +44,6 @@ namespace CarRentalCataloguee.Forms.Classes
             lock (sync)
             {
                 using var conn = GetConnection();
-                // Order by RentDate desc; sqlite-net returns IQueryable-like Table<T>
                 return conn.Table<Rental>().OrderByDescending(r => r.RentDate).ToList();
             }
         }
@@ -59,10 +55,8 @@ namespace CarRentalCataloguee.Forms.Classes
             lock (sync)
             {
                 using var conn = GetConnection();
-                // Use Action instead of Action<SQLiteConnection> because RunInTransaction expects Action
                 conn.RunInTransaction(() =>
                 {
-                    // Ensure RentalId exists
                     if (string.IsNullOrWhiteSpace(rental.RentalId))
                         rental.RentalId = Guid.NewGuid().ToString();
 
@@ -108,7 +102,6 @@ namespace CarRentalCataloguee.Forms.Classes
             RentalsChanged?.Invoke(null, EventArgs.Empty);
         }
 
-        // Debug helpers (optional)
         public static string GetDatabasePath() => dbPath;
 
         public static int GetRowCount()

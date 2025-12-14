@@ -15,45 +15,41 @@ namespace CarRentalCataloguee.Forms
         public event EventHandler<RentRequestedEventArgs>? RentRequested;
 
         private readonly List<Car> cars = new List<Car>();
-        private readonly BindingSource bindingSource = new BindingSource();  // For stable data binding
+        private readonly BindingSource bindingSource = new BindingSource();  
         private readonly string dataFilePath;
 
         public VehicleForm()
         {
             InitializeComponent();
 
-            // Prepare data file path: %AppData%\CarRentalCataloguee\cars.json
             string appData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
             string folder = Path.Combine(appData, "CarRentalCataloguee");
             Directory.CreateDirectory(folder);
             dataFilePath = Path.Combine(folder, "cars.json");
 
-            // Use ONLY auto-generated columns
+          
             dataGridView1.AutoGenerateColumns = true;
 
-            // Bind the BindingSource to the DataGridView once (don't change it later)
+           
             bindingSource.DataSource = cars;
             dataGridView1.DataSource = bindingSource;
 
-            // Load persisted data (if any). If none, seed sample data and persist it.
             LoadFromDisk();
 
             if (cars.Count == 0)
             {
-                // Seed sample data
                 cars.Add(new Car { CarID = "C001", CarName = "Toyota Camry", Color = "Red", PricePerHour = 10.50m, Availability = true });
                 cars.Add(new Car { CarID = "C002", CarName = "Honda Civic", Color = "Blue", PricePerHour = 12.00m, Availability = false });
                 SaveToDisk();
             }
 
-            // Ensure UI shows current data
+          
             LoadCarData();
 
-            // Save on close to guarantee persistence
+
             this.FormClosing += VehicleForm_FormClosing;
         }
 
-        // EventArgs type for RentRequested (public so MainForm can reference it)
         public class RentRequestedEventArgs : EventArgs
         {
             public List<Car> Cars { get; }
@@ -103,7 +99,6 @@ namespace CarRentalCataloguee.Forms
 
         private void LoadCarData()
         {
-            // Refresh binding without replacing the list instance
             bindingSource.ResetBindings(false);
             dataGridView1.Refresh();
         }
@@ -132,10 +127,8 @@ namespace CarRentalCataloguee.Forms
             AddForm addForm = new AddForm(cars);
             addForm.ShowDialog();
 
-            // Refresh the grid after adding
             LoadCarData();
 
-            // Persist changes
             SaveToDisk();
         }
 
@@ -149,32 +142,27 @@ namespace CarRentalCataloguee.Forms
         {
             try
             {
-                // Ensure a row is selected
                 if (dataGridView1.CurrentRow == null)
                 {
                     MessageBox.Show("Please select a car to rent.", "No Selection", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
 
-                // Get the selected Car from the DataGridView binding
                 if (dataGridView1.CurrentRow.DataBoundItem is not Car selectedCar)
                 {
                     MessageBox.Show("Selected item is not a valid car.", "Selection Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
-                // If somebody is subscribed (MainForm), raise the event so the main form can host the RentForm
                 if (RentRequested != null)
                 {
                     RentRequested.Invoke(this, new RentRequestedEventArgs(cars, selectedCar));
                     return;
                 }
 
-                // Fallback: show RentForm as dialog (existing behavior if no subscriber)
                 using RentForm rentForm = new RentForm(cars, selectedCar);
                 var result = rentForm.ShowDialog();
 
-                // If rent succeeded, refresh and persist changes
                 if (result == DialogResult.OK)
                 {
                     LoadCarData();

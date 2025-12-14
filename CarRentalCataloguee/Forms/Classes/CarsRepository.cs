@@ -11,7 +11,7 @@ namespace CarRentalCataloguee.Forms.Classes
         private static readonly object sync = new object();
         private static List<Car>? cached;
 
-        public static event EventHandler? CarsChanged; // <-- event added
+        public static event EventHandler? CarsChanged; 
 
         static CarsRepository()
         {
@@ -21,7 +21,6 @@ namespace CarRentalCataloguee.Forms.Classes
             dataFilePath = Path.Combine(folder, "cars.json");
         }
 
-        // Public static loader required by DashboardForm reflection (and other callers).
         public static List<Car> LoadAll()
         {
             lock (sync)
@@ -50,7 +49,6 @@ namespace CarRentalCataloguee.Forms.Classes
             }
         }
 
-        // Helper to save changes when other parts of the app want to persist modifications.
         public static void SaveAll(IEnumerable<Car> cars)
         {
             lock (sync)
@@ -60,7 +58,6 @@ namespace CarRentalCataloguee.Forms.Classes
                 string json = JsonSerializer.Serialize(cached, options);
                 File.WriteAllText(dataFilePath, json);
 
-                // notify subscribers that cars were changed
                 CarsChanged?.Invoke(null, EventArgs.Empty);
             }
         }

@@ -6,14 +6,11 @@ public partial class DashboardForm : Form
     {
         InitializeComponent();
 
-        // initial population
         UpdateDashboardLabels();
 
-        // Subscribe to repository change events
         CarsRepository.CarsChanged += CarsRepository_Changed;
         RentalsRepository.RentalsChanged += RentalsRepository_Changed;
 
-        // Also refresh when form is activated (optional)
         this.Activated += (s, e) => UpdateDashboardLabels();
     }
 
@@ -22,11 +19,9 @@ public partial class DashboardForm : Form
 
     protected override void OnFormClosed(FormClosedEventArgs e)
     {
-        // Unsubscribe to avoid leaks
         CarsRepository.CarsChanged -= CarsRepository_Changed;
         RentalsRepository.RentalsChanged -= RentalsRepository_Changed;
         base.OnFormClosed(e);
     }
 
-    // existing UpdateDashboardLabels() method remains and will be called on events
 }
