@@ -21,11 +21,9 @@ namespace CarRentalCataloguee
 
             _usersFilePath = Path.Combine(Application.LocalUserAppDataPath, "users.json");
 
-            // Wire up events
             btnCreateAccount.Click += BtnCreateAccount_Click;
             btnClose.Click += BtnClose_Click;
 
-            // Mask password
             txtPassword.UseSystemPasswordChar = true;
         }
 
@@ -42,7 +40,6 @@ namespace CarRentalCataloguee
             var username = txtUserName.Text.Trim();
             var password = txtPassword.Text;
 
-            // Basic validation
             if (string.IsNullOrWhiteSpace(name))
             {
                 MessageBox.Show("Name is required.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -97,7 +94,6 @@ namespace CarRentalCataloguee
                 MessageBox.Show($"Could not create account: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        // maka pa bagtit
         private List<UserRecord> LoadUsers()
         {
             try

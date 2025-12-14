@@ -5,7 +5,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.Json;
-using System.Text.RegularExpressions; // For regex validation
+using System.Text.RegularExpressions; 
 using System.Windows.Forms;
 
 namespace CarRentalCataloguee
@@ -22,10 +22,8 @@ namespace CarRentalCataloguee
             _usersFilePath = Path.Combine(Application.LocalUserAppDataPath, "users.json");
             _rememberFilePath = Path.Combine(Application.LocalUserAppDataPath, "remembered_user.txt");
 
-            // Mask password by default
             txtPassword.UseSystemPasswordChar = true;
 
-            // Restore remembered username if present
             var remembered = LoadRememberedUser();
             if (!string.IsNullOrEmpty(remembered))
             {
@@ -33,7 +31,6 @@ namespace CarRentalCataloguee
                 checkBox1.Checked = true;
             }
 
-            // Initialize button state
             btnLogin.Enabled = !string.IsNullOrWhiteSpace(txtUserName.Text) && !string.IsNullOrWhiteSpace(txtPassword.Text);
         }
 
@@ -49,7 +46,6 @@ namespace CarRentalCataloguee
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            // "Keep me Sign-in" -> remember username locally (not password)
             try
             {
                 if (checkBox1.Checked)
@@ -63,7 +59,6 @@ namespace CarRentalCataloguee
             }
             catch
             {
-                // swallow storage errors; not critical for login
             }
         }
 
@@ -72,7 +67,6 @@ namespace CarRentalCataloguee
             string userName = txtUserName.Text.Trim();
             string password = txtPassword.Text;
 
-            // Basic validation
             if (string.IsNullOrWhiteSpace(userName))
             {
                 MessageBox.Show("Username cannot be empty.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -84,18 +78,15 @@ namespace CarRentalCataloguee
                 return;
             }
 
-            // Authenticate
             try
             {
                 if (Authenticate(userName, password))
                 {
-                    // Persist remembered username if checkbox is checked
                     if (checkBox1.Checked)
                         SaveRememberedUser(userName);
                     else
                         DeleteRememberedUser();
 
-                    // Signal success to caller
                     this.DialogResult = DialogResult.OK;
                     this.Close();
                     return;
@@ -117,7 +108,6 @@ namespace CarRentalCataloguee
             var result = addForm.ShowDialog(this);
             if (result == DialogResult.OK && !string.IsNullOrEmpty(addForm.CreatedUserName))
             {
-                // Prefill the created username so the user can enter password and login
                 txtUserName.Text = addForm.CreatedUserName;
                 txtPassword.Text = string.Empty;
                 txtPassword.Focus();
@@ -125,7 +115,6 @@ namespace CarRentalCataloguee
             }
         }
 
-        // --- Helpers: authentication, persistence ---
 
         private bool Authenticate(string userName, string password)
         {
@@ -139,7 +128,6 @@ namespace CarRentalCataloguee
                 return true;
             }
 
-            // Fallback built-in account for first-run convenience
             const string builtInUser = "admin";
             const string builtInPassword = "1234";
             if (string.Equals(userName, builtInUser, StringComparison.OrdinalIgnoreCase)
