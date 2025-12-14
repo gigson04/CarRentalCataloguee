@@ -108,15 +108,15 @@ namespace CarRentalCataloguee
             AddFormToPanel(rentForm);
         }
 
-        private void EnsureUserForm()
-        {
-            if (rentForm == null || rentForm.IsDisposed)
-                rentForm = new RentForm();
-        }
 
         private void btnUser_Click(object sender, EventArgs e)
         {
             AddFormToPanel(new UserForm());
+        }
+        private void EnsureUserForm()
+        {
+            if (rentForm == null || rentForm.IsDisposed)
+                rentForm = new RentForm();
         }
 
         private void EnsureNotificationForm()

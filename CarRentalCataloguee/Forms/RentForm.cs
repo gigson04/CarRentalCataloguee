@@ -1,6 +1,7 @@
 ﻿using CarRentalCataloguee.Forms.Classes;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace CarRentalCataloguee.Forms
@@ -164,7 +165,94 @@ namespace CarRentalCataloguee.Forms
                 // All validations passed — mark car as rented
                 selectedCar.Availability = false;
 
-                // Optional: record renter info and rental period to a log or datastore here.
+                // Persist car availability change via CarsRepository (update or save entire list)
+                try
+                {
+                    var allCars = cars ?? CarsRepository.LoadAll();
+                    int idx = allCars.FindIndex(c => c.CarID == selectedCar.CarID);
+                    if (idx >= 0) allCars[idx] = selectedCar;
+                    else allCars.Add(selectedCar);
+
+                    CarsRepository.SaveAll(allCars);
+                }
+                catch
+                {
+                    // Non-fatal: continue even if saving cars fails; repository may not exist in some setups.
+                }
+
+                // Build rental record using reflection-aware population so this form works regardless
+                // of small differences in the Rental model. We create a Rental instance and set
+                // properties only if they exist on the type.
+                var rentalType = typeof(CarRentalCataloguee.Forms.Classes.Rental);
+                var rentalObj = Activator.CreateInstance(rentalType);
+                if (rentalObj != null)
+                {
+                    void SetIfExists(string propName, object? value)
+                    {
+                        var p = rentalType.GetProperty(propName, System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Instance);
+                        if (p == null || !p.CanWrite) return;
+                        try
+                        {
+                            // Convert value to target type if necessary
+                            if (value != null && !p.PropertyType.IsAssignableFrom(value.GetType()))
+                            {
+                                var conv = Convert.ChangeType(value, p.PropertyType);
+                                p.SetValue(rentalObj, conv);
+                            }
+                            else
+                            {
+                                p.SetValue(rentalObj, value);
+                            }
+                        }
+                        catch
+                        {
+                            // ignore conversion/set failures for optional fields
+                        }
+                    }
+
+                    // Known fields we try to set if present
+                    SetIfExists("CarId", selectedCar.CarID);
+                    SetIfExists("RenterName", fullName);
+                    SetIfExists("DriverLicense", license);
+                    SetIfExists("RenterAddress", address);
+                    SetIfExists("RenterBirthdate", dtpBirthday.Value);
+                    SetIfExists("RentDate", DateTime.Now);
+                    SetIfExists("ReturnDate", selectedReturnDate.Value);
+                    SetIfExists("EstimatedCost", estimatedCost);
+
+                    // If RentalId exists and is int, auto-increment it based on existing records
+                    var idProp = rentalType.GetProperty("RentalId", System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Instance);
+                    if (idProp != null && idProp.CanWrite && idProp.PropertyType == typeof(int))
+                    {
+                        try
+                        {
+                            var existing = CarRentalCataloguee.Forms.Classes.RentalsRepository.LoadAll() ?? new List<CarRentalCataloguee.Forms.Classes.Rental>();
+                            int maxId = 0;
+                            foreach (var r in existing)
+                            {
+                                var v = idProp.GetValue(r);
+                                if (v is int i && i > maxId) maxId = i;
+                            }
+                            idProp.SetValue(rentalObj, maxId + 1);
+                        }
+                        catch
+                        {
+                            // ignore id assignment failures
+                        }
+                    }
+                }
+
+                // Add to repository (use fully-qualified repository reference to avoid shadowing)
+                try
+                {
+                    CarRentalCataloguee.Forms.Classes.RentalsRepository.AddRental((CarRentalCataloguee.Forms.Classes.Rental)rentalObj!);
+                }
+                catch (Exception ex)
+                {
+                    // If repository isn't available or fails, show warning but proceed
+                    MessageBox.Show($"Warning: rental was not saved to repository: {ex.Message}", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+
                 MessageBox.Show($"Car {selectedCar.CarName} ({selectedCar.CarID}) has been rented to {fullName}.\nEstimated cost: {estimatedCost:C}", "Rented", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 DialogResult = DialogResult.OK;

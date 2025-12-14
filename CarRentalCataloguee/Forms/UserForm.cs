@@ -2,21 +2,35 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace CarRentalCataloguee.Forms
 {
     public partial class UserForm : Form
     {
-        private BindingList<Rental>? rentalsBindingList;
+        // Show a view model in the grid so we can include car color and other joined info
+        private BindingList<RentalGridItem>? rentalsBindingList;
+
+        // Store the currently selected rental from the grid (canonical Rental type)
+        private Rental? selectedRental;
 
         public UserForm()
         {
             InitializeComponent();
+
+            // Ensure the grid will auto-generate columns for the Rental properties
+            if (dgvRentals != null)
+                dgvRentals.AutoGenerateColumns = true;
+
+            // Subscribe to repository notifications so the grid updates automatically
+            RentalsRepository.RentalsChanged += RentalsRepository_RentalsChanged;
+
+            // Wire Load event
+            this.Load += UserForm_Load;
         }
 
-        // Use standard event signature so the designer can wire this reliably.
-        private void UserForm_Load(object sender, EventArgs e)
+        private void UserForm_Load(object? sender, EventArgs e)
         {
             LoadRentals();
         }
@@ -25,8 +39,28 @@ namespace CarRentalCataloguee.Forms
         {
             try
             {
-                var rentals = RentalsRepository.LoadAll();
-                rentalsBindingList = new BindingList<Rental>(rentals);
+                var rentals = RentalsRepository.LoadAll() ?? new List<Rental>();
+                var cars = CarsRepository.LoadAll() ?? new List<Car>();
+
+                var items = rentals.Select(r =>
+                {
+                    var car = cars.FirstOrDefault(c => string.Equals(c.CarID, r.CarId, StringComparison.OrdinalIgnoreCase));
+                    return new RentalGridItem
+                    {
+                        RentalId = r.RentalId,
+                        CarId = r.CarId,
+                        CarName = car?.CarName,
+                        CarColor = car?.Color,
+                        RenterName = r.RenterName,
+                        DriverLicense = r.DriverLicense,
+                        RenterAddress = r.RenterAddress,
+                        RentDate = r.RentDate,
+                        ReturnDate = r.ReturnDate,
+                        EstimatedCost = r.EstimatedCost
+                    };
+                }).ToList();
+
+                rentalsBindingList = new BindingList<RentalGridItem>(items);
 
                 if (dgvRentals == null)
                 {
@@ -35,8 +69,9 @@ namespace CarRentalCataloguee.Forms
                 }
 
                 dgvRentals.DataSource = rentalsBindingList;
+                dgvRentals.Refresh();
+                dgvRentals.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
 
-                // Optional: hide internal fields
                 if (dgvRentals.Columns["RentalId"] != null)
                     dgvRentals.Columns["RentalId"].Visible = false;
             }
@@ -54,28 +89,94 @@ namespace CarRentalCataloguee.Forms
 
         private void dgvRentals_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            try
+            {
+                if (e.RowIndex < 0) return;
 
+                var row = dgvRentals.Rows[e.RowIndex];
+                if (row.DataBoundItem is not RentalGridItem gridItem)
+                {
+                    MessageBox.Show("Selected row does not contain a valid rental.", "Selection Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // Find canonical Rental by id
+                selectedRental = RentalsRepository.LoadAll()
+                    .FirstOrDefault(r => string.Equals(r.RentalId, gridItem.RentalId, StringComparison.OrdinalIgnoreCase));
+
+                string summary =
+                    $"Rental ID: {gridItem.RentalId}\n" +
+                    $"Car ID: {gridItem.CarId ?? "<unknown>"}\n" +
+                    $"Car Name: {gridItem.CarName ?? "<unknown>"}\n" +
+                    $"Car Color: {gridItem.CarColor ?? "<unknown>"}\n" +
+                    $"Renter Name: {gridItem.RenterName ?? "<unknown>"}\n" +
+                    $"Driver License: {gridItem.DriverLicense ?? "<unknown>"}\n" +
+                    $"Address: {gridItem.RenterAddress ?? "<unknown>"}\n" +
+                    $"Return Date: {gridItem.ReturnDate:yyyy-MM-dd}";
+
+                Clipboard.SetText(summary);
+                MessageBox.Show("Rental selected and details copied to clipboard.", "Rental Selected", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Failed to store selected rental: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
-    }
-    public static class RentalsRepository
-    {
-        public static List<Rental> LoadAll()
+
+        private void RentalsRepository_RentalsChanged(object? sender, EventArgs e)
         {
-            // Replace with actual data loading logic.
-            return new List<Rental>();
+            if (InvokeRequired)
+            {
+                BeginInvoke(new Action(LoadRentals));
+                return;
+            }
+            LoadRentals();
         }
-    }
-}
 
-namespace CarRentalCataloguee.Forms.Classes
-{
-    public class Rental
-    {
-        // Define properties as needed. Example:
-        public int RentalId { get; set; }
-        public string? RenterName { get; internal set; }
-        public DateTime ReturnDate { get; internal set; }
-        public string? CarId { get; internal set; }
-        // Add other properties relevant to your Rental entity.
+        protected override void OnFormClosed(FormClosedEventArgs e)
+        {
+            RentalsRepository.RentalsChanged -= RentalsRepository_RentalsChanged;
+            base.OnFormClosed(e);
+        }
+
+        // View model for the grid
+        private class RentalGridItem
+        {
+            public string RentalId { get; set; } = string.Empty;
+            public string? CarId { get; set; }
+            public string? CarName { get; set; }
+            public string? CarColor { get; set; }
+            public string? RenterName { get; set; }
+            public string? DriverLicense { get; set; }
+            public string? RenterAddress { get; set; }
+            public DateTime RentDate { get; set; }
+            public DateTime ReturnDate { get; set; }
+            public double EstimatedCost { get; set; }
+        }
+
+        private void btnRemoveUser_Click(object sender, EventArgs e)
+        {
+            // Remove user when they return the car
+            if (selectedRental == null)
+            {
+                MessageBox.Show("Please select a rental to remove.", "No Selection", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            else
+            {
+                try
+                {
+                    RentalsRepository.DeleteRental(selectedRental.RentalId);
+                    MessageBox.Show("Rental removed successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    selectedRental = null;
+                    LoadRentals();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Failed to remove rental: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+        }
     }
 }
