@@ -59,5 +59,135 @@ namespace CarRentalCataloguee.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap available_fotor_202512151633 {
+            get {
+                object obj = ResourceManager.GetObject("available-fotor-202512151633", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap available_fotor_2025121516354 {
+            get {
+                object obj = ResourceManager.GetObject("available-fotor-2025121516354", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap car_key_fotor_20251215154430 {
+            get {
+                object obj = ResourceManager.GetObject("car-key-fotor-20251215154430", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap car_key_fotor_20251215154541 {
+            get {
+                object obj = ResourceManager.GetObject("car-key-fotor-20251215154541", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap group_fotor_2025121516712 {
+            get {
+                object obj = ResourceManager.GetObject("group-fotor-2025121516712", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap mobile_fotor_20251215154950 {
+            get {
+                object obj = ResourceManager.GetObject("mobile-fotor-20251215154950", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap refresh_data_fotor_20251215155851 {
+            get {
+                object obj = ResourceManager.GetObject("refresh-data-fotor-20251215155851", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap result_car_rent {
+            get {
+                object obj = ResourceManager.GetObject("result_car-rent", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap result_car_rent__1_ {
+            get {
+                object obj = ResourceManager.GetObject("result_car-rent (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap return_fotor_2025121516834 {
+            get {
+                object obj = ResourceManager.GetObject("return-fotor-2025121516834", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap sport_car_fotor_20251215155129 {
+            get {
+                object obj = ResourceManager.GetObject("sport-car-fotor-20251215155129", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap update_fotor_20251215155625 {
+            get {
+                object obj = ResourceManager.GetObject("update-fotor-20251215155625", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap update_fotor_20251215155711 {
+            get {
+                object obj = ResourceManager.GetObject("update-fotor-20251215155711", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

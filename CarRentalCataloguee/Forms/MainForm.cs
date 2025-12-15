@@ -33,7 +33,7 @@ namespace CarRentalCataloguee
 
         private void AddFormToPanel(Form form)
         {
-            pnlMain.Controls.Clear(); 
+            pnlMain.Controls.Clear();
             form.TopLevel = false;
             form.AutoScroll = true;
             pnlMain.Controls.Add(form);
@@ -48,7 +48,7 @@ namespace CarRentalCataloguee
             if (vehicleForm == null || vehicleForm.IsDisposed)
             {
                 vehicleForm = new VehicleForm();
-                vehicleForm.RentRequested += VehicleForm_RentRequested; 
+                vehicleForm.RentRequested += VehicleForm_RentRequested;
             }
         }
 
@@ -118,6 +118,11 @@ namespace CarRentalCataloguee
         private void btnNotification_Click(object sender, EventArgs e)
         {
             AddFormToPanel(new NotificationForm());
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -48,12 +48,12 @@
             // 
             // btnAddCar
             // 
-            btnAddCar.BackColor = SystemColors.Highlight;
+            btnAddCar.BackColor = Color.FromArgb(64, 109, 167);
             btnAddCar.Font = new Font("Tahoma", 9F, FontStyle.Bold);
             btnAddCar.ForeColor = SystemColors.ButtonHighlight;
-            btnAddCar.Location = new Point(888, 394);
+            btnAddCar.Location = new Point(845, 394);
             btnAddCar.Name = "btnAddCar";
-            btnAddCar.Size = new Size(133, 43);
+            btnAddCar.Size = new Size(176, 43);
             btnAddCar.TabIndex = 7;
             btnAddCar.Text = "Add Car";
             btnAddCar.UseVisualStyleBackColor = false;
@@ -61,12 +61,12 @@
             // 
             // btnRefresh
             // 
-            btnRefresh.BackColor = SystemColors.Highlight;
+            btnRefresh.BackColor = Color.FromArgb(64, 109, 167);
             btnRefresh.Font = new Font("Tahoma", 9F, FontStyle.Bold);
             btnRefresh.ForeColor = SystemColors.ButtonHighlight;
             btnRefresh.Location = new Point(220, 394);
             btnRefresh.Name = "btnRefresh";
-            btnRefresh.Size = new Size(133, 43);
+            btnRefresh.Size = new Size(198, 43);
             btnRefresh.TabIndex = 8;
             btnRefresh.Text = "Refresh";
             btnRefresh.UseVisualStyleBackColor = false;
@@ -77,7 +77,7 @@
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.BackgroundColor = Color.SteelBlue;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(220, 55);
+            dataGridView1.Location = new Point(220, 64);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.Size = new Size(801, 324);
             dataGridView1.TabIndex = 9;
@@ -96,12 +96,12 @@
             // 
             // btnRentCar
             // 
-            btnRentCar.BackColor = SystemColors.Highlight;
+            btnRentCar.BackColor = Color.FromArgb(64, 109, 167);
             btnRentCar.Font = new Font("Tahoma", 9F, FontStyle.Bold);
             btnRentCar.ForeColor = SystemColors.ButtonHighlight;
-            btnRentCar.Location = new Point(447, 394);
+            btnRentCar.Location = new Point(424, 394);
             btnRentCar.Name = "btnRentCar";
-            btnRentCar.Size = new Size(133, 43);
+            btnRentCar.Size = new Size(194, 43);
             btnRentCar.TabIndex = 11;
             btnRentCar.Text = "Rent Car";
             btnRentCar.UseVisualStyleBackColor = false;
@@ -109,12 +109,12 @@
             // 
             // btnEditCars
             // 
-            btnEditCars.BackColor = SystemColors.Highlight;
+            btnEditCars.BackColor = Color.FromArgb(64, 109, 167);
             btnEditCars.Font = new Font("Tahoma", 9F, FontStyle.Bold);
             btnEditCars.ForeColor = SystemColors.ButtonHighlight;
-            btnEditCars.Location = new Point(680, 394);
+            btnEditCars.Location = new Point(624, 394);
             btnEditCars.Name = "btnEditCars";
-            btnEditCars.Size = new Size(133, 43);
+            btnEditCars.Size = new Size(215, 43);
             btnEditCars.TabIndex = 12;
             btnEditCars.Text = "Edit Cars";
             btnEditCars.UseVisualStyleBackColor = false;

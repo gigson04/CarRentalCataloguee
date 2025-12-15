@@ -50,7 +50,7 @@
             dgvRentals.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvRentals.Location = new Point(222, 43);
             dgvRentals.Name = "dgvRentals";
-            dgvRentals.Size = new Size(791, 360);
+            dgvRentals.Size = new Size(791, 338);
             dgvRentals.TabIndex = 2;
             dgvRentals.CellContentClick += dgvRentals_CellContentClick;
             // 
@@ -70,7 +70,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Tahoma", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(184, 11);
+            label1.Location = new Point(222, 11);
             label1.Name = "label1";
             label1.Size = new Size(179, 29);
             label1.TabIndex = 11;

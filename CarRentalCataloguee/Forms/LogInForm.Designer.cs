@@ -29,10 +29,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LogInForm));
             flowLayoutPanel1 = new FlowLayoutPanel();
             panel2 = new Panel();
-            pictureBox1 = new PictureBox();
             panel1 = new Panel();
             checkBox1 = new CheckBox();
             label2 = new Label();
@@ -43,9 +41,10 @@
             label3 = new Label();
             btnSignUp = new Button();
             label4 = new Label();
+            pictureBox1 = new PictureBox();
             flowLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -58,7 +57,7 @@
             flowLayoutPanel1.Dock = DockStyle.Left;
             flowLayoutPanel1.Location = new Point(0, 0);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(306, 450);
+            flowLayoutPanel1.Size = new Size(315, 450);
             flowLayoutPanel1.TabIndex = 0;
             // 
             // panel2
@@ -66,20 +65,8 @@
             panel2.BackColor = SystemColors.HotTrack;
             panel2.Location = new Point(3, 3);
             panel2.Name = "panel2";
-            panel2.Size = new Size(300, 39);
+            panel2.Size = new Size(309, 39);
             panel2.TabIndex = 1;
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.BackgroundImageLayout = ImageLayout.None;
-            pictureBox1.Dock = DockStyle.Top;
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(3, 48);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(300, 403);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
             // 
             // panel1
             // 
@@ -192,6 +179,15 @@
             label4.TabIndex = 6;
             label4.Text = "Welcome Back!";
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.result_car_rent__1_;
+            pictureBox1.Location = new Point(3, 48);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(309, 313);
+            pictureBox1.TabIndex = 2;
+            pictureBox1.TabStop = false;
+            // 
             // LogInForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -207,9 +203,9 @@
             Name = "LogInForm";
             Text = "Form1";
             flowLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -226,8 +222,8 @@
         private Label label3;
         private Button btnSignUp;
         private Label label4;
-        private PictureBox pictureBox1;
         private Panel panel2;
         private CheckBox checkBox1;
+        private PictureBox pictureBox1;
     }
 }

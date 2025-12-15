@@ -117,4 +117,44 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="mobile-fotor-20251215154950" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mobile-fotor-20251215154950.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="available-fotor-202512151633" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\available-fotor-202512151633.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="car-key-fotor-20251215154430" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\car-key-fotor-20251215154430.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="update-fotor-20251215155711" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\update-fotor-20251215155711.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="car-key-fotor-20251215154541" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\car-key-fotor-20251215154541.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="group-fotor-2025121516712" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\group-fotor-2025121516712.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="result_car-rent" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\result_car-rent.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="refresh-data-fotor-20251215155851" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\refresh-data-fotor-20251215155851.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sport-car-fotor-20251215155129" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sport-car-fotor-20251215155129.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="available-fotor-2025121516354" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\available-fotor-2025121516354.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="result_car-rent (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\result_car-rent (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="update-fotor-20251215155625" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\update-fotor-20251215155625.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="return-fotor-2025121516834" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\return-fotor-2025121516834.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

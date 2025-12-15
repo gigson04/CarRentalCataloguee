@@ -44,10 +44,14 @@
             panel5 = new Panel();
             panel4 = new Panel();
             panel3 = new Panel();
+            pictureBox2 = new PictureBox();
+            label2 = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel2.SuspendLayout();
             pnlMain.SuspendLayout();
+            panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -233,12 +237,34 @@
             // panel3
             // 
             panel3.BackColor = Color.SteelBlue;
+            panel3.Controls.Add(pictureBox2);
+            panel3.Controls.Add(label2);
             panel3.Dock = DockStyle.Top;
             panel3.ForeColor = Color.BlueViolet;
             panel3.Location = new Point(0, 0);
             panel3.Name = "panel3";
             panel3.Size = new Size(1068, 74);
             panel3.TabIndex = 0;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = Properties.Resources.car_key_fotor_20251215154541;
+            pictureBox2.Location = new Point(685, 7);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(51, 50);
+            pictureBox2.TabIndex = 1;
+            pictureBox2.TabStop = false;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Tahoma", 27.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.ForeColor = SystemColors.ButtonHighlight;
+            label2.Location = new Point(464, 12);
+            label2.Name = "label2";
+            label2.Size = new Size(215, 45);
+            label2.TabIndex = 0;
+            label2.Text = "Car Rental";
             // 
             // MainForm
             // 
@@ -257,6 +283,9 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel2.ResumeLayout(false);
             pnlMain.ResumeLayout(false);
+            panel3.ResumeLayout(false);
+            panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
         }
 
@@ -276,5 +305,7 @@
         private Panel pnlMain;
         private Panel panel5;
         private Panel panel6;
+        private Label label2;
+        private PictureBox pictureBox2;
     }
 }
