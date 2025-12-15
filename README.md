@@ -12,6 +12,6 @@ Lastly, we implemented a User Form, where we can view the users who have rented 
 Overall, this project demonstrates our understanding of CRUD operations, SQLite database integration, and form-based system design in developing a functional car rental management application.
 
 Members:
-        Gigson Aquino
-        Angelo Santillian
+        Gigson Aquino,
+        Angelo Santillian,
         Rey Edward Pascual
