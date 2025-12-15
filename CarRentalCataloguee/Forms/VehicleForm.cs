@@ -222,7 +222,8 @@ namespace CarRentalCataloguee.Forms
             MessageBox.Show("Label clicked.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             System.Diagnostics.Debug.WriteLine("label1_Click fired at " + DateTime.Now.ToString("o"));
-            
+            //
+
         }
     }
 }
