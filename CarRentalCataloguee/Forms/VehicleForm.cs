@@ -15,7 +15,7 @@ namespace CarRentalCataloguee.Forms
         public event EventHandler<RentRequestedEventArgs>? RentRequested;
 
         private readonly List<Car> cars = new List<Car>();
-        private readonly BindingSource bindingSource = new BindingSource();  
+        private readonly BindingSource bindingSource = new BindingSource();
         private readonly string dataFilePath;
 
         public VehicleForm()
@@ -27,10 +27,10 @@ namespace CarRentalCataloguee.Forms
             Directory.CreateDirectory(folder);
             dataFilePath = Path.Combine(folder, "cars.json");
 
-          
+
             dataGridView1.AutoGenerateColumns = true;
 
-           
+
             bindingSource.DataSource = cars;
             dataGridView1.DataSource = bindingSource;
 
@@ -43,7 +43,7 @@ namespace CarRentalCataloguee.Forms
                 SaveToDisk();
             }
 
-          
+
             LoadCarData();
 
 
@@ -182,6 +182,47 @@ namespace CarRentalCataloguee.Forms
         private void VehicleForm_FormClosing(object? sender, FormClosingEventArgs e)
         {
             SaveToDisk();
+        }
+
+        private void btnEditCars_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dataGridView1.CurrentRow == null)
+                {
+                    MessageBox.Show("Please select a car to edit.", "No Selection", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
+                if (dataGridView1.CurrentRow.DataBoundItem is not Car selectedCar)
+                {
+                    MessageBox.Show("Selected item is not a valid car.", "Selection Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                using EditForm editForm = new EditForm(selectedCar);
+                var result = editForm.ShowDialog();
+
+                if (result == DialogResult.OK)
+                {
+                    LoadCarData();
+                    SaveToDisk();
+                    MessageBox.Show("Car updated successfully.", "Edit Car", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error editing car: {ex.Message}", "Edit Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+         
+            MessageBox.Show("Label clicked.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            System.Diagnostics.Debug.WriteLine("label1_Click fired at " + DateTime.Now.ToString("o"));
+
         }
     }
 }

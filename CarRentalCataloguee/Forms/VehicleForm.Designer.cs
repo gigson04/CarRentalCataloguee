@@ -34,6 +34,7 @@
             dataGridView1 = new DataGridView();
             label1 = new Label();
             btnRentCar = new Button();
+            btnEditCars = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -48,6 +49,7 @@
             // btnAddCar
             // 
             btnAddCar.BackColor = SystemColors.Highlight;
+            btnAddCar.Font = new Font("Tahoma", 9F, FontStyle.Bold);
             btnAddCar.ForeColor = SystemColors.ButtonHighlight;
             btnAddCar.Location = new Point(888, 394);
             btnAddCar.Name = "btnAddCar";
@@ -60,6 +62,7 @@
             // btnRefresh
             // 
             btnRefresh.BackColor = SystemColors.Highlight;
+            btnRefresh.Font = new Font("Tahoma", 9F, FontStyle.Bold);
             btnRefresh.ForeColor = SystemColors.ButtonHighlight;
             btnRefresh.Location = new Point(220, 394);
             btnRefresh.Name = "btnRefresh";
@@ -89,12 +92,14 @@
             label1.Size = new Size(398, 29);
             label1.TabIndex = 10;
             label1.Text = "Pick a car that you want to rent!";
+            label1.Click += label1_Click;
             // 
             // btnRentCar
             // 
             btnRentCar.BackColor = SystemColors.Highlight;
+            btnRentCar.Font = new Font("Tahoma", 9F, FontStyle.Bold);
             btnRentCar.ForeColor = SystemColors.ButtonHighlight;
-            btnRentCar.Location = new Point(562, 394);
+            btnRentCar.Location = new Point(447, 394);
             btnRentCar.Name = "btnRentCar";
             btnRentCar.Size = new Size(133, 43);
             btnRentCar.TabIndex = 11;
@@ -102,12 +107,26 @@
             btnRentCar.UseVisualStyleBackColor = false;
             btnRentCar.Click += btnRentCar_Click;
             // 
+            // btnEditCars
+            // 
+            btnEditCars.BackColor = SystemColors.Highlight;
+            btnEditCars.Font = new Font("Tahoma", 9F, FontStyle.Bold);
+            btnEditCars.ForeColor = SystemColors.ButtonHighlight;
+            btnEditCars.Location = new Point(680, 394);
+            btnEditCars.Name = "btnEditCars";
+            btnEditCars.Size = new Size(133, 43);
+            btnEditCars.TabIndex = 12;
+            btnEditCars.Text = "Edit Cars";
+            btnEditCars.UseVisualStyleBackColor = false;
+            btnEditCars.Click += btnEditCars_Click;
+            // 
             // VehicleForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(1052, 443);
+            Controls.Add(btnEditCars);
             Controls.Add(btnRentCar);
             Controls.Add(label1);
             Controls.Add(dataGridView1);
@@ -128,5 +147,6 @@
         private DataGridView dataGridView1;
         private Label label1;
         private Button btnRentCar;
+        private Button btnEditCars;
     }
 }

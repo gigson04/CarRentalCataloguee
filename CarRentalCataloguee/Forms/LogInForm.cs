@@ -128,7 +128,7 @@ namespace CarRentalCataloguee
                 return true;
             }
 
-            const string builtInUser = "admin";
+            const string builtInUser = "Gigson";
             const string builtInPassword = "1234";
             if (string.Equals(userName, builtInUser, StringComparison.OrdinalIgnoreCase)
                 && string.Equals(hash, ComputeHash(builtInPassword), StringComparison.Ordinal))

@@ -39,6 +39,7 @@
             panel9 = new Panel();
             label6 = new Label();
             btnRefreshDashBoard = new Button();
+            label7 = new Label();
             panel8.SuspendLayout();
             panel7.SuspendLayout();
             panel9.SuspendLayout();
@@ -50,9 +51,9 @@
             panel8.Controls.Add(label4);
             panel8.Controls.Add(label3);
             panel8.Font = new Font("Tahoma", 9F, FontStyle.Bold);
-            panel8.Location = new Point(492, 164);
+            panel8.Location = new Point(227, 152);
             panel8.Name = "panel8";
-            panel8.Size = new Size(200, 153);
+            panel8.Size = new Size(774, 109);
             panel8.TabIndex = 3;
             // 
             // label4
@@ -82,9 +83,9 @@
             panel7.Controls.Add(label2);
             panel7.Controls.Add(label1);
             panel7.Font = new Font("Tahoma", 9F, FontStyle.Bold);
-            panel7.Location = new Point(242, 164);
+            panel7.Location = new Point(227, 60);
             panel7.Name = "panel7";
-            panel7.Size = new Size(173, 153);
+            panel7.Size = new Size(774, 98);
             panel7.TabIndex = 2;
             // 
             // label2
@@ -133,9 +134,9 @@
             panel9.Controls.Add(label6);
             panel9.Controls.Add(label5);
             panel9.Font = new Font("Tahoma", 9F, FontStyle.Bold);
-            panel9.Location = new Point(766, 164);
+            panel9.Location = new Point(227, 250);
             panel9.Name = "panel9";
-            panel9.Size = new Size(235, 153);
+            panel9.Size = new Size(774, 101);
             panel9.TabIndex = 4;
             // 
             // label6
@@ -162,15 +163,27 @@
             btnRefreshDashBoard.UseVisualStyleBackColor = false;
             btnRefreshDashBoard.Click += btnRefreshDashBoard_Click;
             // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Tahoma", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label7.Location = new Point(227, 18);
+            label7.Name = "label7";
+            label7.Size = new Size(263, 39);
+            label7.TabIndex = 13;
+            label7.Text = "Welcome Back!";
+            // 
             // DashboardForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.InactiveCaption;
             ClientSize = new Size(1052, 443);
+            Controls.Add(label7);
             Controls.Add(btnRefreshDashBoard);
+            Controls.Add(panel8);
             Controls.Add(panel1);
             Controls.Add(panel9);
-            Controls.Add(panel8);
             Controls.Add(panel7);
             FormBorderStyle = FormBorderStyle.None;
             Name = "DashboardForm";
@@ -182,6 +195,7 @@
             panel9.ResumeLayout(false);
             panel9.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -196,5 +210,6 @@
         private Panel panel9;
         private Label label6;
         private Button btnRefreshDashBoard;
+        private Label label7;
     }
 }
