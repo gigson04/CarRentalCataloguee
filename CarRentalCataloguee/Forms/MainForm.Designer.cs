@@ -33,7 +33,7 @@
             label1 = new Label();
             pictureBox1 = new PictureBox();
             btnExit = new Button();
-            btnNotification = new Button();
+            btnThankYou = new Button();
             btnUser = new Button();
             btnRentCar = new Button();
             btnVehicles = new Button();
@@ -60,7 +60,7 @@
             panel1.Controls.Add(label1);
             panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(btnExit);
-            panel1.Controls.Add(btnNotification);
+            panel1.Controls.Add(btnThankYou);
             panel1.Controls.Add(btnUser);
             panel1.Controls.Add(btnRentCar);
             panel1.Controls.Add(btnVehicles);
@@ -105,20 +105,20 @@
             btnExit.UseVisualStyleBackColor = true;
             btnExit.Click += btnExit_Click;
             // 
-            // btnNotification
+            // btnThankYou
             // 
-            btnNotification.FlatStyle = FlatStyle.Popup;
-            btnNotification.Font = new Font("Tahoma", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnNotification.Image = (Image)resources.GetObject("btnNotification.Image");
-            btnNotification.ImageAlign = ContentAlignment.MiddleLeft;
-            btnNotification.Location = new Point(0, 400);
-            btnNotification.Name = "btnNotification";
-            btnNotification.Padding = new Padding(12, 0, 0, 0);
-            btnNotification.Size = new Size(178, 75);
-            btnNotification.TabIndex = 4;
-            btnNotification.Text = "Notifcation";
-            btnNotification.UseVisualStyleBackColor = true;
-            btnNotification.Click += btnNotification_Click;
+            btnThankYou.FlatStyle = FlatStyle.Popup;
+            btnThankYou.Font = new Font("Tahoma", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnThankYou.Image = (Image)resources.GetObject("btnThankYou.Image");
+            btnThankYou.ImageAlign = ContentAlignment.MiddleLeft;
+            btnThankYou.Location = new Point(0, 400);
+            btnThankYou.Name = "btnThankYou";
+            btnThankYou.Padding = new Padding(12, 0, 0, 0);
+            btnThankYou.Size = new Size(178, 75);
+            btnThankYou.TabIndex = 4;
+            btnThankYou.Text = "Thank You";
+            btnThankYou.UseVisualStyleBackColor = true;
+            btnThankYou.Click += btnThankYou_Click;
             // 
             // btnUser
             // 
@@ -209,6 +209,7 @@
             // 
             // panel6
             // 
+            panel6.AutoSize = true;
             panel6.BackColor = Color.White;
             panel6.Dock = DockStyle.Fill;
             panel6.ForeColor = SystemColors.ActiveCaption;
@@ -283,6 +284,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel2.ResumeLayout(false);
             pnlMain.ResumeLayout(false);
+            pnlMain.PerformLayout();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
@@ -293,7 +295,6 @@
         private Panel panel1;
         private Label label1;
         private PictureBox pictureBox1;
-        private Button btnNotification;
         private Button btnUser;
         private Button btnRentCar;
         private Button btnVehicles;
@@ -307,5 +308,6 @@
         private Panel panel6;
         private Label label2;
         private PictureBox pictureBox2;
+        private Button btnThankYou;
     }
 }

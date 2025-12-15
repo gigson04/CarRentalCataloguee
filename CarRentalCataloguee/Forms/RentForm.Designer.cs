@@ -35,7 +35,6 @@
             lblColor = new Label();
             lblPrice = new Label();
             lblAvailability = new Label();
-            groupBoxRenter = new GroupBox();
             label1 = new Label();
             dtpWhenToReturn = new DateTimePicker();
             lblFullName = new Label();
@@ -50,8 +49,19 @@
             nudAge = new NumericUpDown();
             btnConfirmRent = new Button();
             btnCancel = new Button();
-            groupBoxRenter.SuspendLayout();
+            pictureBox1 = new PictureBox();
+            pictureBox2 = new PictureBox();
+            pictureBox3 = new PictureBox();
+            pictureBox4 = new PictureBox();
+            pictureBox5 = new PictureBox();
+            pictureBox6 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)nudAge).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -66,201 +76,191 @@
             // lblTitle
             // 
             lblTitle.AutoSize = true;
-            lblTitle.BackColor = SystemColors.ButtonHighlight;
-            lblTitle.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            lblTitle.BackColor = SystemColors.GradientInactiveCaption;
+            lblTitle.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblTitle.Location = new Point(200, 20);
             lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(74, 21);
+            lblTitle.Size = new Size(229, 37);
             lblTitle.TabIndex = 1;
-            lblTitle.Text = "Rent Car";
+            lblTitle.Text = "Car Information:";
             // 
             // lblCarId
             // 
             lblCarId.AutoSize = true;
-            lblCarId.BackColor = SystemColors.ButtonHighlight;
-            lblCarId.Font = new Font("Tahoma", 9.75F, FontStyle.Bold);
-            lblCarId.Location = new Point(200, 55);
+            lblCarId.BackColor = SystemColors.GradientInactiveCaption;
+            lblCarId.Font = new Font("Tahoma", 12F, FontStyle.Bold);
+            lblCarId.Location = new Point(205, 58);
             lblCarId.Name = "lblCarId";
-            lblCarId.Size = new Size(52, 16);
+            lblCarId.Size = new Size(67, 19);
             lblCarId.TabIndex = 2;
             lblCarId.Text = "Car ID:";
             // 
             // lblCarName
             // 
             lblCarName.AutoSize = true;
-            lblCarName.BackColor = SystemColors.ButtonHighlight;
-            lblCarName.Font = new Font("Tahoma", 9.75F, FontStyle.Bold);
-            lblCarName.Location = new Point(200, 80);
+            lblCarName.BackColor = SystemColors.GradientInactiveCaption;
+            lblCarName.Font = new Font("Tahoma", 12F, FontStyle.Bold);
+            lblCarName.Location = new Point(205, 83);
             lblCarName.Name = "lblCarName";
-            lblCarName.Size = new Size(73, 16);
+            lblCarName.Size = new Size(95, 19);
             lblCarName.TabIndex = 3;
             lblCarName.Text = "Car Name:";
             // 
             // lblColor
             // 
             lblColor.AutoSize = true;
-            lblColor.BackColor = SystemColors.ButtonHighlight;
-            lblColor.Font = new Font("Tahoma", 9.75F, FontStyle.Bold);
-            lblColor.Location = new Point(200, 105);
+            lblColor.BackColor = SystemColors.GradientInactiveCaption;
+            lblColor.Font = new Font("Tahoma", 12F, FontStyle.Bold);
+            lblColor.Location = new Point(205, 108);
             lblColor.Name = "lblColor";
-            lblColor.Size = new Size(45, 16);
+            lblColor.Size = new Size(58, 19);
             lblColor.TabIndex = 4;
             lblColor.Text = "Color:";
             // 
             // lblPrice
             // 
             lblPrice.AutoSize = true;
-            lblPrice.BackColor = SystemColors.ButtonHighlight;
-            lblPrice.Font = new Font("Tahoma", 9.75F, FontStyle.Bold);
-            lblPrice.Location = new Point(200, 130);
+            lblPrice.BackColor = SystemColors.GradientInactiveCaption;
+            lblPrice.Font = new Font("Tahoma", 12F, FontStyle.Bold);
+            lblPrice.Location = new Point(205, 133);
             lblPrice.Name = "lblPrice";
-            lblPrice.Size = new Size(105, 16);
+            lblPrice.Size = new Size(132, 19);
             lblPrice.TabIndex = 5;
             lblPrice.Text = "Price per Hour:";
             // 
             // lblAvailability
             // 
             lblAvailability.AutoSize = true;
-            lblAvailability.BackColor = SystemColors.ButtonHighlight;
-            lblAvailability.Font = new Font("Tahoma", 9.75F, FontStyle.Bold);
-            lblAvailability.Location = new Point(200, 155);
+            lblAvailability.BackColor = SystemColors.GradientInactiveCaption;
+            lblAvailability.Font = new Font("Tahoma", 12F, FontStyle.Bold);
+            lblAvailability.Location = new Point(205, 158);
             lblAvailability.Name = "lblAvailability";
-            lblAvailability.Size = new Size(83, 16);
+            lblAvailability.Size = new Size(107, 19);
             lblAvailability.TabIndex = 6;
             lblAvailability.Text = "Availability:";
-            // 
-            // groupBoxRenter
-            // 
-            groupBoxRenter.BackColor = SystemColors.ButtonHighlight;
-            groupBoxRenter.Controls.Add(label1);
-            groupBoxRenter.Controls.Add(dtpWhenToReturn);
-            groupBoxRenter.Controls.Add(lblFullName);
-            groupBoxRenter.Controls.Add(txtFullName);
-            groupBoxRenter.Controls.Add(lblDriverLicense);
-            groupBoxRenter.Controls.Add(txtDriverLicense);
-            groupBoxRenter.Controls.Add(lblAddress);
-            groupBoxRenter.Controls.Add(txtAddress);
-            groupBoxRenter.Controls.Add(lblBirthday);
-            groupBoxRenter.Controls.Add(dtpBirthday);
-            groupBoxRenter.Controls.Add(lblAge);
-            groupBoxRenter.Controls.Add(nudAge);
-            groupBoxRenter.Font = new Font("Tahoma", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            groupBoxRenter.Location = new Point(200, 174);
-            groupBoxRenter.Name = "groupBoxRenter";
-            groupBoxRenter.Size = new Size(420, 230);
-            groupBoxRenter.TabIndex = 7;
-            groupBoxRenter.TabStop = false;
-            groupBoxRenter.Text = "Renter Information";
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(14, 186);
+            label1.Font = new Font("Tahoma", 11.25F, FontStyle.Bold);
+            label1.Location = new Point(707, 235);
             label1.Name = "label1";
-            label1.Size = new Size(79, 16);
+            label1.Size = new Size(91, 18);
             label1.TabIndex = 11;
             label1.Text = "Return in?:";
             // 
             // dtpWhenToReturn
             // 
+            dtpWhenToReturn.Font = new Font("Tahoma", 11.25F, FontStyle.Bold);
             dtpWhenToReturn.Format = DateTimePickerFormat.Short;
-            dtpWhenToReturn.Location = new Point(120, 181);
+            dtpWhenToReturn.Location = new Point(804, 229);
             dtpWhenToReturn.Name = "dtpWhenToReturn";
-            dtpWhenToReturn.Size = new Size(120, 23);
+            dtpWhenToReturn.Size = new Size(136, 26);
             dtpWhenToReturn.TabIndex = 10;
             dtpWhenToReturn.ValueChanged += dtpWhenToReturn_ValueChanged;
             // 
             // lblFullName
             // 
             lblFullName.AutoSize = true;
-            lblFullName.Location = new Point(15, 28);
+            lblFullName.Font = new Font("Tahoma", 11.25F, FontStyle.Bold);
+            lblFullName.Location = new Point(250, 205);
             lblFullName.Name = "lblFullName";
-            lblFullName.Size = new Size(71, 16);
+            lblFullName.Size = new Size(85, 18);
             lblFullName.TabIndex = 0;
             lblFullName.Text = "Full name:";
             // 
             // txtFullName
             // 
-            txtFullName.Location = new Point(132, 25);
+            txtFullName.Font = new Font("Tahoma", 11.25F, FontStyle.Bold);
+            txtFullName.Location = new Point(339, 197);
             txtFullName.Name = "txtFullName";
-            txtFullName.Size = new Size(280, 23);
+            txtFullName.Size = new Size(288, 26);
             txtFullName.TabIndex = 1;
             // 
             // lblDriverLicense
             // 
             lblDriverLicense.AutoSize = true;
-            lblDriverLicense.Location = new Point(15, 60);
+            lblDriverLicense.Font = new Font("Tahoma", 11.25F, FontStyle.Bold);
+            lblDriverLicense.Location = new Point(228, 301);
             lblDriverLicense.Name = "lblDriverLicense";
-            lblDriverLicense.Size = new Size(111, 16);
+            lblDriverLicense.Size = new Size(130, 18);
             lblDriverLicense.TabIndex = 2;
             lblDriverLicense.Text = "Driver's license:";
             // 
             // txtDriverLicense
             // 
-            txtDriverLicense.Location = new Point(132, 57);
+            txtDriverLicense.Font = new Font("Tahoma", 11.25F, FontStyle.Bold);
+            txtDriverLicense.Location = new Point(364, 298);
             txtDriverLicense.Name = "txtDriverLicense";
-            txtDriverLicense.Size = new Size(280, 23);
+            txtDriverLicense.Size = new Size(263, 26);
             txtDriverLicense.TabIndex = 3;
             // 
             // lblAddress
             // 
             lblAddress.AutoSize = true;
-            lblAddress.Location = new Point(15, 92);
+            lblAddress.Font = new Font("Tahoma", 11.25F, FontStyle.Bold);
+            lblAddress.Location = new Point(250, 247);
             lblAddress.Name = "lblAddress";
-            lblAddress.Size = new Size(66, 16);
+            lblAddress.Size = new Size(73, 18);
             lblAddress.TabIndex = 4;
             lblAddress.Text = "Address:";
             // 
             // txtAddress
             // 
-            txtAddress.Location = new Point(132, 89);
+            txtAddress.Font = new Font("Tahoma", 11.25F, FontStyle.Bold);
+            txtAddress.Location = new Point(329, 242);
             txtAddress.Name = "txtAddress";
-            txtAddress.Size = new Size(280, 23);
+            txtAddress.Size = new Size(288, 26);
             txtAddress.TabIndex = 5;
             // 
             // lblBirthday
             // 
             lblBirthday.AutoSize = true;
-            lblBirthday.Location = new Point(15, 124);
+            lblBirthday.Font = new Font("Tahoma", 11.25F, FontStyle.Bold);
+            lblBirthday.Location = new Point(721, 197);
             lblBirthday.Name = "lblBirthday";
-            lblBirthday.Size = new Size(67, 16);
+            lblBirthday.Size = new Size(77, 18);
             lblBirthday.TabIndex = 6;
             lblBirthday.Text = "Birthday:";
             // 
             // dtpBirthday
             // 
+            dtpBirthday.Font = new Font("Tahoma", 11.25F, FontStyle.Bold);
             dtpBirthday.Format = DateTimePickerFormat.Short;
-            dtpBirthday.Location = new Point(120, 120);
+            dtpBirthday.Location = new Point(804, 192);
             dtpBirthday.Name = "dtpBirthday";
-            dtpBirthday.Size = new Size(120, 23);
+            dtpBirthday.Size = new Size(135, 26);
             dtpBirthday.TabIndex = 7;
             dtpBirthday.ValueChanged += dtpBirthday_ValueChanged;
             // 
             // lblAge
             // 
             lblAge.AutoSize = true;
-            lblAge.Location = new Point(15, 156);
+            lblAge.Font = new Font("Tahoma", 11.25F, FontStyle.Bold);
+            lblAge.Location = new Point(748, 275);
             lblAge.Name = "lblAge";
-            lblAge.Size = new Size(38, 16);
+            lblAge.Size = new Size(41, 18);
             lblAge.TabIndex = 8;
             lblAge.Text = "Age:";
             // 
             // nudAge
             // 
-            nudAge.Location = new Point(120, 152);
+            nudAge.Font = new Font("Tahoma", 11.25F, FontStyle.Bold);
+            nudAge.Location = new Point(804, 273);
             nudAge.Maximum = new decimal(new int[] { 120, 0, 0, 0 });
             nudAge.Name = "nudAge";
-            nudAge.Size = new Size(60, 23);
+            nudAge.Size = new Size(54, 26);
             nudAge.TabIndex = 9;
             nudAge.Value = new decimal(new int[] { 18, 0, 0, 0 });
             // 
             // btnConfirmRent
             // 
-            btnConfirmRent.BackColor = SystemColors.ButtonHighlight;
+            btnConfirmRent.BackColor = Color.FromArgb(64, 109, 167);
             btnConfirmRent.Font = new Font("Tahoma", 9.75F, FontStyle.Bold);
-            btnConfirmRent.Location = new Point(200, 410);
+            btnConfirmRent.ForeColor = SystemColors.Control;
+            btnConfirmRent.Location = new Point(804, 388);
             btnConfirmRent.Name = "btnConfirmRent";
-            btnConfirmRent.Size = new Size(100, 25);
+            btnConfirmRent.Size = new Size(223, 43);
             btnConfirmRent.TabIndex = 8;
             btnConfirmRent.Text = "Confirm Rent";
             btnConfirmRent.UseVisualStyleBackColor = false;
@@ -268,25 +268,103 @@
             // 
             // btnCancel
             // 
-            btnCancel.BackColor = SystemColors.ButtonHighlight;
+            btnCancel.BackColor = Color.FromArgb(64, 109, 167);
             btnCancel.Font = new Font("Tahoma", 9.75F, FontStyle.Bold);
-            btnCancel.Location = new Point(310, 410);
+            btnCancel.ForeColor = SystemColors.Control;
+            btnCancel.Location = new Point(200, 388);
             btnCancel.Name = "btnCancel";
-            btnCancel.Size = new Size(100, 25);
+            btnCancel.Size = new Size(223, 43);
             btnCancel.TabIndex = 9;
             btnCancel.Text = "Cancel";
             btnCancel.UseVisualStyleBackColor = false;
             btnCancel.Click += btnCancel_Click;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.id_card_fotor_20251215223435;
+            pictureBox1.Location = new Point(200, 192);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Padding = new Padding(5, 0, 0, 0);
+            pictureBox1.Size = new Size(44, 31);
+            pictureBox1.TabIndex = 12;
+            pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = Properties.Resources.location_fotor_202512152237471;
+            pictureBox2.Location = new Point(201, 235);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Padding = new Padding(5, 0, 0, 0);
+            pictureBox2.Size = new Size(43, 41);
+            pictureBox2.TabIndex = 13;
+            pictureBox2.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.Image = Properties.Resources.paper_fotor_20251215223920;
+            pictureBox3.Location = new Point(184, 289);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Padding = new Padding(5, 0, 0, 0);
+            pictureBox3.Size = new Size(38, 38);
+            pictureBox3.TabIndex = 14;
+            pictureBox3.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            pictureBox4.Image = Properties.Resources.birthday_fotor_20251215224426;
+            pictureBox4.Location = new Point(676, 187);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Padding = new Padding(5, 0, 0, 0);
+            pictureBox4.Size = new Size(39, 36);
+            pictureBox4.TabIndex = 15;
+            pictureBox4.TabStop = false;
+            // 
+            // pictureBox5
+            // 
+            pictureBox5.Image = Properties.Resources.return_fotor_20251215224754;
+            pictureBox5.Location = new Point(662, 229);
+            pictureBox5.Name = "pictureBox5";
+            pictureBox5.Padding = new Padding(5, 0, 0, 0);
+            pictureBox5.Size = new Size(39, 36);
+            pictureBox5.TabIndex = 16;
+            pictureBox5.TabStop = false;
+            // 
+            // pictureBox6
+            // 
+            pictureBox6.Image = Properties.Resources.adult_fotor_202512152249411;
+            pictureBox6.Location = new Point(703, 263);
+            pictureBox6.Name = "pictureBox6";
+            pictureBox6.Padding = new Padding(5, 0, 0, 0);
+            pictureBox6.Size = new Size(39, 36);
+            pictureBox6.TabIndex = 17;
+            pictureBox6.TabStop = false;
+            // 
             // RentForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.ButtonHighlight;
+            BackColor = SystemColors.GradientInactiveCaption;
             ClientSize = new Size(1052, 443);
+            Controls.Add(pictureBox6);
+            Controls.Add(pictureBox5);
+            Controls.Add(pictureBox4);
+            Controls.Add(pictureBox3);
+            Controls.Add(pictureBox2);
+            Controls.Add(pictureBox1);
+            Controls.Add(dtpWhenToReturn);
+            Controls.Add(label1);
             Controls.Add(btnCancel);
             Controls.Add(btnConfirmRent);
-            Controls.Add(groupBoxRenter);
+            Controls.Add(nudAge);
+            Controls.Add(lblAge);
+            Controls.Add(dtpBirthday);
+            Controls.Add(lblBirthday);
+            Controls.Add(txtAddress);
+            Controls.Add(lblAddress);
+            Controls.Add(txtDriverLicense);
+            Controls.Add(lblDriverLicense);
+            Controls.Add(txtFullName);
+            Controls.Add(lblFullName);
             Controls.Add(lblAvailability);
             Controls.Add(lblPrice);
             Controls.Add(lblColor);
@@ -297,9 +375,13 @@
             Name = "RentForm";
             Text = "Rent Car";
             Load += RentForm_Load;
-            groupBoxRenter.ResumeLayout(false);
-            groupBoxRenter.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)nudAge).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -313,7 +395,6 @@
         private Label lblColor;
         private Label lblPrice;
         private Label lblAvailability;
-        private GroupBox groupBoxRenter;
         private Label lblFullName;
         private TextBox txtFullName;
         private Label lblDriverLicense;
@@ -328,5 +409,11 @@
         private Button btnCancel;
         private Label label1;
         private DateTimePicker dtpWhenToReturn;
+        private PictureBox pictureBox1;
+        private PictureBox pictureBox2;
+        private PictureBox pictureBox3;
+        private PictureBox pictureBox4;
+        private PictureBox pictureBox5;
+        private PictureBox pictureBox6;
     }
 }

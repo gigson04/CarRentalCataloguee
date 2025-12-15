@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace CarRentalCataloguee.Forms
 {
-    public partial class NotificationForm : Form
+    public partial class ThankYou : Form
     {
-        public NotificationForm()
+        public ThankYou()
         {
             InitializeComponent();
         }

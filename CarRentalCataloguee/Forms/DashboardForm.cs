@@ -19,6 +19,9 @@ namespace CarRentalCataloguee.Forms
 
             UpdateDashboardLabels();
             this.Activated += (s, e) => UpdateDashboardLabels();
+
+            // Keep dashboard in sync when rentals change elsewhere (UserForm, RentForm, etc.)
+            RentalsRepository.RentalsChanged += RentalsRepository_RentalsChanged;
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -28,12 +31,30 @@ namespace CarRentalCataloguee.Forms
 
         private void label6_Click(object sender, EventArgs e)
         {
+            // When the user was not remove in datagridview, located in UserForm it will show no cars returned, and when removed it will show empty
             UpdateDashboardLabels();
         }
 
         private void label4_Click(object sender, EventArgs e)
         {
             UpdateDashboardLabels();
+        }
+
+        private void RentalsRepository_RentalsChanged(object? sender, EventArgs e)
+        {
+            if (InvokeRequired)
+            {
+                BeginInvoke(new Action(UpdateDashboardLabels));
+                return;
+            }
+            UpdateDashboardLabels();
+        }
+
+        protected override void OnFormClosed(FormClosedEventArgs e)
+        {
+            // Unsubscribe to avoid memory leaks and stop receiving events after closed
+            RentalsRepository.RentalsChanged -= RentalsRepository_RentalsChanged;
+            base.OnFormClosed(e);
         }
 
         private void UpdateDashboardLabels()

@@ -12,7 +12,7 @@ namespace CarRentalCataloguee
         DashboardForm dashboardForm;
         RentForm rentForm;
         UserForm userForm;
-        NotificationForm notificationForm;
+        ThankYou thankYou;
 
         public MainForm()
         {
@@ -21,7 +21,7 @@ namespace CarRentalCataloguee
             dashboardForm = new DashboardForm();
             rentForm = new RentForm();
             userForm = new UserForm();
-            notificationForm = new NotificationForm();
+            thankYou = new ThankYou();
 
             vehicleForm.RentRequested += VehicleForm_RentRequested;
         }
@@ -115,14 +115,15 @@ namespace CarRentalCataloguee
             if (rentForm == null || rentForm.IsDisposed)
                 rentForm = new RentForm();
         }
-        private void btnNotification_Click(object sender, EventArgs e)
-        {
-            AddFormToPanel(new NotificationForm());
-        }
 
         private void pictureBox3_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnThankYou_Click(object sender, EventArgs e)
+        {
+            AddFormToPanel(thankYou);
         }
     }
 }

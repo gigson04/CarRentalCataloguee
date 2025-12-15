@@ -29,39 +29,49 @@
         private void InitializeComponent()
         {
             panel8 = new Panel();
+            pictureBox2 = new PictureBox();
             label4 = new Label();
             label3 = new Label();
             panel7 = new Panel();
+            pictureBox1 = new PictureBox();
             label2 = new Label();
             label1 = new Label();
             panel1 = new Panel();
             label5 = new Label();
             panel9 = new Panel();
+            pictureBox3 = new PictureBox();
             label6 = new Label();
             btnRefreshDashBoard = new Button();
             label7 = new Label();
-            pictureBox1 = new PictureBox();
-            pictureBox2 = new PictureBox();
-            pictureBox3 = new PictureBox();
             panel8.SuspendLayout();
-            panel7.SuspendLayout();
-            panel9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            panel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             SuspendLayout();
             // 
             // panel8
             // 
             panel8.BackColor = Color.FromArgb(45, 69, 90);
-            panel8.Controls.Add(pictureBox2);
             panel8.Controls.Add(label4);
-            panel8.Controls.Add(label3);
+            panel8.Controls.Add(pictureBox3);
+            panel8.Controls.Add(label5);
             panel8.Font = new Font("Tahoma", 9F, FontStyle.Bold);
             panel8.Location = new Point(227, 164);
             panel8.Name = "panel8";
             panel8.Size = new Size(774, 108);
             panel8.TabIndex = 3;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = Properties.Resources.group_fotor_2025121516712;
+            pictureBox2.Location = new Point(3, 14);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Padding = new Padding(12, 0, 0, 0);
+            pictureBox2.Size = new Size(72, 59);
+            pictureBox2.TabIndex = 14;
+            pictureBox2.TabStop = false;
             // 
             // label4
             // 
@@ -78,11 +88,11 @@
             // 
             label3.AutoSize = true;
             label3.ForeColor = SystemColors.Control;
-            label3.Location = new Point(78, 16);
+            label3.Location = new Point(78, 14);
             label3.Name = "label3";
-            label3.Size = new Size(43, 14);
+            label3.Size = new Size(88, 14);
             label3.TabIndex = 6;
-            label3.Text = "Users ";
+            label3.Text = "Users Rented";
             // 
             // panel7
             // 
@@ -95,6 +105,16 @@
             panel7.Name = "panel7";
             panel7.Size = new Size(774, 98);
             panel7.TabIndex = 2;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.available_fotor_2025121516354;
+            pictureBox1.Location = new Point(3, 14);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Padding = new Padding(12, 0, 0, 0);
+            pictureBox1.Size = new Size(72, 59);
+            pictureBox1.TabIndex = 2;
+            pictureBox1.TabStop = false;
             // 
             // label2
             // 
@@ -113,9 +133,9 @@
             label1.ForeColor = SystemColors.Control;
             label1.Location = new Point(78, 14);
             label1.Name = "label1";
-            label1.Size = new Size(96, 14);
+            label1.Size = new Size(153, 14);
             label1.TabIndex = 0;
-            label1.Text = "Available Units";
+            label1.Text = "Available Cars Displayed";
             // 
             // panel1
             // 
@@ -130,29 +150,39 @@
             // 
             label5.AutoSize = true;
             label5.ForeColor = SystemColors.Control;
-            label5.Location = new Point(78, 13);
+            label5.Location = new Point(78, 16);
             label5.Name = "label5";
-            label5.Size = new Size(95, 14);
+            label5.Size = new Size(82, 14);
             label5.TabIndex = 7;
-            label5.Text = "Cars Returned";
+            label5.Text = "Cars Rented";
             // 
             // panel9
             // 
             panel9.BackColor = Color.SteelBlue;
-            panel9.Controls.Add(pictureBox3);
+            panel9.Controls.Add(pictureBox2);
             panel9.Controls.Add(label6);
-            panel9.Controls.Add(label5);
+            panel9.Controls.Add(label3);
             panel9.Font = new Font("Tahoma", 9F, FontStyle.Bold);
             panel9.Location = new Point(227, 278);
             panel9.Name = "panel9";
             panel9.Size = new Size(774, 101);
             panel9.TabIndex = 4;
             // 
+            // pictureBox3
+            // 
+            pictureBox3.Image = Properties.Resources.return_fotor_2025121516834;
+            pictureBox3.Location = new Point(3, 16);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Padding = new Padding(12, 0, 0, 0);
+            pictureBox3.Size = new Size(72, 59);
+            pictureBox3.TabIndex = 9;
+            pictureBox3.TabStop = false;
+            // 
             // label6
             // 
             label6.AutoSize = true;
             label6.ForeColor = SystemColors.Control;
-            label6.Location = new Point(78, 39);
+            label6.Location = new Point(78, 49);
             label6.Name = "label6";
             label6.Size = new Size(11, 14);
             label6.TabIndex = 8;
@@ -187,36 +217,6 @@
             label7.TabIndex = 13;
             label7.Text = "Welcome Back!";
             // 
-            // pictureBox1
-            // 
-            pictureBox1.Image = Properties.Resources.available_fotor_2025121516354;
-            pictureBox1.Location = new Point(3, 14);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Padding = new Padding(12, 0, 0, 0);
-            pictureBox1.Size = new Size(72, 59);
-            pictureBox1.TabIndex = 2;
-            pictureBox1.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            pictureBox2.Image = Properties.Resources.group_fotor_2025121516712;
-            pictureBox2.Location = new Point(3, 16);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Padding = new Padding(12, 0, 0, 0);
-            pictureBox2.Size = new Size(72, 59);
-            pictureBox2.TabIndex = 14;
-            pictureBox2.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            pictureBox3.Image = Properties.Resources.return_fotor_2025121516834;
-            pictureBox3.Location = new Point(0, 13);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Padding = new Padding(12, 0, 0, 0);
-            pictureBox3.Size = new Size(72, 59);
-            pictureBox3.TabIndex = 9;
-            pictureBox3.TabStop = false;
-            // 
             // DashboardForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -234,12 +234,12 @@
             Text = "DashboardForm";
             panel8.ResumeLayout(false);
             panel8.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             panel7.ResumeLayout(false);
             panel7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel9.ResumeLayout(false);
             panel9.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ResumeLayout(false);
             PerformLayout();

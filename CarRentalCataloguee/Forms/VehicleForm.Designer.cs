@@ -30,7 +30,7 @@
         {
             panel1 = new Panel();
             btnAddCar = new Button();
-            btnRefresh = new Button();
+            btnRemoveCars = new Button();
             dataGridView1 = new DataGridView();
             label1 = new Label();
             btnRentCar = new Button();
@@ -59,23 +59,23 @@
             btnAddCar.UseVisualStyleBackColor = false;
             btnAddCar.Click += btnAddCar_Click;
             // 
-            // btnRefresh
+            // btnRemoveCars
             // 
-            btnRefresh.BackColor = Color.FromArgb(64, 109, 167);
-            btnRefresh.Font = new Font("Tahoma", 9F, FontStyle.Bold);
-            btnRefresh.ForeColor = SystemColors.ButtonHighlight;
-            btnRefresh.Location = new Point(220, 394);
-            btnRefresh.Name = "btnRefresh";
-            btnRefresh.Size = new Size(198, 43);
-            btnRefresh.TabIndex = 8;
-            btnRefresh.Text = "Refresh";
-            btnRefresh.UseVisualStyleBackColor = false;
-            btnRefresh.Click += btnRefresh_Click;
+            btnRemoveCars.BackColor = Color.FromArgb(64, 109, 167);
+            btnRemoveCars.Font = new Font("Tahoma", 9F, FontStyle.Bold);
+            btnRemoveCars.ForeColor = SystemColors.ButtonHighlight;
+            btnRemoveCars.Location = new Point(220, 394);
+            btnRemoveCars.Name = "btnRemoveCars";
+            btnRemoveCars.Size = new Size(198, 43);
+            btnRemoveCars.TabIndex = 8;
+            btnRemoveCars.Text = "Remove Cars";
+            btnRemoveCars.UseVisualStyleBackColor = false;
+            btnRemoveCars.Click += btnRemoveCars_Click;
             // 
             // dataGridView1
             // 
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridView1.BackgroundColor = Color.SteelBlue;
+            dataGridView1.BackgroundColor = Color.FromArgb(45, 69, 90);
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Location = new Point(220, 64);
             dataGridView1.Name = "dataGridView1";
@@ -130,7 +130,7 @@
             Controls.Add(btnRentCar);
             Controls.Add(label1);
             Controls.Add(dataGridView1);
-            Controls.Add(btnRefresh);
+            Controls.Add(btnRemoveCars);
             Controls.Add(btnAddCar);
             Controls.Add(panel1);
             Name = "VehicleForm";
@@ -143,7 +143,7 @@
         #endregion
         private Panel panel1;
         private Button btnAddCar;
-        private Button btnRefresh;
+        private Button btnRemoveCars;
         private DataGridView dataGridView1;
         private Label label1;
         private Button btnRentCar;

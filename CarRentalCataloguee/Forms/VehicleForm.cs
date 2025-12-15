@@ -132,11 +132,7 @@ namespace CarRentalCataloguee.Forms
             SaveToDisk();
         }
 
-        private void btnRefresh_Click(object sender, EventArgs e)
-        {
-            LoadCarData();
-            MessageBox.Show("Data refreshed successfully.", "Refresh", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
+
 
         private void btnRentCar_Click(object sender, EventArgs e)
         {
@@ -216,14 +212,31 @@ namespace CarRentalCataloguee.Forms
             }
         }
 
+        private void btnRemoveCars_Click(object sender, EventArgs e)
+        {
+            // Ensure a row is selected, before attempting to remove
+            if (dataGridView1.CurrentRow == null)
+            {
+                MessageBox.Show("Please select a car to remove.", "No Selection", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            if (dataGridView1.CurrentRow.DataBoundItem is not Car selectedCar)
+            {
+                MessageBox.Show("Selected item is not a valid car.", "Selection Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            var confirmResult = MessageBox.Show($"Are you sure to delete the car: {selectedCar.CarName}?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (confirmResult == DialogResult.Yes)
+            {
+                cars.Remove(selectedCar);
+                LoadCarData();
+                SaveToDisk();
+            }
+        }
+
         private void label1_Click(object sender, EventArgs e)
         {
-         
-            MessageBox.Show("Label clicked.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            System.Diagnostics.Debug.WriteLine("label1_Click fired at " + DateTime.Now.ToString("o"));
-            
-
+            MessageBox.Show(label1.Text, "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

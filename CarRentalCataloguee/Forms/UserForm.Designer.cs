@@ -46,21 +46,23 @@
             // 
             // dgvRentals
             // 
-            dgvRentals.BackgroundColor = Color.SteelBlue;
-            dgvRentals.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvRentals.Location = new Point(222, 43);
+            dgvRentals.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvRentals.BackgroundColor = Color.FromArgb(45, 69, 90);
+            dgvRentals.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dgvRentals.Location = new Point(222, 68);
             dgvRentals.Name = "dgvRentals";
-            dgvRentals.Size = new Size(791, 338);
+            dgvRentals.Size = new Size(791, 313);
             dgvRentals.TabIndex = 2;
             dgvRentals.CellContentClick += dgvRentals_CellContentClick;
             // 
             // btnRemoveUser
             // 
-            btnRemoveUser.BackColor = SystemColors.Highlight;
+            btnRemoveUser.BackColor = Color.FromArgb(64, 109, 167);
+            btnRemoveUser.Font = new Font("Tahoma", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnRemoveUser.ForeColor = SystemColors.ButtonHighlight;
-            btnRemoveUser.Location = new Point(880, 400);
+            btnRemoveUser.Location = new Point(790, 388);
             btnRemoveUser.Name = "btnRemoveUser";
-            btnRemoveUser.Size = new Size(133, 43);
+            btnRemoveUser.Size = new Size(223, 43);
             btnRemoveUser.TabIndex = 8;
             btnRemoveUser.Text = "Remove User";
             btnRemoveUser.UseVisualStyleBackColor = false;
@@ -69,10 +71,11 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Tahoma", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(222, 11);
+            label1.Font = new Font("Tahoma", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = SystemColors.Control;
+            label1.Location = new Point(213, 21);
             label1.Name = "label1";
-            label1.Size = new Size(179, 29);
+            label1.Size = new Size(219, 35);
             label1.TabIndex = 11;
             label1.Text = "Users Rented!";
             // 
