@@ -224,6 +224,7 @@ namespace CarRentalCataloguee.Forms
             System.Diagnostics.Debug.WriteLine("label1_Click fired at " + DateTime.Now.ToString("o"));
             //
             //
+            //
         }
     }
 }
