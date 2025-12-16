@@ -207,6 +207,11 @@ namespace CarRentalCataloguee
             return Convert.ToBase64String(hash);
         }
 
+        private void LogInForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
         private record UserRecord(string UserName, string PasswordHash);
     }
 }

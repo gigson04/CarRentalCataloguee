@@ -25,20 +25,18 @@ namespace CarRentalCataloguee.Forms
         {
             try
             {
-                // Retrieve inputs, including new CarName
                 string carId = txtCarID.Text.Trim();
-                string carName = txtCarName.Text.Trim();  // New: Get CarName
+                string carName = txtCarName.Text.Trim();  
                 string color = txtColor.Text.Trim();
                 decimal pricePerHour = 0;
                 bool availability = chkAvailability.Checked;
 
-                // Validation (add for CarName if required)
                 if (string.IsNullOrEmpty(carId))
                 {
                     MessageBox.Show("Please enter a Car ID.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
-                if (string.IsNullOrEmpty(carName))  // Optional: Make it required
+                if (string.IsNullOrEmpty(carName))  
                 {
                     MessageBox.Show("Please enter a Car Name.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
@@ -54,19 +52,17 @@ namespace CarRentalCataloguee.Forms
                     return;
                 }
 
-                // Add the new car with CarName
                 cars.Add(new Car
                 {
                     CarID = carId,
-                    CarName = carName,  // New: Include CarName
+                    CarName = carName, 
                     Color = color,
                     PricePerHour = pricePerHour,
                     Availability = availability
                 });
 
-                // Clear fields, including new one
                 txtCarID.Clear();
-                txtCarName.Clear();  // New: Clear CarName
+                txtCarName.Clear(); 
                 txtColor.Clear();
                 txtPricePerHour.Clear();
                 chkAvailability.Checked = false;

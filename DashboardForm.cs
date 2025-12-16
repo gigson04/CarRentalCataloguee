@@ -1,4 +1,5 @@
-ï»¿using System;
+CarRentalCataloguee\Forms\DashboardForm.cs
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,8 +19,11 @@ namespace CarRentalCataloguee.Forms
             InitializeComponent();
 
             UpdateDashboardLabels();
+
+            // Update when the form becomes active
             this.Activated += (s, e) => UpdateDashboardLabels();
 
+            // Update when rentals change (add/delete/save) elsewhere in the app
             RentalsRepository.RentalsChanged += RentalsRepository_RentalsChanged;
         }
 
@@ -30,6 +34,7 @@ namespace CarRentalCataloguee.Forms
 
         private void label6_Click(object sender, EventArgs e)
         {
+            // When the user was not remove in datagridview, located in UserForm it will show none, and when removed it will update the label
             UpdateDashboardLabels();
         }
 
@@ -50,6 +55,7 @@ namespace CarRentalCataloguee.Forms
 
         protected override void OnFormClosed(FormClosedEventArgs e)
         {
+            // Unsubscribe to avoid leaks and to stop receiving events after the form is closed
             RentalsRepository.RentalsChanged -= RentalsRepository_RentalsChanged;
             base.OnFormClosed(e);
         }
@@ -75,7 +81,7 @@ namespace CarRentalCataloguee.Forms
 
                 int userCount = distinctUsers.Count;
                 string usersPreview = userCount == 0 ? "None" : string.Join(", ", distinctUsers.Take(3)) + (userCount > 3 ? $" (+{userCount - 3})" : "");
-                label6.Text = $"Users who rented cars: {userCount} â€” {usersPreview}";
+                label6.Text = $"Users who rented cars: {userCount} — {usersPreview}";
 
                 var now = DateTime.Now;
                 var activeRentals = rentals
@@ -88,13 +94,13 @@ namespace CarRentalCataloguee.Forms
                     .Select(r => $"{r.CarId ?? "<unknown>"}->{(r.RenterName ?? "<unknown>")}")
                     .ToArray();
                 string activePreview = rentedOutCount == 0 ? "None" : string.Join(", ", previewLines) + (rentedOutCount > 3 ? $" (+{rentedOutCount - 3})" : "");
-                label4.Text = $"Cars Rented Out: {rentedOutCount} â€” {activePreview}";
+                label4.Text = $"Cars Rented Out: {rentedOutCount} — {activePreview}";
             }
             catch (Exception)
             {
-                label2.Text = "Available Cars: â€”";
-                label6.Text = "Users who rented cars: â€”";
-                label4.Text = "Cars Rented Out: â€”";
+                label2.Text = "Available Cars: —";
+                label6.Text = "Users who rented cars: —";
+                label4.Text = "Cars Rented Out: —";
             }
         }
 

@@ -31,6 +31,7 @@
         {
             flowLayoutPanel1 = new FlowLayoutPanel();
             panel2 = new Panel();
+            pictureBox1 = new PictureBox();
             panel1 = new Panel();
             checkBox1 = new CheckBox();
             label2 = new Label();
@@ -41,10 +42,9 @@
             label3 = new Label();
             btnSignUp = new Button();
             label4 = new Label();
-            pictureBox1 = new PictureBox();
             flowLayoutPanel1.SuspendLayout();
-            panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -67,6 +67,15 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(309, 39);
             panel2.TabIndex = 1;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.result_car_rent__1_;
+            pictureBox1.Location = new Point(3, 48);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(309, 313);
+            pictureBox1.TabIndex = 2;
+            pictureBox1.TabStop = false;
             // 
             // panel1
             // 
@@ -179,15 +188,6 @@
             label4.TabIndex = 6;
             label4.Text = "Welcome Back!";
             // 
-            // pictureBox1
-            // 
-            pictureBox1.Image = Properties.Resources.result_car_rent__1_;
-            pictureBox1.Location = new Point(3, 48);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(309, 313);
-            pictureBox1.TabIndex = 2;
-            pictureBox1.TabStop = false;
-            // 
             // LogInForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -202,10 +202,11 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "LogInForm";
             Text = "Form1";
+            Load += LogInForm_Load;
             flowLayoutPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
